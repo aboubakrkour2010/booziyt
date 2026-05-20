@@ -95,8 +95,6 @@ export default function CheckoutPage() {
 
       if (data.success) {
 
-        alert("تم إرسال الطلب بنجاح");
-
         localStorage.removeItem("cart");
 
         window.location.href = "/thank-you";
@@ -292,6 +290,47 @@ export default function CheckoutPage() {
 
           </label>
 
+          {paymentMethod === "bank" && (
+
+            <div className="bg-[#f8f8f8] rounded-2xl p-5 mb-5 text-right">
+
+              <h3 className="font-bold text-lg mb-4">
+                معلومات الحساب البنكي
+              </h3>
+
+              <div className="space-y-3 text-gray-700">
+
+                <p>
+                  <span className="font-bold">الإسم الكامل:</span>{" "}
+                  Kour mohamed
+                </p>
+
+                <p>
+                  <span className="font-bold">البنك:</span>{" "}
+                  القرض الفلاحي
+                </p>
+
+                <p className="break-all">
+                  <span className="font-bold">RIB:</span>{" "}
+                  225010073800762601010758
+                </p>
+
+              </div>
+
+              <a
+                href="https://wa.me/212663756621"
+                target="_blank"
+                className="w-full mt-5 bg-green-600 hover:bg-green-700 transition text-white py-3 rounded-xl font-bold flex items-center justify-center"
+              >
+
+                إرسال صورة الوصل عبر واتساب
+
+              </a>
+
+            </div>
+
+          )}
+
           {/* CASHPLUS */}
 
           <label
@@ -324,6 +363,42 @@ export default function CheckoutPage() {
 
           </label>
 
+          {paymentMethod === "cashplus" && (
+
+            <div className="bg-[#f8f8f8] rounded-2xl p-5 mb-5 text-right">
+
+              <h3 className="font-bold text-lg mb-4">
+                معلومات Cash Plus
+              </h3>
+
+              <div className="space-y-3 text-gray-700">
+
+                <p>
+                  <span className="font-bold">رقم الهاتف:</span>{" "}
+                  0663756621
+                </p>
+
+                <p>
+                  <span className="font-bold">الإسم الكامل:</span>{" "}
+                  Kour mohamed
+                </p>
+
+              </div>
+
+              <a
+                href="https://wa.me/212663756621"
+                target="_blank"
+                className="w-full mt-5 bg-green-600 hover:bg-green-700 transition text-white py-3 rounded-xl font-bold flex items-center justify-center"
+              >
+
+                إرسال صورة الوصل عبر واتساب
+
+              </a>
+
+            </div>
+
+          )}
+
           {/* COD */}
 
           <label
@@ -355,6 +430,18 @@ export default function CheckoutPage() {
             />
 
           </label>
+
+          {paymentMethod === "cod" && (
+
+            <div className="bg-[#f8f8f8] rounded-2xl p-5 mt-4 text-right text-sm leading-8 text-gray-700">
+
+              يتم تفعيل خدمة الدفع عند الاستلام للزبائن الذين سبق لهم تأكيد واستلام طلباتهم بنجاح.
+              <br />
+              أما الزبائن الجدد، فيرجى إتمام الدفع مسبقًا عبر التحويل البنكي أو Cash Plus لتأكيد الطلب.
+
+            </div>
+
+          )}
 
         </div>
 
