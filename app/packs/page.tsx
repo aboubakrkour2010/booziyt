@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function PacksPage() {
 
@@ -8,6 +9,7 @@ export default function PacksPage() {
 
     {
       name: "باقة أملو 250 كرام",
+      slug: "pack-amlou-250g",
       price: 320,
       oldPrice: "370 د.م",
       image: "/pack1.png.png",
@@ -16,6 +18,7 @@ export default function PacksPage() {
 
     {
       name: "باقة أملو 370 كرام",
+      slug: "pack-amlou-370g",
       price: 420,
       oldPrice: "500 د.م",
       image: "/pack2.png.png",
@@ -24,6 +27,7 @@ export default function PacksPage() {
 
     {
       name: "باقة أرݣان",
+      slug: "pack-argan",
       price: 550,
       oldPrice: "620 د.م",
       image: "/pack3.png.jpg",
@@ -32,6 +36,7 @@ export default function PacksPage() {
 
     {
       name: "باقة الأصالة",
+      slug: "pack-original",
       price: 600,
       oldPrice: "710 د.م",
       image: "/pack4.png.jpg",
@@ -40,6 +45,7 @@ export default function PacksPage() {
 
     {
       name: "باقة الكرم",
+      slug: "pack-karam",
       price: 550,
       oldPrice: "610 د.م",
       image: "/pack5.png.jpg",
@@ -48,6 +54,7 @@ export default function PacksPage() {
 
     {
       name: "باقة تادرات",
+      slug: "pack-tadrat",
       price: 550,
       oldPrice: "700 د.م",
       image: "/pack6.png.jpg",
@@ -56,6 +63,7 @@ export default function PacksPage() {
 
     {
       name: "باقة الصيف",
+      slug: "pack-summer",
       price: 550,
       oldPrice: "600 د.م",
       image: "/pack7.png.jpg",
@@ -64,6 +72,7 @@ export default function PacksPage() {
 
     {
       name: "باقة العسل الأبيض",
+      slug: "pack-white-honey",
       price: 550,
       oldPrice: "590 د.م",
       image: "/pack8.png.jpg",
@@ -72,6 +81,7 @@ export default function PacksPage() {
 
     {
       name: "باقة وردة",
+      slug: "pack-warda",
       price: 550,
       oldPrice: "620 د.م",
       image: "/pack9.png.png",
@@ -122,32 +132,40 @@ export default function PacksPage() {
             className="bg-white rounded-2xl overflow-hidden shadow-md"
           >
 
-            <div className="relative bg-[#f8f3eb]">
+            <Link href={`/product/${pack.slug}`}>
 
-              <img
-                src={pack.image}
-                className="w-full h-[190px] object-contain p-3"
-              />
+              <div className="relative bg-[#f8f3eb]">
 
-            </div>
-
-            <div className="p-4 text-center">
-
-              <h2 className="text-lg font-bold mb-2 leading-6">
-                {pack.name}
-              </h2>
-
-              <div className="flex justify-center items-center gap-2">
-
-                <p className="text-green-600 text-2xl font-bold">
-                  {pack.price} د.م
-                </p>
-
-                <p className="text-gray-400 line-through text-sm">
-                  {pack.oldPrice}
-                </p>
+                <img
+                  src={pack.image}
+                  className="w-full h-[190px] object-contain p-3"
+                />
 
               </div>
+
+              <div className="p-4 text-center">
+
+                <h2 className="text-lg font-bold mb-2 leading-6">
+                  {pack.name}
+                </h2>
+
+                <div className="flex justify-center items-center gap-2">
+
+                  <p className="text-green-600 text-2xl font-bold">
+                    {pack.price} د.م
+                  </p>
+
+                  <p className="text-gray-400 line-through text-sm">
+                    {pack.oldPrice}
+                  </p>
+
+                </div>
+
+              </div>
+
+            </Link>
+
+            <div className="p-4 pt-0">
 
               <button
                 onClick={() => addToCart(pack)}
@@ -166,15 +184,11 @@ export default function PacksPage() {
 
       </div>
 
-      {/* POPUP */}
-
       {showPopup && selectedProduct && (
 
         <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
 
           <div className="bg-white rounded-3xl w-full max-w-sm p-4 relative">
-
-            {/* CLOSE */}
 
             <button
               onClick={() => setShowPopup(false)}
@@ -184,8 +198,6 @@ export default function PacksPage() {
               ×
 
             </button>
-
-            {/* SUCCESS */}
 
             <div className="flex justify-center mb-3">
 
@@ -204,8 +216,6 @@ export default function PacksPage() {
             <p className="text-gray-500 text-sm text-center mb-4">
               تم إضافة المنتج إلى سلة التسوق
             </p>
-
-            {/* PRODUCT */}
 
             <div className="bg-[#f8f8f8] rounded-2xl p-3 flex items-center justify-between mb-4">
 
@@ -232,8 +242,6 @@ export default function PacksPage() {
 
             </div>
 
-            {/* BUTTONS */}
-
             <button
               onClick={() => setShowPopup(false)}
               className="w-full border py-3 rounded-xl mb-3 text-gray-600 font-semibold"
@@ -252,8 +260,6 @@ export default function PacksPage() {
 
             </a>
 
-            {/* TOTAL */}
-
             <div className="bg-[#edf7f2] rounded-xl p-3 text-center text-[#2f8f6b] font-bold text-sm">
 
               المجموع: {total} د.م
@@ -267,6 +273,5 @@ export default function PacksPage() {
       )}
 
     </main>
-
   );
 }
