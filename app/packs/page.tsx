@@ -22,14 +22,7 @@ export default function PacksPage() {
       type: "pack",
     },
 
-    {
-      name: "باقة أرݣان",
-      price: 550,
-      oldPrice: "620 د.م",
-      image: "/pack3.png.jpg",
-      type: "pack",
-    },
-
+    
     {
       name: "باقة الأصالة",
       price: 600,
@@ -54,21 +47,7 @@ export default function PacksPage() {
       type: "pack",
     },
 
-    {
-      name: "باقة الصيف",
-      price: 550,
-      oldPrice: "600 د.م",
-      image: "/pack7.png.jpg",
-      type: "pack",
-    },
-
-    {
-      name: "باقة العسل الأبيض",
-      price: 550,
-      oldPrice: "590 د.م",
-      image: "/pack8.png.jpg",
-      type: "pack",
-    },
+    
 
     {
       name: "باقة وردة",
