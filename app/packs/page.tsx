@@ -47,7 +47,7 @@ export default function PacksPage() {
     },
 
     {
-      name: "باهههههههههههههههة تادرات",
+      name: "باقة تادرات",
       price: 550,
       oldPrice: "700 د.م",
       image: "/pack6.png.jpg",
@@ -251,6 +251,13 @@ export default function PacksPage() {
               🛒 عرض السلة ({cartCount})
 
             </a>
+            <a
+  href="/checkout"
+  className="w-full bg-[#7a0000] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+>
+  ⚡ إتمام الطلب مباشرة
+</a>
+
 
             {/* TOTAL */}
 
