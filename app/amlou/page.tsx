@@ -83,7 +83,7 @@ export default function AmlouPage() {
         منتجات أملو
       </h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
         {products.map((product, index) => (
 
@@ -252,6 +252,12 @@ export default function AmlouPage() {
               🛒 عرض السلة ({cartCount})
 
             </a>
+            <a
+  href="/checkout"
+  className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+>
+  ⚡ إتمام الطلب مباشرة
+</a>
 
             {/* TOTAL */}
 
