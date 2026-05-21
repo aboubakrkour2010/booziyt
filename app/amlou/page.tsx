@@ -96,7 +96,7 @@ export default function AmlouPage() {
 
               <img
                 src={product.image}
-                className="w-full h-[190px] object-contain p-3"
+                className="w-full h-[350px] object-contain p-3"
               />
 
             </div>
