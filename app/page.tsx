@@ -407,17 +407,23 @@ export default function Home() {
   <a
     href="https://wa.me/212663756621"
     target="_blank"
-    className="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg font-bold flex items-center gap-2 transition"
+    className="w-14 h-14 rounded-full overflow-hidden shadow-lg"
   >
-    💬 واتساب
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      className="w-full h-full object-cover"
+    />
   </a>
 
   <a
     href="https://facebook.com/Boo-Ziyt-61574782794043"
     target="_blank"
-    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full shadow-lg font-bold flex items-center gap-2 transition"
+    className="w-14 h-14 rounded-full overflow-hidden shadow-lg"
   >
-    📘 فايسبوك
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+      className="w-full h-full object-cover bg-white p-2"
+    />
   </a>
 
 </div>
