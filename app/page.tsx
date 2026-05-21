@@ -400,6 +400,27 @@ export default function Home() {
 
       )}
 
+    {/* WHATSAPP + FACEBOOK */}
+
+<div className="fixed bottom-5 left-5 flex flex-col gap-3 z-50">
+
+  <a
+    href="https://wa.me/212663756621"
+    target="_blank"
+    className="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg font-bold flex items-center gap-2 transition"
+  >
+    💬 واتساب
+  </a>
+
+  <a
+    href="https://facebook.com/Boo-Ziyt-61574782794043"
+    target="_blank"
+    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full shadow-lg font-bold flex items-center gap-2 transition"
+  >
+    📘 فايسبوك
+  </a>
+
+</div>
     </main>
   );
 }
