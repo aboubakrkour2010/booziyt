@@ -253,7 +253,7 @@ export default function PacksPage() {
             </a>
             <a
   href="/checkout"
-  className="w-full bg-[#7a0000] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+  className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
 >
   ⚡ إتمام الطلب مباشرة
 </a>
