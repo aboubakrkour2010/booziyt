@@ -127,26 +127,33 @@ export default function PacksPage() {
 
         {packs.map((pack, index) => (
 
-          <Link
-            href={`/product/${pack.slug}`}
+          <div
             key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md block"
+            className="bg-white rounded-2xl overflow-hidden shadow-md"
           >
 
-            <div className="relative bg-[#f8f3eb]">
+            <Link href={`/product/${pack.slug}`}>
 
-              <img
-                src={pack.image}
-                className="w-full h-[190px] object-contain p-3"
-              />
+              <div className="relative bg-[#f8f3eb]">
 
-            </div>
+                <img
+                  src={pack.image}
+                  className="w-full h-[190px] object-contain p-3"
+                />
+
+              </div>
+
+            </Link>
 
             <div className="p-4 text-center">
 
-              <h2 className="text-lg font-bold mb-2 leading-6">
-                {pack.name}
-              </h2>
+              <Link href={`/product/${pack.slug}`}>
+
+                <h2 className="text-lg font-bold mb-2 leading-6">
+                  {pack.name}
+                </h2>
+
+              </Link>
 
               <div className="flex justify-center items-center gap-2">
 
@@ -161,10 +168,7 @@ export default function PacksPage() {
               </div>
 
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  addToCart(pack);
-                }}
+                onClick={() => addToCart(pack)}
                 className="w-full mt-4 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
               >
 
@@ -174,13 +178,11 @@ export default function PacksPage() {
 
             </div>
 
-          </Link>
+          </div>
 
         ))}
 
       </div>
-
-      {/* POPUP */}
 
       {showPopup && selectedProduct && (
 
