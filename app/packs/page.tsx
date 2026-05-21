@@ -105,7 +105,7 @@ export default function PacksPage() {
 
               <img
                 src={pack.image}
-                className="w-full h-[190px] object-contain p-3"
+                className="w-full h-[260px] object-contain p-3"
               />
 
             </div>
