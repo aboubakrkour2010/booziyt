@@ -9,7 +9,7 @@ export default function PacksPage() {
 
     {
       name: "باقة أملو 250 كرام",
-      slug: "pack-amlou-250g",
+      slug: "pack-1",
       price: 320,
       oldPrice: "370 د.م",
       image: "/pack1.png.png",
@@ -18,7 +18,7 @@ export default function PacksPage() {
 
     {
       name: "باقة أملو 370 كرام",
-      slug: "pack-amlou-370g",
+      slug: "pack-2",
       price: 420,
       oldPrice: "500 د.م",
       image: "/pack2.png.png",
@@ -27,7 +27,7 @@ export default function PacksPage() {
 
     {
       name: "باقة أرݣان",
-      slug: "pack-argan",
+      slug: "pack-3",
       price: 550,
       oldPrice: "620 د.م",
       image: "/pack3.png.jpg",
@@ -36,7 +36,7 @@ export default function PacksPage() {
 
     {
       name: "باقة الأصالة",
-      slug: "pack-original",
+      slug: "pack-4",
       price: 600,
       oldPrice: "710 د.م",
       image: "/pack4.png.jpg",
@@ -45,7 +45,7 @@ export default function PacksPage() {
 
     {
       name: "باقة الكرم",
-      slug: "pack-karam",
+      slug: "pack-5",
       price: 550,
       oldPrice: "610 د.م",
       image: "/pack5.png.jpg",
@@ -54,7 +54,7 @@ export default function PacksPage() {
 
     {
       name: "باقة تادرات",
-      slug: "pack-tadrat",
+      slug: "pack-6",
       price: 550,
       oldPrice: "700 د.م",
       image: "/pack6.png.jpg",
@@ -63,7 +63,7 @@ export default function PacksPage() {
 
     {
       name: "باقة الصيف",
-      slug: "pack-summer",
+      slug: "pack-7",
       price: 550,
       oldPrice: "600 د.م",
       image: "/pack7.png.jpg",
@@ -72,7 +72,7 @@ export default function PacksPage() {
 
     {
       name: "باقة العسل الأبيض",
-      slug: "pack-white-honey",
+      slug: "pack-8",
       price: 550,
       oldPrice: "590 د.م",
       image: "/pack8.png.jpg",
@@ -81,7 +81,7 @@ export default function PacksPage() {
 
     {
       name: "باقة وردة",
-      slug: "pack-warda",
+      slug: "pack-9",
       price: 550,
       oldPrice: "620 د.م",
       image: "/pack9.png.png",
@@ -127,48 +127,44 @@ export default function PacksPage() {
 
         {packs.map((pack, index) => (
 
-          <div
+          <Link
+            href={`/product/${pack.slug}`}
             key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md"
+            className="bg-white rounded-2xl overflow-hidden shadow-md block"
           >
 
-            <Link href={`/product/${pack.slug}`}>
+            <div className="relative bg-[#f8f3eb]">
 
-              <div className="relative bg-[#f8f3eb]">
+              <img
+                src={pack.image}
+                className="w-full h-[190px] object-contain p-3"
+              />
 
-                <img
-                  src={pack.image}
-                  className="w-full h-[190px] object-contain p-3"
-                />
+            </div>
 
-              </div>
+            <div className="p-4 text-center">
 
-              <div className="p-4 text-center">
+              <h2 className="text-lg font-bold mb-2 leading-6">
+                {pack.name}
+              </h2>
 
-                <h2 className="text-lg font-bold mb-2 leading-6">
-                  {pack.name}
-                </h2>
+              <div className="flex justify-center items-center gap-2">
 
-                <div className="flex justify-center items-center gap-2">
+                <p className="text-green-600 text-2xl font-bold">
+                  {pack.price} د.م
+                </p>
 
-                  <p className="text-green-600 text-2xl font-bold">
-                    {pack.price} د.م
-                  </p>
-
-                  <p className="text-gray-400 line-through text-sm">
-                    {pack.oldPrice}
-                  </p>
-
-                </div>
+                <p className="text-gray-400 line-through text-sm">
+                  {pack.oldPrice}
+                </p>
 
               </div>
-
-            </Link>
-
-            <div className="p-4 pt-0">
 
               <button
-                onClick={() => addToCart(pack)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  addToCart(pack);
+                }}
                 className="w-full mt-4 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
               >
 
@@ -178,11 +174,13 @@ export default function PacksPage() {
 
             </div>
 
-          </div>
+          </Link>
 
         ))}
 
       </div>
+
+      {/* POPUP */}
 
       {showPopup && selectedProduct && (
 
@@ -273,5 +271,6 @@ export default function PacksPage() {
       )}
 
     </main>
+
   );
 }
