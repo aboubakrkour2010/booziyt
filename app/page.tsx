@@ -144,7 +144,7 @@ export default function Home() {
 
               <img
                 src="/offer1.png"
-                className="w-full h-[190px] object-contain p-3"
+                className="w-full h-[350px] object-contain p-3"
               />
 
             </div>
@@ -187,7 +187,7 @@ export default function Home() {
 
               <img
                 src="/offer2.png"
-                className="w-full h-[190px] object-contain p-3"
+                className="w-full h-[350px] object-contain p-3"
               />
 
             </div>
@@ -229,7 +229,7 @@ export default function Home() {
 
               <img
                 src="/offer3.png"
-                className="w-full h-[190px] object-contain p-3"
+                className="w-full h-[350px] object-contain p-3"
               />
 
             </div>
@@ -272,7 +272,7 @@ export default function Home() {
 
               <img
                 src="/offer4.png"
-                className="w-full h-[190px] object-contain p-3"
+                className="w-full h-[350px] object-contain p-3"
               />
 
             </div>
