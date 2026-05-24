@@ -1,0 +1,363 @@
+export const products = [
+
+  // ================= AMLou =================
+
+  {
+    slug: "amlou-almond",
+    title: "أملو باللوز",
+    image: "/amlou1.png",
+    price: 160,
+
+    sizes: [
+      { label: "250g", price: 160 },
+      { label: "500g", price: 290 },
+    ],
+
+    description:
+      "أملو طبيعي باللوز وزيت الأركان والعسل.",
+  },
+
+  {
+    slug: "amlou-cashew",
+    title: "أملو الأكاجو",
+    image: "/amlou2.png",
+    price: 110,
+
+    sizes: [
+      { label: "250g", price: 110 },
+      { label: "500g", price: 200 },
+    ],
+
+    description:
+      "أملو طبيعي بالأكاجو غني بالطاقة.",
+  },
+
+  {
+    slug: "amlou-pistachio",
+    title: "أملو بيستاش",
+    image: "/amlou3.png",
+    price: 129,
+
+    sizes: [
+      { label: "250g", price: 129 },
+      { label: "500g", price: 240 },
+    ],
+
+    description:
+      "أملو فاخر بالفستق وزيت الأركان.",
+  },
+
+  {
+    slug: "nuts-honey-mix",
+    title: "خلطة المكسرات بالعسل",
+    image: "/amlou4.png",
+    price: 250,
+
+    sizes: [
+      { label: "500g", price: 250 },
+      { label: "1kg", price: 450 },
+    ],
+
+    description:
+      "خلطة طبيعية من المكسرات والعسل.",
+  },
+
+  {
+    slug: "pumpkin-seeds-amlou",
+    title: "أملو بذور اليقطين",
+    image: "/amlou5.png",
+    price: 80,
+
+    sizes: [
+      { label: "250g", price: 80 },
+      { label: "500g", price: 150 },
+    ],
+
+    description:
+      "أملو طبيعي ببذور اليقطين.",
+  },
+
+  {
+    slug: "cocoa-amlou",
+    title: "أملو كاكاو",
+    image: "/amlou6.png",
+    price: 60,
+
+    sizes: [
+      { label: "250g", price: 60 },
+      { label: "500g", price: 110 },
+    ],
+
+    description:
+      "أملو بنكهة الكاكاو اللذيذة.",
+  },
+
+  // ================= HONEY =================
+
+  {
+    slug: "taj-alasal",
+    title: "تاج العسل",
+    image: "/honey1.png.jpg",
+    price: 600,
+
+    sizes: [
+      { label: "250g", price: 600 },
+    ],
+
+    description:
+      "عسل فاخر طبيعي غني بالفوائد.",
+  },
+
+  {
+    slug: "thyme-honey",
+    title: "عسل الزعتر",
+    image: "/honey2.png.jpg",
+    price: 400,
+
+    sizes: [
+      { label: "250g", price: 400 },
+      { label: "500g", price: 750 },
+    ],
+
+    description:
+      "عسل الزعتر الطبيعي بجودة عالية.",
+  },
+
+  {
+    slug: "daghmous-honey",
+    title: "عسل الدغموس",
+    image: "/honey3.png.png",
+    price: 250,
+
+    sizes: [
+      { label: "250g", price: 250 },
+      { label: "500g", price: 480 },
+    ],
+
+    description:
+      "عسل الدغموس الطبيعي الأصلي.",
+  },
+
+  {
+    slug: "sidr-honey",
+    title: "عسل السدر",
+    image: "/honey4.png.png",
+    price: 250,
+
+    sizes: [
+      { label: "250g", price: 250 },
+      { label: "500g", price: 480 },
+    ],
+
+    description:
+      "عسل السدر الطبيعي غني بالطاقة.",
+  },
+
+  {
+    slug: "choukiyat-honey",
+    title: "عسل الشوكيات",
+    image: "/honey5.png.jpg",
+    price: 300,
+
+    sizes: [
+      { label: "250g", price: 300 },
+      { label: "500g", price: 560 },
+    ],
+
+    description:
+      "عسل طبيعي من أزهار الشوكيات.",
+  },
+
+  {
+    slug: "eucalyptus-honey",
+    title: "عسل الكاليتوس",
+    image: "/honey6.png.jpg",
+    price: 200,
+
+    sizes: [
+      { label: "250g", price: 200 },
+      { label: "500g", price: 380 },
+    ],
+
+    description:
+      "عسل الكاليتوس الطبيعي النقي.",
+  },
+
+  {
+    slug: "white-honey",
+    title: "العسل الأبيض",
+    image: "/honey7.png.jpg",
+    price: 200,
+
+    sizes: [
+      { label: "250g", price: 200 },
+      { label: "500g", price: 380 },
+    ],
+
+    description:
+      "عسل أبيض طبيعي بطعم مميز.",
+  },
+
+  {
+    slug: "lemon-honey",
+    title: "عسل الليمون",
+    image: "/honey8.png.jpg",
+    price: 99,
+
+    sizes: [
+      { label: "250g", price: 99 },
+      { label: "500g", price: 180 },
+    ],
+
+    description:
+      "عسل الليمون الطبيعي المنعش.",
+  },
+
+  // ================= OILS =================
+
+  {
+    slug: "argan-food-oil",
+    title: "زيت أركان للأكل",
+    image: "/oil1.jpg",
+    price: 175,
+
+    sizes: [
+      { label: "250ml", price: 175 },
+      { label: "500ml", price: 320 },
+    ],
+
+    description:
+      "زيت أركان طبيعي صالح للأكل.",
+  },
+
+  {
+    slug: "argan-cosmetic-oil",
+    title: "زيت أركان للتجميل",
+    image: "/oil2.png",
+    price: 175,
+
+    sizes: [
+      { label: "100ml", price: 175 },
+    ],
+
+    description:
+      "زيت أركان طبيعي للعناية بالبشرة والشعر.",
+  },
+
+  {
+    slug: "olive-oil",
+    title: "زيت الزيتون البلدية",
+    image: "/oil3.jpeg",
+    price: 45,
+
+    sizes: [
+      { label: "250ml", price: 45 },
+      { label: "1L", price: 150 },
+    ],
+
+    description:
+      "زيت زيتون بلدي طبيعي 100٪.",
+  },
+
+  {
+    slug: "apple-vinegar",
+    title: "خل التفاح",
+    image: "/oil4.png",
+    price: 40,
+
+    sizes: [
+      { label: "250ml", price: 40 },
+      { label: "500ml", price: 70 },
+    ],
+
+    description:
+      "خل تفاح طبيعي بجودة ممتازة.",
+  },
+
+  // ================= PACKS =================
+
+  {
+    slug: "amlou-pack-370g",
+    title: "باقة أملو 370 كرام",
+    image: "/pack2.png.png",
+    price: 420,
+
+    sizes: [
+      { label: "Pack", price: 420 },
+    ],
+
+    description:
+      "باقة أملو طبيعية متكاملة بعرض مميز.",
+  },
+
+  {
+    slug: "rose-pack",
+    title: "باقة وردة",
+    image: "/pack9.png.png",
+    price: 550,
+
+    sizes: [
+      { label: "Pack", price: 550 },
+    ],
+
+    description:
+      "باقة فاخرة متنوعة من المنتجات الطبيعية.",
+  },
+
+  {
+    slug: "generosity-pack",
+    title: "باقة الكرم",
+    image: "/pack5.png.jpg",
+    price: 550,
+
+    sizes: [
+      { label: "Pack", price: 550 },
+    ],
+
+    description:
+      "باقة الكرم تحتوي على منتجات طبيعية مختارة.",
+  },
+
+  {
+    slug: "authentic-pack",
+    title: "باقة الأصالة",
+    image: "/pack4.png.jpg",
+    price: 600,
+
+    sizes: [
+      { label: "Pack", price: 600 },
+    ],
+
+    description:
+      "باقة الأصالة بتشكيلة طبيعية فاخرة.",
+  },
+
+  {
+    slug: "tadart-pack",
+    title: "باقة تادرات",
+    image: "/pack6.png.jpg",
+    price: 550,
+
+    sizes: [
+      { label: "Pack", price: 550 },
+    ],
+
+    description:
+      "باقة تادرات الطبيعية بعرض خاص.",
+  },
+
+  {
+    slug: "amlou-pack-250g",
+    title: "باقة أملو 250 كرام",
+    image: "/pack1.png.png",
+    price: 320,
+
+    sizes: [
+      { label: "Pack", price: 320 },
+    ],
+
+    description:
+      "باقة أملو 250g بمنتجات طبيعية متنوعة.",
+  },
+
+];
