@@ -25,7 +25,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-zaatar",
+      slug: "thyme-honey",
       title: "عسل الزعتر",
       image: "/honey2.png.jpg",
       description: "عسل الزعتر الطبيعي الأصلي.",
@@ -42,7 +42,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-daghmous",
+      slug: "daghmous-honey",
       title: "عسل الدغموس",
       image: "/honey3.png.png",
       description: "عسل الدغموس الطبيعي.",
@@ -59,7 +59,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-sidr",
+      slug: "sidr-honey",
       title: "عسل السدر",
       image: "/honey4.png.png",
       description: "عسل السدر الأصلي.",
@@ -76,7 +76,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-chawkiyat",
+      slug: "choukiyat-honey",
       title: "عسل الشوكيات",
       image: "/honey5.png.jpg",
       description: "عسل طبيعي غني بالفوائد.",
@@ -93,7 +93,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-kalitos",
+      slug: "eucalyptus-honey",
       title: "عسل الكاليتوس",
       image: "/honey6.png.jpg",
       description: "عسل الكاليتوس الطبيعي.",
@@ -110,7 +110,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-abyad",
+      slug: "white-honey",
       title: "العسل الأبيض",
       image: "/honey7.png.jpg",
       description: "عسل أبيض طبيعي.",
@@ -127,7 +127,7 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "asal-limoun",
+      slug: "lemon-honey",
       title: "عسل الليمون",
       image: "/honey8.png.jpg",
       description: "عسل الليمون الطبيعي.",
@@ -174,85 +174,109 @@ export default function HoneyPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-        {products.map((product, index) => (
+        {products.map((product, index) => {
 
-          <div
-            key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md"
-          >
+          const [selectedSize, setSelectedSize] = useState(
+            product.sizes[1]
+          );
 
-            {/* IMAGE */}
+          return (
 
-            <div className="bg-[#f8f3eb]">
+            <div
+              key={index}
+              className="bg-white rounded-2xl overflow-hidden shadow-md"
+            >
 
-              <img
-                src={product.image}
-                className="w-full h-[350px] object-contain p-3"
-              />
+              {/* IMAGE */}
+
+              <div className="bg-[#f8f3eb]">
+
+                <img
+                  src={product.image}
+                  className="w-full h-[350px] object-contain p-3"
+                />
+
+              </div>
+
+              {/* CONTENT */}
+
+              <div className="p-4 text-center">
+
+                <h2 className="text-base font-bold text-black mb-2 leading-6">
+                  {product.title}
+                </h2>
+
+                {/* SIZES */}
+
+                <div className="flex justify-center gap-2 mb-3 flex-wrap">
+
+                  {product.sizes.map((size) => (
+
+                    <button
+                      key={size.label}
+                      onClick={() => setSelectedSize(size)}
+                      className={`px-3 py-1 rounded-full text-xs border transition
+                      ${
+                        selectedSize.label === size.label
+                          ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
+                          : "bg-white text-black border-gray-300"
+                      }`}
+                    >
+
+                      {size.label}
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+                {/* PRICE */}
+
+                <div className="flex justify-center items-center gap-2 mb-3">
+
+                  <p className="text-[#2f8f6b] text-xl font-bold">
+                    {selectedSize.price} د.م
+                  </p>
+
+                </div>
+
+                {/* BUTTONS */}
+
+                <div className="flex gap-2 mt-3">
+
+                  <button
+                    onClick={() =>
+                      addToCart({
+                        ...product,
+                        selectedSize,
+                      })
+                    }
+                    className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl text-sm font-semibold transition"
+                  >
+
+                    🛒 أضف إلى السلة
+
+                  </button>
+
+                  <Link
+                    href={`/honey/${product.slug}`}
+                    className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
+                  >
+
+                    عرض المنتج
+
+                  </Link>
+
+                </div>
+
+              </div>
 
             </div>
 
-            {/* CONTENT */}
+          );
 
-            <div className="p-4 text-center">
-
-              <h2 className="text-base font-bold text-black mb-2 leading-6">
-                {product.title}
-              </h2>
-
-              {/* SIZES */}
-
-              <div className="flex justify-center gap-2 mb-3">
-
-                <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                  نصف كيلو
-                </div>
-
-                <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                  1 كيلو
-                </div>
-
-              </div>
-
-              {/* PRICE */}
-
-              <div className="flex justify-center items-center gap-2 mb-3">
-
-                <p className="text-[#2f8f6b] text-xl font-bold">
-                  {product.sizes[1].price} د.م
-                </p>
-
-              </div>
-
-              {/* BUTTONS */}
-
-              <div className="flex gap-2 mt-3">
-
-                <button
-                  onClick={() => addToCart(product)}
-                  className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl text-sm font-semibold transition"
-                >
-
-                  🛒 أضف إلى السلة
-
-                </button>
-
-                <Link
-                  href={`/honey/${product.slug}`}
-                  className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
-                >
-
-                  عرض المنتج 
-
-                </Link>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        ))}
+        })}
 
       </div>
 
@@ -304,8 +328,12 @@ export default function HoneyPage() {
                   {selectedProduct.title}
                 </h3>
 
+                <p className="text-gray-500 text-sm">
+                  {selectedProduct.selectedSize.label}
+                </p>
+
                 <p className="text-[#2f8f6b] font-bold text-lg">
-                  {selectedProduct.sizes[1].price} د.م
+                  {selectedProduct.selectedSize.price} د.م
                 </p>
 
               </div>
