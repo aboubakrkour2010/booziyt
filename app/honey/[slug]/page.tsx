@@ -122,7 +122,28 @@ export default function ProductPage({
 
           {/* BUTTON */}
 
-          <button className="w-full bg-[#2f8f6b] hover:bg-[#267456] transition text-white py-4 rounded-2xl text-lg font-bold">
+          <button
+            onClick={() => {
+
+              const cartItem = {
+                ...product,
+                selectedSize,
+                price: selectedSize.price,
+              };
+
+              localStorage.setItem(
+                "cart",
+                JSON.stringify([
+                  ...JSON.parse(localStorage.getItem("cart") || "[]"),
+                  cartItem,
+                ])
+              );
+
+              alert("تمت إضافة المنتج إلى السلة");
+
+            }}
+            className="w-full bg-[#2f8f6b] hover:bg-[#267456] transition text-white py-4 rounded-2xl text-lg font-bold"
+          >
 
             🛒 إضافة إلى السلة
 
