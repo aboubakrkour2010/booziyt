@@ -9,8 +9,8 @@ export const products = [
     price: 160,
 
     sizes: [
-      { label: "250g", price: 160 },
-      { label: "500g", price: 290 },
+      { label: "700g", price: 160 },
+      { label: "370g", price: 80 },
     ],
 
     description:
@@ -24,8 +24,8 @@ export const products = [
     price: 110,
 
     sizes: [
-      { label: "250g", price: 110 },
-      { label: "500g", price: 200 },
+      { label: "700g", price: 180 },
+      { label: "370g", price: 110 },
     ],
 
     description:
@@ -39,8 +39,8 @@ export const products = [
     price: 129,
 
     sizes: [
-      { label: "250g", price: 129 },
-      { label: "500g", price: 240 },
+      { label: "700g", price: 250 },
+      { label: "370g", price: 130 },
     ],
 
     description:
@@ -54,8 +54,8 @@ export const products = [
     price: 250,
 
     sizes: [
-      { label: "500g", price: 250 },
-      { label: "1kg", price: 450 },
+      { label: "500g", price: 130 },
+      { label: "1kg", price: 250 },
     ],
 
     description:
@@ -69,8 +69,8 @@ export const products = [
     price: 80,
 
     sizes: [
-      { label: "250g", price: 80 },
-      { label: "500g", price: 150 },
+      { label: "700g", price: 130 },
+      { label: "370g", price: 70 },
     ],
 
     description:
@@ -84,8 +84,7 @@ export const products = [
     price: 60,
 
     sizes: [
-      { label: "250g", price: 60 },
-      { label: "500g", price: 110 },
+      { label: "1kg", price: 60 },
     ],
 
     description:
@@ -101,7 +100,7 @@ export const products = [
     price: 600,
 
     sizes: [
-      { label: "250g", price: 600 },
+      { label: "1kg", price: 600 },
     ],
 
     description:
@@ -115,8 +114,8 @@ export const products = [
     price: 400,
 
     sizes: [
-      { label: "250g", price: 400 },
-      { label: "500g", price: 750 },
+      { label: "500g", price: 200 },
+      { label: "1kg", price: 400 },
     ],
 
     description:
@@ -130,8 +129,8 @@ export const products = [
     price: 250,
 
     sizes: [
-      { label: "250g", price: 250 },
-      { label: "500g", price: 480 },
+      { label: "500g", price: 130 },
+      { label: "1kg", price: 250 },
     ],
 
     description:
@@ -145,8 +144,8 @@ export const products = [
     price: 250,
 
     sizes: [
-      { label: "250g", price: 250 },
-      { label: "500g", price: 480 },
+      { label: "500g", price: 130 },
+      { label: "1kg", price: 250 },
     ],
 
     description:
@@ -160,8 +159,8 @@ export const products = [
     price: 300,
 
     sizes: [
-      { label: "250g", price: 300 },
-      { label: "500g", price: 560 },
+      { label: "500g", price: 130 },
+      { label: "1kg", price: 250 },
     ],
 
     description:
@@ -175,8 +174,8 @@ export const products = [
     price: 200,
 
     sizes: [
-      { label: "250g", price: 200 },
-      { label: "500g", price: 380 },
+      { label: "500g", price: 100 },
+      { label: "1kg", price: 200 },
     ],
 
     description:
@@ -190,8 +189,8 @@ export const products = [
     price: 200,
 
     sizes: [
-      { label: "250g", price: 200 },
-      { label: "500g", price: 380 },
+      { label: "500g", price: 100 },
+      { label: "1kg", price: 200 },
     ],
 
     description:
@@ -205,8 +204,8 @@ export const products = [
     price: 99,
 
     sizes: [
-      { label: "250g", price: 99 },
-      { label: "500g", price: 180 },
+      { label: "1kg", price: 99 },
+      { label: "1kg", price: 100 },
     ],
 
     description:
@@ -223,7 +222,7 @@ export const products = [
 
     sizes: [
       { label: "250ml", price: 175 },
-      { label: "500ml", price: 320 },
+      { label: "500ml", price: 350 },
     ],
 
     description:
@@ -237,7 +236,7 @@ export const products = [
     price: 175,
 
     sizes: [
-      { label: "100ml", price: 175 },
+      { label: "250ml", price: 175 },
     ],
 
     description:
@@ -248,11 +247,11 @@ export const products = [
     slug: "olive-oil",
     title: "زيت الزيتون البلدية",
     image: "/oil3.jpeg",
-    price: 45,
+    price: 225,
 
     sizes: [
-      { label: "250ml", price: 45 },
-      { label: "1L", price: 150 },
+      { label: "5l", price: 225 },
+      { label: "5L", price: 225 },
     ],
 
     description:
@@ -266,8 +265,8 @@ export const products = [
     price: 40,
 
     sizes: [
-      { label: "250ml", price: 40 },
-      { label: "500ml", price: 70 },
+      { label: "250ml", price: 45 },
+      { label: "500ml", price: 90 },
     ],
 
     description:
