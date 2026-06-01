@@ -32,7 +32,7 @@ export default function ProductPage({
 
     <div className="max-w-7xl mx-auto p-5 md:p-10">
 
-      <div className="grid md:grid-cols-2 gap-10 items-start">
+      <div className="grid md:grid-cols-2 gap-10 items-center">
 
         {/* IMAGE */}
 
@@ -50,37 +50,43 @@ export default function ProductPage({
 
         <div>
 
-          <h1 className="text-4xl font-bold mb-4">
+          {/* TITLE */}
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
             {product.title}
           </h1>
 
-          <p className="text-3xl font-bold text-black mb-6">
-            {selectedSize.price} MAD
+          {/* PRICE */}
+
+          <p className="text-4xl font-bold text-[#2f8f6b] mb-6">
+            {selectedSize.price} د.م
           </p>
 
           {/* SIZES */}
 
-          <div className="mb-6">
+          <div className="mb-8">
 
-            <h2 className="font-semibold text-lg mb-3">
+            <h2 className="font-bold text-lg mb-4">
               اختر الحجم
             </h2>
 
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex gap-4 flex-wrap">
 
               {product.sizes.map((size) => (
 
                 <button
                   key={size.label}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-5 py-3 rounded-2xl border transition
+                  className={`px-6 py-3 rounded-2xl border transition font-bold
                   ${
                     selectedSize.label === size.label
-                      ? "bg-black text-white border-black"
-                      : "bg-white text-black"
+                      ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
+                      : "bg-white text-black border-gray-300"
                   }`}
                 >
+
                   {size.label}
+
                 </button>
 
               ))}
@@ -91,7 +97,7 @@ export default function ProductPage({
 
           {/* DESCRIPTION */}
 
-          <p className="text-gray-600 leading-8 mb-8">
+          <p className="text-gray-600 leading-8 mb-8 text-lg">
             {product.description}
           </p>
 
@@ -99,11 +105,11 @@ export default function ProductPage({
 
           <div className="mb-8">
 
-            <h2 className="text-xl font-bold mb-4">
+            <h2 className="text-2xl font-bold mb-4">
               المميزات
             </h2>
 
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-700 text-lg">
 
               <li>✅ منتج طبيعي 100%</li>
               <li>✅ جودة عالية</li>
@@ -114,19 +120,13 @@ export default function ProductPage({
 
           </div>
 
-          {/* BUTTONS */}
+          {/* BUTTON */}
 
-          <div className="flex gap-4">
+          <button className="w-full bg-[#2f8f6b] hover:bg-[#267456] transition text-white py-4 rounded-2xl text-lg font-bold">
 
-            <button className="bg-black hover:bg-gray-800 transition text-white px-6 py-4 rounded-2xl w-full text-lg font-semibold">
-              Ajouter au panier
-            </button>
+            🛒 إضافة إلى السلة
 
-            <button className="border border-black hover:bg-black hover:text-white transition px-6 py-4 rounded-2xl w-full text-lg font-semibold">
-              Acheter maintenant
-            </button>
-
-          </div>
+          </button>
 
         </div>
 
