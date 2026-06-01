@@ -242,7 +242,7 @@ export default function HoneyPage() {
                   className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
                 >
 
-                  👁
+                  عرض المنتج 
 
                 </Link>
 
