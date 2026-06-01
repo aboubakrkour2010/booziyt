@@ -16,6 +16,9 @@ export default function ProductPage({
     (item) => item.slug === slug
   );
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
   if (!product) {
     return (
       <div className="p-10 text-center text-2xl">
@@ -131,6 +134,10 @@ export default function ProductPage({
                 price: selectedSize.price,
               };
 
+              setSelectedProduct(cartItem);
+
+              setShowPopup(true);
+
               localStorage.setItem(
                 "cart",
                 JSON.stringify([
@@ -138,8 +145,6 @@ export default function ProductPage({
                   cartItem,
                 ])
               );
-
-              alert("تمت إضافة المنتج إلى السلة");
 
             }}
             className="w-full bg-[#2f8f6b] hover:bg-[#267456] transition text-white py-4 rounded-2xl text-lg font-bold"
@@ -152,6 +157,107 @@ export default function ProductPage({
         </div>
 
       </div>
+
+      {/* POPUP */}
+
+      {showPopup && selectedProduct && (
+
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+
+          <div className="bg-white rounded-3xl w-full max-w-sm p-4 relative">
+
+            {/* CLOSE */}
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-3 left-3 text-2xl text-gray-400"
+            >
+
+              ×
+
+            </button>
+
+            {/* SUCCESS */}
+
+            <div className="flex justify-center mb-3">
+
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-3xl text-green-600">
+
+                ✓
+
+              </div>
+
+            </div>
+
+            <h2 className="text-xl font-bold text-center mb-1">
+              تمت الإضافة بنجاح!
+            </h2>
+
+            <p className="text-gray-500 text-sm text-center mb-4">
+              تم إضافة المنتج إلى سلة التسوق
+            </p>
+
+            {/* PRODUCT */}
+
+            <div className="bg-[#f8f8f8] rounded-2xl p-3 flex items-center justify-between mb-4">
+
+              <img
+                src={selectedProduct.image}
+                className="w-20 h-20 object-contain"
+              />
+
+              <div className="text-right">
+
+                <h3 className="font-bold text-base">
+                  {selectedProduct.title}
+                </h3>
+
+                <p className="text-gray-500 text-sm">
+                  {selectedProduct.selectedSize.label}
+                </p>
+
+                <p className="text-[#2f8f6b] font-bold text-lg">
+                  {selectedProduct.selectedSize.price} د.م
+                </p>
+
+              </div>
+
+            </div>
+
+            {/* BUTTONS */}
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="w-full border py-3 rounded-xl mb-3 text-gray-600 font-semibold"
+            >
+
+              متابعة التسوق
+
+            </button>
+
+            <a
+              href="/cart"
+              className="w-full bg-[#2f8f6b] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+            >
+
+              🛒 عرض السلة
+
+            </a>
+
+            <a
+              href="/checkout"
+              className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold flex items-center justify-center"
+            >
+
+              ⚡ إتمام الطلب مباشرة
+
+            </a>
+
+          </div>
+
+        </div>
+
+      )}
 
     </div>
 
