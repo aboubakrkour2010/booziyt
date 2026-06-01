@@ -1,277 +1,341 @@
 "use client";
 
-import { use } from "react";
 import { useState } from "react";
+import Link from "next/link";
 
-const products = [
+export default function HoneyPage() {
 
-  {
-    slug: "taj-alasal",
-    title: "تاج العسل",
-    image: "/honey1.png.jpg",
-    description: "عسل فاخر طبيعي غني بالفوائد.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 300,
-      },
-      {
-        label: "1 كيلو",
-        price: 600,
-      },
-    ],
-  },
+  const products = [
 
-  {
-    slug: "asal-zaatar",
-    title: "عسل الزعتر",
-    image: "/honey2.png.jpg",
-    description: "عسل الزعتر الطبيعي الأصلي.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 200,
-      },
-      {
-        label: "1 كيلو",
-        price: 400,
-      },
-    ],
-  },
+    {
+      slug: "taj-alasal",
+      title: "تاج العسل",
+      image: "/honey1.png.jpg",
+      description: "عسل فاخر طبيعي غني بالفوائد.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 300,
+        },
+        {
+          label: "1 كيلو",
+          price: 600,
+        },
+      ],
+    },
 
-  {
-    slug: "asal-daghmous",
-    title: "عسل الدغموس",
-    image: "/honey3.png.png",
-    description: "عسل الدغموس الطبيعي.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 125,
-      },
-      {
-        label: "1 كيلو",
-        price: 250,
-      },
-    ],
-  },
+    {
+      slug: "asal-zaatar",
+      title: "عسل الزعتر",
+      image: "/honey2.png.jpg",
+      description: "عسل الزعتر الطبيعي الأصلي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 200,
+        },
+        {
+          label: "1 كيلو",
+          price: 400,
+        },
+      ],
+    },
 
-  {
-    slug: "asal-sidr",
-    title: "عسل السدر",
-    image: "/honey4.png.png",
-    description: "عسل السدر الأصلي.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 125,
-      },
-      {
-        label: "1 كيلو",
-        price: 250,
-      },
-    ],
-  },
+    {
+      slug: "asal-daghmous",
+      title: "عسل الدغموس",
+      image: "/honey3.png.png",
+      description: "عسل الدغموس الطبيعي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 125,
+        },
+        {
+          label: "1 كيلو",
+          price: 250,
+        },
+      ],
+    },
 
-  {
-    slug: "asal-chawkiyat",
-    title: "عسل الشوكيات",
-    image: "/honey5.png.jpg",
-    description: "عسل طبيعي غني بالفوائد.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 150,
-      },
-      {
-        label: "1 كيلو",
-        price: 300,
-      },
-    ],
-  },
+    {
+      slug: "asal-sidr",
+      title: "عسل السدر",
+      image: "/honey4.png.png",
+      description: "عسل السدر الأصلي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 125,
+        },
+        {
+          label: "1 كيلو",
+          price: 250,
+        },
+      ],
+    },
 
-  {
-    slug: "asal-kalitos",
-    title: "عسل الكاليتوس",
-    image: "/honey6.png.jpg",
-    description: "عسل الكاليتوس الطبيعي.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 100,
-      },
-      {
-        label: "1 كيلو",
-        price: 200,
-      },
-    ],
-  },
+    {
+      slug: "asal-chawkiyat",
+      title: "عسل الشوكيات",
+      image: "/honey5.png.jpg",
+      description: "عسل طبيعي غني بالفوائد.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 150,
+        },
+        {
+          label: "1 كيلو",
+          price: 300,
+        },
+      ],
+    },
 
-  {
-    slug: "asal-abyad",
-    title: "العسل الأبيض",
-    image: "/honey7.png.jpg",
-    description: "عسل أبيض طبيعي.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 100,
-      },
-      {
-        label: "1 كيلو",
-        price: 200,
-      },
-    ],
-  },
+    {
+      slug: "asal-kalitos",
+      title: "عسل الكاليتوس",
+      image: "/honey6.png.jpg",
+      description: "عسل الكاليتوس الطبيعي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 100,
+        },
+        {
+          label: "1 كيلو",
+          price: 200,
+        },
+      ],
+    },
 
-  {
-    slug: "asal-limoun",
-    title: "عسل الليمون",
-    image: "/honey8.png.jpg",
-    description: "عسل الليمون الطبيعي.",
-    sizes: [
-      {
-        label: "نصف كيلو",
-        price: 50,
-      },
-      {
-        label: "1 كيلو",
-        price: 99,
-      },
-    ],
-  },
+    {
+      slug: "asal-abyad",
+      title: "العسل الأبيض",
+      image: "/honey7.png.jpg",
+      description: "عسل أبيض طبيعي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 100,
+        },
+        {
+          label: "1 كيلو",
+          price: 200,
+        },
+      ],
+    },
 
-];
+    {
+      slug: "asal-limoun",
+      title: "عسل الليمون",
+      image: "/honey8.png.jpg",
+      description: "عسل الليمون الطبيعي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 50,
+        },
+        {
+          label: "1 كيلو",
+          price: 99,
+        },
+      ],
+    },
 
-export default function ProductPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+  ];
 
-  const { slug } = use(params);
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
-  const product = products.find(
-    (item) => item.slug === slug
-  );
+  const addToCart = (product: any) => {
 
-  if (!product) {
-    return (
-      <div className="p-10 text-center text-2xl">
-        المنتج غير موجود
-      </div>
+    setSelectedProduct(product);
+
+    setShowPopup(true);
+
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([
+        ...JSON.parse(localStorage.getItem("cart") || "[]"),
+        product,
+      ])
     );
-  }
 
-  const [selectedSize, setSelectedSize] = useState(
-    product.sizes[0]
-  );
+  };
 
   return (
 
-    <div className="max-w-7xl mx-auto p-5 md:p-10">
+    <main className="bg-[#f3ebdf] min-h-screen p-4">
 
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <h1 className="text-3xl font-bold text-center mb-8">
+        منتجات العسل
+      </h1>
 
-        {/* IMAGE */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-        <div>
+        {products.map((product, index) => (
 
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full rounded-3xl"
-          />
+          <div
+            key={index}
+            className="bg-white rounded-2xl overflow-hidden shadow-md"
+          >
 
-        </div>
+            {/* IMAGE */}
 
-        {/* CONTENT */}
+            <div className="bg-[#f8f3eb]">
 
-        <div>
+              <img
+                src={product.image}
+                className="w-full h-[350px] object-contain p-3"
+              />
 
-          <h1 className="text-5xl font-bold mb-4">
-            {product.title}
-          </h1>
+            </div>
 
-          <p className="text-4xl font-bold text-[#2f8f6b] mb-6">
-            {selectedSize.price} د.م
-          </p>
+            {/* CONTENT */}
 
-          {/* SIZES */}
+            <div className="p-4 text-center">
 
-          <div className="mb-8">
+              <h2 className="text-base font-bold text-black mb-2 leading-6">
+                {product.title}
+              </h2>
 
-            <h2 className="font-bold text-lg mb-4">
-              اختر الحجم
-            </h2>
+              {/* SIZES */}
 
-            <div className="flex gap-4">
+              <div className="flex justify-center gap-2 mb-3">
 
-              {product.sizes.map((size) => (
+                <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
+                  نصف كيلو
+                </div>
+
+                <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
+                  1 كيلو
+                </div>
+
+              </div>
+
+              {/* PRICE */}
+
+              <div className="flex justify-center items-center gap-2 mb-3">
+
+                <p className="text-[#2f8f6b] text-xl font-bold">
+                  {product.sizes[1].price} د.م
+                </p>
+
+              </div>
+
+              {/* BUTTONS */}
+
+              <div className="flex gap-2 mt-3">
 
                 <button
-                  key={size.label}
-                  onClick={() => setSelectedSize(size)}
-                  className={`px-6 py-3 rounded-2xl border transition font-bold
-                  ${
-                    selectedSize.label === size.label
-                      ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
-                      : "bg-white text-black"
-                  }`}
+                  onClick={() => addToCart(product)}
+                  className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl text-sm font-semibold transition"
                 >
-                  {size.label}
+
+                  🛒 أضف إلى السلة
+
                 </button>
 
-              ))}
+                <Link
+                  href={`/honey/${product.slug}`}
+                  className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
+                >
+
+                  👁
+
+                </Link>
+
+              </div>
 
             </div>
 
           </div>
 
-          {/* DESCRIPTION */}
+        ))}
 
-          <p className="text-gray-600 leading-8 mb-8 text-lg">
-            {product.description}
-          </p>
+      </div>
 
-          {/* FEATURES */}
+      {/* POPUP */}
 
-          <div className="mb-8">
+      {showPopup && selectedProduct && (
 
-            <h2 className="text-2xl font-bold mb-4">
-              المميزات
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+
+          <div className="bg-white rounded-3xl w-full max-w-sm p-4 relative">
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-3 left-3 text-2xl text-gray-400"
+            >
+
+              ×
+
+            </button>
+
+            <div className="flex justify-center mb-3">
+
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-3xl text-green-600">
+
+                ✓
+
+              </div>
+
+            </div>
+
+            <h2 className="text-xl font-bold text-center mb-1">
+              تمت الإضافة بنجاح!
             </h2>
 
-            <ul className="space-y-3 text-gray-700 text-lg">
+            <p className="text-gray-500 text-sm text-center mb-4">
+              تم إضافة المنتج إلى سلة التسوق
+            </p>
 
-              <li>✅ منتج طبيعي 100%</li>
-              <li>✅ جودة عالية</li>
-              <li>✅ توصيل سريع لجميع المدن</li>
-              <li>✅ الدفع عند الاستلام</li>
+            <div className="bg-[#f8f8f8] rounded-2xl p-3 flex items-center justify-between mb-4">
 
-            </ul>
+              <img
+                src={selectedProduct.image}
+                className="w-20 h-20 object-contain"
+              />
 
-          </div>
+              <div className="text-right">
 
-          {/* BUTTONS */}
+                <h3 className="font-bold text-base">
+                  {selectedProduct.title}
+                </h3>
 
-          <div className="flex gap-3">
+                <p className="text-[#2f8f6b] font-bold text-lg">
+                  {selectedProduct.sizes[1].price} د.م
+                </p>
 
-            <button className="bg-[#2f8f6b] hover:bg-[#267456] transition text-white px-6 py-4 rounded-2xl flex-1 text-lg font-bold">
-              🛒 إضافة إلى السلة
+              </div>
+
+            </div>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="w-full border py-3 rounded-xl mb-3 text-gray-600 font-semibold"
+            >
+
+              متابعة التسوق
+
             </button>
 
-            <button className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white transition px-5 py-4 rounded-2xl font-bold">
-              👁
-            </button>
+            <a
+              href="/cart"
+              className="w-full bg-[#2f8f6b] text-white py-3 rounded-xl font-semibold flex items-center justify-center"
+            >
+
+              🛒 عرض السلة
+
+            </a>
 
           </div>
 
         </div>
 
-      </div>
+      )}
 
-    </div>
-
+    </main>
   );
 }
