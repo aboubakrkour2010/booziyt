@@ -132,10 +132,7 @@ export default function HoneyPage() {
       image: "/honey8.png.jpg",
       description: "عسل الليمون الطبيعي.",
       sizes: [
-        {
-          label: "نصف كيلو",
-          price: 50,
-        },
+        
         {
           label: "1 كيلو",
           price: 99,
