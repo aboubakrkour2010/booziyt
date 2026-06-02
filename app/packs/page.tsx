@@ -1,58 +1,66 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function PacksPage() {
 
   const packs = [
 
-  {
-  name: "باقة أملو 370 كرام",
-  price: 420,
-  oldPrice: "500 د.م",
-  image: "/pack2.png.png",
-  type: "pack",
-},
+    {
+      slug: "amlou-pack-370g",
+      name: "باقة أملو 370 كرام",
+      price: 420,
+      oldPrice: "500 د.م",
+      image: "/pack2.png.png",
+      type: "باقة",
+    },
 
-{
-  name: "باقة وردة",
-  price: 550,
-  oldPrice: "620 د.م",
-  image: "/pack9.png.png",
-  type: "pack",
-},
+    {
+      slug: "rose-pack",
+      name: "باقة وردة",
+      price: 550,
+      oldPrice: "620 د.م",
+      image: "/pack9.png.png",
+      type: "باقة",
+    },
 
-{
-  name: "باقة الكرم",
-  price: 550,
-  oldPrice: "610 د.م",
-  image: "/pack5.png.jpg",
-  type: "pack",
-},
+    {
+      slug: "generosity-pack",
+      name: "باقة الكرم",
+      price: 550,
+      oldPrice: "610 د.م",
+      image: "/pack5.png.jpg",
+      type: "باقة",
+    },
 
-{
-  name: "باقة الأصالة",
-  price: 600,
-  oldPrice: "710 د.م",
-  image: "/pack4.png.jpg",
-  type: "pack",
-},
+    {
+      slug: "authentic-pack",
+      name: "باقة الأصالة",
+      price: 600,
+      oldPrice: "710 د.م",
+      image: "/pack4.png.jpg",
+      type: "باقة",
+    },
 
-{
-  name: "باقة تادرات",
-  price: 550,
-  oldPrice: "700 د.م",
-  image: "/pack6.png.jpg",
-  type: "pack",
-},
+    {
+      slug: "tadart-pack",
+      name: "باقة تادرات",
+      price: 550,
+      oldPrice: "700 د.م",
+      image: "/pack6.png.jpg",
+      type: "باقة",
+    },
 
-{
-  name: "باقة أملو 250 كرام",
-  price: 320,
-  oldPrice: "370 د.م",
-  image: "/pack1.png.png",
-  type: "pack",
-},
+    {
+      slug: "amlou-pack-250g",
+      name: "باقة أملو 250 كرام",
+      price: 320,
+      oldPrice: "370 د.م",
+      image: "/pack1.png.png",
+      type: "باقة",
+    },
+
   ];
 
   const [showPopup, setShowPopup] = useState(false);
@@ -97,6 +105,8 @@ export default function PacksPage() {
             className="bg-white rounded-2xl overflow-hidden shadow-md"
           >
 
+            {/* IMAGE */}
+
             <div className="relative bg-[#f8f3eb]">
 
               <img
@@ -106,13 +116,15 @@ export default function PacksPage() {
 
             </div>
 
+            {/* CONTENT */}
+
             <div className="p-4 text-center">
 
               <h2 className="text-lg font-bold mb-2 leading-6">
                 {pack.name}
               </h2>
 
-              <div className="flex justify-center items-center gap-2">
+              <div className="flex justify-center items-center gap-2 mb-4">
 
                 <p className="text-green-600 text-2xl font-bold">
                   {pack.price} د.م
@@ -124,14 +136,29 @@ export default function PacksPage() {
 
               </div>
 
-              <button
-                onClick={() => addToCart(pack)}
-                className="w-full mt-4 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
-              >
+              {/* BUTTONS */}
 
-                🛒 أضف إلى السلة
+              <div className="flex gap-2">
 
-              </button>
+                <button
+                  onClick={() => addToCart(pack)}
+                  className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
+                >
+
+                  🛒 أضف إلى السلة
+
+                </button>
+
+                <Link
+                  href={`/product/${pack.slug}`}
+                  className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
+                >
+
+                  👁 عرض المنتج
+
+                </Link>
+
+              </div>
 
             </div>
 
@@ -196,7 +223,7 @@ export default function PacksPage() {
                 </h3>
 
                 <p className="text-gray-500 text-sm">
-                  باقة
+                  {selectedProduct.type}
                 </p>
 
                 <p className="text-[#2f8f6b] font-bold text-lg">
@@ -226,13 +253,15 @@ export default function PacksPage() {
               🛒 عرض السلة ({cartCount})
 
             </a>
-            <a
-  href="/checkout"
-  className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
->
-  ⚡ إتمام الطلب مباشرة
-</a>
 
+            <a
+              href="/checkout"
+              className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+            >
+
+              ⚡ إتمام الطلب مباشرة
+
+            </a>
 
             {/* TOTAL */}
 
@@ -252,4 +281,3 @@ export default function PacksPage() {
 
   );
 }
-
