@@ -39,11 +39,11 @@ export default function OilPage() {
       oldPrice: "900 د.م",
 
       sizes: [
-        { label: "5L", price: 150 },
-        { label: "10L", price: 300 },
-        { label: "15L", price: 450 },
-        { label: "20L", price: 600 },
-        { label: "25L", price: 750 },
+        { label: "5L", price: 225 },
+        { label: "10L", price: 450 },
+        { label: "15L", price: 675 },
+        { label: "20L", price: 900 },
+        { label: "25L", price: 1125 },
       ],
     },
 

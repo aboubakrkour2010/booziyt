@@ -27,15 +27,15 @@ export default function ProductPage({
   }
 
   const [selectedSize, setSelectedSize] = useState(
-    product.sizes[0]
+    product.sizes?.[0]
   );
 
   const addToCart = () => {
 
     const productToAdd = {
       ...product,
-      size: selectedSize.label,
-      price: selectedSize.price,
+      size: selectedSize?.label,
+      price: selectedSize?.price,
       quantity: 1,
     };
 
@@ -74,46 +74,54 @@ export default function ProductPage({
 
         <div>
 
+          {/* TITLE */}
+
           <h1 className="text-4xl font-bold mb-4">
             {product.title}
           </h1>
 
+          {/* PRICE */}
+
           <p className="text-3xl font-bold text-[#2f8f6b] mb-6">
-            {selectedSize.price} د.م
+            {selectedSize?.price} د.م
           </p>
 
           {/* SIZES */}
 
-          <div className="mb-6">
+          {product.sizes && product.sizes.length > 0 && (
 
-            <h2 className="font-semibold text-lg mb-3">
-              اختر الحجم
-            </h2>
+            <div className="mb-6">
 
-            <div className="flex gap-3 flex-wrap">
+              <h2 className="font-semibold text-lg mb-3">
+                اختر الحجم
+              </h2>
 
-              {product.sizes.map((size) => (
+              <div className="flex gap-3 flex-wrap">
 
-                <button
-                  key={size.label}
-                  onClick={() => setSelectedSize(size)}
-                  className={`px-5 py-3 rounded-2xl border transition font-bold
-                  ${
-                    selectedSize.label === size.label
-                      ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
-                      : "bg-white text-black border-gray-300"
-                  }`}
-                >
+                {product.sizes?.map((size) => (
 
-                  {size.label}
+                  <button
+                    key={size.label}
+                    onClick={() => setSelectedSize(size)}
+                    className={`px-5 py-3 rounded-2xl border transition font-bold
+                    ${
+                      selectedSize?.label === size.label
+                        ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
+                        : "bg-white text-black border-gray-300"
+                    }`}
+                  >
 
-                </button>
+                    {size.label}
 
-              ))}
+                  </button>
+
+                ))}
+
+              </div>
 
             </div>
 
-          </div>
+          )}
 
           {/* DESCRIPTION */}
 
@@ -163,6 +171,8 @@ export default function ProductPage({
 
           <div className="bg-white rounded-3xl w-full max-w-sm p-4 relative">
 
+            {/* CLOSE */}
+
             <button
               onClick={() => setShowPopup(false)}
               className="absolute top-3 left-3 text-2xl text-gray-400"
@@ -171,6 +181,8 @@ export default function ProductPage({
               ×
 
             </button>
+
+            {/* SUCCESS */}
 
             <div className="flex justify-center mb-3">
 
@@ -190,6 +202,8 @@ export default function ProductPage({
               تم إضافة المنتج إلى سلة التسوق
             </p>
 
+            {/* PRODUCT */}
+
             <div className="bg-[#f8f8f8] rounded-2xl p-3 flex items-center justify-between mb-4">
 
               <img
@@ -204,16 +218,18 @@ export default function ProductPage({
                 </h3>
 
                 <p className="text-gray-500 text-sm">
-                  الحجم: {selectedSize.label}
+                  الحجم: {selectedSize?.label}
                 </p>
 
                 <p className="text-[#2f8f6b] font-bold text-lg">
-                  {selectedSize.price} د.م
+                  {selectedSize?.price} د.م
                 </p>
 
               </div>
 
             </div>
+
+            {/* BUTTONS */}
 
             <button
               onClick={() => setShowPopup(false)}
