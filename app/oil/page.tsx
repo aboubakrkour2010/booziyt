@@ -1,53 +1,90 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function OilPage() {
 
   const oils = [
 
     {
+      slug: "argan-food-oil",
       name: "زيت أركان للأكل",
-      price: 175,
-      oldPrice: "190 د.م",
       image: "/oil1.jpg",
+      oldPrice: "220 د.م",
+
+      sizes: [
+        { label: "250ml", price: 175 },
+        { label: "500ml", price: 350 },
+      ],
     },
 
     {
+      slug: "argan-cosmetic-oil",
       name: "زيت أركان للتجميل",
-      price: 175,
-      oldPrice: "190 د.م",
       image: "/oil2.png",
+      oldPrice: "250 د.م",
+
+      sizes: [
+        { label: "50ml", price: 90 },
+        { label: "250ml", price: 175 },
+        { label: "500ml", price: 350 },
+      ],
     },
 
     {
+      slug: "olive-oil",
       name: "زيت الزيتون البلدية",
-      price: 45,
-      oldPrice: "50 د.م",
       image: "/oil3.jpeg",
+      oldPrice: "900 د.م",
+
+      sizes: [
+        { label: "5L", price: 150 },
+        { label: "10L", price: 300 },
+        { label: "15L", price: 450 },
+        { label: "20L", price: 600 },
+        { label: "25L", price: 750 },
+      ],
     },
 
     {
+      slug: "apple-vinegar",
       name: "خل التفاح",
-      price: 40,
-      oldPrice: "50 د.م",
       image: "/oil4.png",
+      oldPrice: "120 د.م",
+
+      sizes: [
+        { label: "300ml", price: 40 },
+        { label: "500ml", price: 80 },
+        { label: "1L", price: 160 },
+      ],
     },
 
   ];
 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [selectedSizes, setSelectedSizes] = useState<any>({});
   const [cartCount, setCartCount] = useState(0);
   const [total, setTotal] = useState(0);
 
-  const addToCart = (product: any) => {
+  const addToCart = (oil: any) => {
 
-    setSelectedProduct(product);
+    const selectedSize =
+      selectedSizes[oil.slug] || oil.sizes[0];
+
+    const productToAdd = {
+      ...oil,
+      size: selectedSize.label,
+      price: selectedSize.price,
+      quantity: 1,
+    };
+
+    setSelectedProduct(productToAdd);
 
     setCartCount(cartCount + 1);
 
-    setTotal(total + product.price);
+    setTotal(total + selectedSize.price);
 
     setShowPopup(true);
 
@@ -55,7 +92,7 @@ export default function OilPage() {
       "cart",
       JSON.stringify([
         ...JSON.parse(localStorage.getItem("cart") || "[]"),
-        product,
+        productToAdd,
       ])
     );
 
@@ -66,89 +103,117 @@ export default function OilPage() {
     <main className="bg-[#f3ebdf] min-h-screen p-4">
 
       <h1 className="text-3xl font-bold text-center mb-10 text-[#222]">
-        منتجات الزيوت
+        الزيوت الطبيعية
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-        {oils.map((oil, index) => (
+        {oils.map((oil, index) => {
 
-          <div
-            key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md"
-          >
+          const currentSize =
+            selectedSizes[oil.slug] || oil.sizes[0];
 
-            <div className="bg-[#f8f3eb]">
+          return (
 
-              <img
-                src={oil.image}
-                className="w-full h-[350px] object-contain p-3"
-              />
+            <div
+              key={index}
+              className="bg-white rounded-2xl overflow-hidden shadow-md"
+            >
 
-            </div>
+              {/* IMAGE */}
 
-            <div className="p-4 text-center">
+              <div className="bg-[#f8f3eb]">
 
-              <h2 className="text-base font-bold mb-2 leading-6">
-                {oil.name}
-              </h2>
-
-              {/* SIZES */}
-
-              <div className="flex justify-center gap-2 mb-3 flex-wrap">
-
-                {(oil.name === "زيت الزيتون البلدية") ? (
-
-                  <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                    5L
-                  </div>
-
-                ) : (
-
-                  <>
-                    <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                      250ml
-                    </div>
-
-                    <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                      500ml
-                    </div>
-                  </>
-
-                )}
+                <img
+                  src={oil.image}
+                  className="w-full h-[350px] object-contain p-3"
+                />
 
               </div>
 
-              {/* PRICE */}
+              {/* CONTENT */}
 
-              <div className="flex justify-center items-center gap-2">
+              <div className="p-4 text-center">
 
-                <p className="text-green-600 text-xl font-bold">
-                  {oil.price} د.م
-                </p>
+                <h2 className="text-base font-bold mb-2 leading-6">
+                  {oil.name}
+                </h2>
 
-                <p className="text-gray-400 line-through text-sm">
-                  {oil.oldPrice}
-                </p>
+                {/* SIZES */}
+
+                <div className="flex justify-center gap-2 mb-3 flex-wrap">
+
+                  {oil.sizes.map((size) => (
+
+                    <button
+                      key={size.label}
+                      onClick={() =>
+                        setSelectedSizes({
+                          ...selectedSizes,
+                          [oil.slug]: size,
+                        })
+                      }
+                      className={`border px-2 py-1 rounded-full text-xs transition
+                      ${
+                        currentSize.label === size.label
+                          ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
+                          : "border-gray-300"
+                      }`}
+                    >
+
+                      {size.label}
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+                {/* PRICE */}
+
+                <div className="flex justify-center items-center gap-2">
+
+                  <p className="text-green-600 text-xl font-bold">
+                    {currentSize.price} د.م
+                  </p>
+
+                  <p className="text-gray-400 line-through text-sm">
+                    {oil.oldPrice}
+                  </p>
+
+                </div>
+
+                {/* BUTTONS */}
+
+                <div className="flex gap-2 mt-4">
+
+                  <button
+                    onClick={() => addToCart(oil)}
+                    className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
+                  >
+
+                    🛒 أضف إلى السلة
+
+                  </button>
+
+                  <Link
+                    href={`/product/${oil.slug}`}
+                    className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
+                  >
+
+                    👁 عرض المنتج
+
+                  </Link>
+
+                </div>
 
               </div>
 
-              {/* BUTTON */}
-
-              <button
-                onClick={() => addToCart(oil)}
-                className="w-full mt-4 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
-              >
-
-                🛒 أضف إلى السلة
-
-              </button>
-
             </div>
 
-          </div>
+          );
 
-        ))}
+        })}
 
       </div>
 
@@ -160,8 +225,6 @@ export default function OilPage() {
 
           <div className="bg-white rounded-3xl w-full max-w-sm p-4 relative">
 
-            {/* CLOSE */}
-
             <button
               onClick={() => setShowPopup(false)}
               className="absolute top-3 left-3 text-2xl text-gray-400"
@@ -170,8 +233,6 @@ export default function OilPage() {
               ×
 
             </button>
-
-            {/* SUCCESS */}
 
             <div className="flex justify-center mb-3">
 
@@ -207,7 +268,7 @@ export default function OilPage() {
                 </h3>
 
                 <p className="text-gray-500 text-sm">
-                  الكمية: 1
+                  الحجم: {selectedProduct.size}
                 </p>
 
                 <p className="text-[#2f8f6b] font-bold text-lg">
@@ -237,12 +298,15 @@ export default function OilPage() {
               🛒 عرض السلة ({cartCount})
 
             </a>
+
             <a
-  href="/checkout"
-  className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
->
-  ⚡ إتمام الطلب مباشرة
-</a>
+              href="/checkout"
+              className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+            >
+
+              ⚡ إتمام الطلب مباشرة
+
+            </a>
 
             {/* TOTAL */}
 
