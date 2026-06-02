@@ -132,7 +132,6 @@ export default function HoneyPage() {
       image: "/honey8.png.jpg",
       description: "عسل الليمون الطبيعي.",
       sizes: [
-        
         {
           label: "1 كيلو",
           price: 99,
@@ -144,22 +143,6 @@ export default function HoneyPage() {
 
   const [showPopup, setShowPopup] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
-
-  const addToCart = (product: any) => {
-
-    setSelectedProduct(product);
-
-    setShowPopup(true);
-
-    localStorage.setItem(
-      "cart",
-      JSON.stringify([
-        ...JSON.parse(localStorage.getItem("cart") || "[]"),
-        product,
-      ])
-    );
-
-  };
 
   return (
 
@@ -174,8 +157,29 @@ export default function HoneyPage() {
         {products.map((product, index) => {
 
           const [selectedSize, setSelectedSize] = useState(
-            product.sizes[1]
+            product.sizes[0]
           );
+
+          const addToCart = () => {
+
+            const productToAdd = {
+              ...product,
+              selectedSize,
+            };
+
+            setSelectedProduct(productToAdd);
+
+            setShowPopup(true);
+
+            localStorage.setItem(
+              "cart",
+              JSON.stringify([
+                ...JSON.parse(localStorage.getItem("cart") || "[]"),
+                productToAdd,
+              ])
+            );
+
+          };
 
           return (
 
@@ -243,12 +247,7 @@ export default function HoneyPage() {
                 <div className="flex gap-2 mt-3">
 
                   <button
-                    onClick={() =>
-                      addToCart({
-                        ...product,
-                        selectedSize,
-                      })
-                    }
+                    onClick={addToCart}
                     className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl text-sm font-semibold transition"
                   >
 
