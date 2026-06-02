@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function AmlouPage() {
 
   const products = [
 
     {
+      slug: "amlou-almond",
       name: "أملو باللوز",
       price: 160,
       oldPrice: "170 د.م",
@@ -14,6 +16,7 @@ export default function AmlouPage() {
     },
 
     {
+      slug: "amlou-cashew",
       name: "أملو الأكاجو",
       price: 110,
       oldPrice: "139 د.م",
@@ -21,6 +24,7 @@ export default function AmlouPage() {
     },
 
     {
+      slug: "amlou-pistachio",
       name: "أملو بيستاش",
       price: 129,
       oldPrice: "149 د.م",
@@ -28,6 +32,7 @@ export default function AmlouPage() {
     },
 
     {
+      slug: "nuts-honey-mix",
       name: "خلطة المكسرات بالعسل",
       price: 250,
       oldPrice: "350 د.م",
@@ -35,6 +40,7 @@ export default function AmlouPage() {
     },
 
     {
+      slug: "pumpkin-seeds-amlou",
       name: "أملو بذور اليقطين",
       price: 80,
       oldPrice: "95 د.م",
@@ -42,6 +48,7 @@ export default function AmlouPage() {
     },
 
     {
+      slug: "cocoa-amlou",
       name: "أملو كاكاو",
       price: 60,
       oldPrice: "74,99 د.م",
@@ -92,6 +99,8 @@ export default function AmlouPage() {
             className="bg-white rounded-2xl overflow-hidden shadow-md"
           >
 
+            {/* IMAGE */}
+
             <div className="bg-[#f8f3eb]">
 
               <img
@@ -100,6 +109,8 @@ export default function AmlouPage() {
               />
 
             </div>
+
+            {/* CONTENT */}
 
             <div className="p-4 text-center">
 
@@ -148,16 +159,29 @@ export default function AmlouPage() {
 
               </div>
 
-              {/* BUTTON */}
+              {/* BUTTONS */}
 
-              <button
-                onClick={() => addToCart(product)}
-                className="w-full mt-4 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
-              >
+              <div className="flex gap-2 mt-4">
 
-                🛒 أضف إلى السلة
+                <button
+                  onClick={() => addToCart(product)}
+                  className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
+                >
 
-              </button>
+                  🛒 أضف إلى السلة
+
+                </button>
+
+                <Link
+                  href={`/product/${product.slug}`}
+                  className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
+                >
+
+                  👁
+
+                </Link>
+
+              </div>
 
             </div>
 
@@ -252,12 +276,15 @@ export default function AmlouPage() {
               🛒 عرض السلة ({cartCount})
 
             </a>
+
             <a
-  href="/checkout"
-  className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
->
-  ⚡ إتمام الطلب مباشرة
-</a>
+              href="/checkout"
+              className="w-full bg-[#E38F00FF] text-white py-3 rounded-xl font-semibold mb-3 flex items-center justify-center"
+            >
+
+              ⚡ إتمام الطلب مباشرة
+
+            </a>
 
             {/* TOTAL */}
 
