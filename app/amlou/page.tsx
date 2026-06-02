@@ -10,65 +10,139 @@ export default function AmlouPage() {
     {
       slug: "amlou-almond",
       name: "أملو باللوز",
-      price: 160,
-      oldPrice: "170 د.م",
       image: "/amlou1.png",
+      oldPrice: "170 د.م",
+
+      sizes: [
+        {
+          label: "370g",
+          price: 160,
+        },
+        {
+          label: "700g",
+          price: 250,
+        },
+      ],
     },
 
     {
       slug: "amlou-cashew",
       name: "أملو الأكاجو",
-      price: 110,
-      oldPrice: "139 د.م",
       image: "/amlou2.png",
+      oldPrice: "139 د.م",
+
+      sizes: [
+        {
+          label: "370g",
+          price: 110,
+        },
+        {
+          label: "700g",
+          price: 200,
+        },
+      ],
     },
 
     {
       slug: "amlou-pistachio",
       name: "أملو بيستاش",
-      price: 129,
-      oldPrice: "149 د.م",
       image: "/amlou3.png",
+      oldPrice: "149 د.م",
+
+      sizes: [
+        {
+          label: "370g",
+          price: 129,
+        },
+        {
+          label: "700g",
+          price: 250,
+        },
+      ],
     },
 
     {
       slug: "nuts-honey-mix",
       name: "خلطة المكسرات بالعسل",
-      price: 250,
-      oldPrice: "350 د.م",
       image: "/amlou4.png",
+      oldPrice: "350 د.م",
+
+      sizes: [
+        {
+          label: "500g",
+          price: 250,
+        },
+        {
+          label: "1Kg",
+          price: 450,
+        },
+      ],
     },
 
     {
       slug: "pumpkin-seeds-amlou",
       name: "أملو بذور اليقطين",
-      price: 80,
-      oldPrice: "95 د.م",
       image: "/amlou5.png",
+      oldPrice: "95 د.م",
+
+      sizes: [
+        {
+          label: "370g",
+          price: 80,
+        },
+        {
+          label: "700g",
+          price: 150,
+        },
+      ],
     },
 
     {
       slug: "cocoa-amlou",
       name: "أملو كاكاو",
-      price: 60,
-      oldPrice: "74,99 د.م",
       image: "/amlou6.png",
+      oldPrice: "74,99 د.م",
+
+      sizes: [
+        {
+          label: "500g",
+          price: 60,
+        },
+        {
+          label: "1Kg",
+          price: 110,
+        },
+      ],
     },
 
   ];
 
   const [showPopup, setShowPopup] = useState(false);
+
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
   const [cartCount, setCartCount] = useState(0);
+
   const [total, setTotal] = useState(0);
+
+  const [selectedSizes, setSelectedSizes] = useState<any>({});
 
   const addToCart = (product: any) => {
 
-    setSelectedProduct(product);
+    const selectedSize =
+      selectedSizes[product.slug] || product.sizes[0];
+
+    const productToAdd = {
+      ...product,
+      selectedSize,
+      price: selectedSize.price,
+    };
+
+    setSelectedProduct(productToAdd);
 
     setCartCount(cartCount + 1);
 
-    setTotal(total + product.price);
+    setTotal(total + selectedSize.price);
 
     setShowPopup(true);
 
@@ -76,7 +150,7 @@ export default function AmlouPage() {
       "cart",
       JSON.stringify([
         ...JSON.parse(localStorage.getItem("cart") || "[]"),
-        product,
+        productToAdd,
       ])
     );
 
@@ -92,102 +166,112 @@ export default function AmlouPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-        {products.map((product, index) => (
+        {products.map((product, index) => {
 
-          <div
-            key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md"
-          >
+          const currentSize =
+            selectedSizes[product.slug] || product.sizes[0];
 
-            {/* IMAGE */}
+          return (
 
-            <div className="bg-[#f8f3eb]">
+            <div
+              key={index}
+              className="bg-white rounded-2xl overflow-hidden shadow-md"
+            >
 
-              <img
-                src={product.image}
-                className="w-full h-[350px] object-contain p-3"
-              />
+              {/* IMAGE */}
+
+              <div className="bg-[#f8f3eb]">
+
+                <img
+                  src={product.image}
+                  className="w-full h-[350px] object-contain p-3"
+                />
+
+              </div>
+
+              {/* CONTENT */}
+
+              <div className="p-4 text-center">
+
+                <h2 className="text-base font-bold mb-2 leading-6">
+                  {product.name}
+                </h2>
+
+                {/* SIZES */}
+
+                <div className="flex justify-center gap-2 mb-3 flex-wrap">
+
+                  {product.sizes.map((size) => (
+
+                    <button
+                      key={size.label}
+                      onClick={() =>
+                        setSelectedSizes({
+                          ...selectedSizes,
+                          [product.slug]: size,
+                        })
+                      }
+                      className={`px-3 py-1 rounded-full text-xs border transition
+                      ${
+                        currentSize.label === size.label
+                          ? "bg-[#2f8f6b] text-white border-[#2f8f6b]"
+                          : "bg-white border-gray-300 text-black"
+                      }`}
+                    >
+
+                      {size.label}
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+                {/* PRICE */}
+
+                <div className="flex justify-center items-center gap-2">
+
+                  <p className="text-green-600 text-xl font-bold">
+                    {currentSize.price} د.م
+                  </p>
+
+                  <p className="text-gray-400 line-through text-sm">
+                    {product.oldPrice}
+                  </p>
+
+                </div>
+
+                {/* BUTTONS */}
+
+                <div className="flex gap-2 mt-4">
+
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
+                  >
+
+                    🛒 أضف إلى السلة
+
+                  </button>
+
+                  <Link
+                    href={`/product/${product.slug}`}
+                    className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
+                  >
+
+                    عرض المنتج
+
+                  </Link>
+
+                </div>
+
+              </div>
 
             </div>
 
-            {/* CONTENT */}
+          );
 
-            <div className="p-4 text-center">
-
-              <h2 className="text-base font-bold mb-2 leading-6">
-                {product.name}
-              </h2>
-
-              {/* SIZES */}
-
-              <div className="flex justify-center gap-2 mb-3 flex-wrap">
-
-                {(product.name === "أملو كاكاو" ||
-                  product.name === "خلطة المكسرات بالعسل") ? (
-
-                  <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                    1Kg
-                  </div>
-
-                ) : (
-
-                  <>
-                    <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                      370g
-                    </div>
-
-                    <div className="border border-gray-300 px-2 py-1 rounded-full text-xs">
-                      700g
-                    </div>
-                  </>
-
-                )}
-
-              </div>
-
-              {/* PRICE */}
-
-              <div className="flex justify-center items-center gap-2">
-
-                <p className="text-green-600 text-xl font-bold">
-                  {product.price} د.م
-                </p>
-
-                <p className="text-gray-400 line-through text-sm">
-                  {product.oldPrice}
-                </p>
-
-              </div>
-
-              {/* BUTTONS */}
-
-              <div className="flex gap-2 mt-4">
-
-                <button
-                  onClick={() => addToCart(product)}
-                  className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl font-bold transition"
-                >
-
-                  🛒 أضف إلى السلة
-
-                </button>
-
-                <Link
-                  href={`/product/${product.slug}`}
-                  className="bg-white border border-[#2f8f6b] text-[#2f8f6b] hover:bg-[#2f8f6b] hover:text-white px-4 rounded-xl flex items-center justify-center transition"
-                >
-
-                  👁
-
-                </Link>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        ))}
+        })}
 
       </div>
 
@@ -246,7 +330,7 @@ export default function AmlouPage() {
                 </h3>
 
                 <p className="text-gray-500 text-sm">
-                  الكمية: 1
+                  الحجم: {selectedProduct.selectedSize.label}
                 </p>
 
                 <p className="text-[#2f8f6b] font-bold text-lg">
