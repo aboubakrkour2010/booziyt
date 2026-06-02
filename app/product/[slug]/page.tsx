@@ -116,17 +116,34 @@ export default function ProductPage({
 
           {/* BUTTONS */}
 
-          <div className="flex gap-4">
+          {/* BUTTON */}
 
-            <button className="bg-black hover:bg-gray-800 transition text-white px-6 py-4 rounded-2xl w-full text-lg font-semibold">
-              Ajouter au panier
-            </button>
+<button
+  onClick={() => {
 
-            <button className="border border-black hover:bg-black hover:text-white transition px-6 py-4 rounded-2xl w-full text-lg font-semibold">
-              Acheter maintenant
-            </button>
+    const productToAdd = {
+      ...product,
+      selectedSize,
+      price: selectedSize.price,
+    };
 
-          </div>
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([
+        ...JSON.parse(localStorage.getItem("cart") || "[]"),
+        productToAdd,
+      ])
+    );
+
+    alert("تمت إضافة المنتج إلى السلة");
+
+  }}
+  className="w-full bg-[#2f8f6b] hover:bg-[#267456] transition text-white py-4 rounded-2xl text-lg font-bold"
+>
+
+  🛒 إضافة إلى السلة
+
+</button>
 
         </div>
 
