@@ -10,7 +10,7 @@ export default function HoneyPage() {
     {
       slug: "taj-alasal",
       title: "تاج العسل",
-      image: "/honey1.png.jpg",
+      image: "/honey1.webp",
       description: "عسل فاخر طبيعي غني بالفوائد.",
       sizes: [
         {
@@ -27,7 +27,7 @@ export default function HoneyPage() {
     {
       slug: "thyme-honey",
       title: "عسل الزعتر",
-      image: "/honey2.png.jpg",
+      image: "/honey2.webp",
       description: "عسل الزعتر الطبيعي الأصلي.",
       sizes: [
         {
@@ -44,7 +44,7 @@ export default function HoneyPage() {
     {
       slug: "daghmous-honey",
       title: "عسل الدغموس",
-      image: "/honey3.png.png",
+      image: "/honey3.webp",
       description: "عسل الدغموس الطبيعي.",
       sizes: [
         {
@@ -61,7 +61,7 @@ export default function HoneyPage() {
     {
       slug: "sidr-honey",
       title: "عسل السدر",
-      image: "/honey4.png.png",
+      image: "/honey4.webp",
       description: "عسل السدر الأصلي.",
       sizes: [
         {
@@ -78,7 +78,7 @@ export default function HoneyPage() {
     {
       slug: "choukiyat-honey",
       title: "عسل الشوكيات",
-      image: "/honey5.png.jpg",
+      image: "/honey5.webp",
       description: "عسل طبيعي غني بالفوائد.",
       sizes: [
         {
@@ -95,7 +95,7 @@ export default function HoneyPage() {
     {
       slug: "eucalyptus-honey",
       title: "عسل الكاليتوس",
-      image: "/honey6.png.jpg",
+      image: "/honey6.webp",
       description: "عسل الكاليتوس الطبيعي.",
       sizes: [
         {
@@ -112,7 +112,7 @@ export default function HoneyPage() {
     {
       slug: "white-honey",
       title: "العسل الأبيض",
-      image: "/honey7.png.jpg",
+      image: "/honey7.webp",
       description: "عسل أبيض طبيعي.",
       sizes: [
         {
@@ -129,7 +129,7 @@ export default function HoneyPage() {
     {
       slug: "lemon-honey",
       title: "عسل الليمون",
-      image: "/honey8.png.jpg",
+      image: "/honey8.webp",
       description: "عسل الليمون الطبيعي.",
       sizes: [
         {

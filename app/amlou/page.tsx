@@ -10,7 +10,7 @@ export default function AmlouPage() {
     {
       slug: "amlou-almond",
       name: "أملو باللوز",
-      image: "/amlou1.png",
+      image: "/amlou1.webp",
       oldPrice: "170 د.م",
 
       sizes: [
@@ -28,7 +28,7 @@ export default function AmlouPage() {
     {
       slug: "amlou-cashew",
       name: "أملو الأكاجو",
-      image: "/amlou2.png",
+      image: "/amlou2.webp",
       oldPrice: "139 د.م",
 
       sizes: [
@@ -46,7 +46,7 @@ export default function AmlouPage() {
     {
       slug: "amlou-pistachio",
       name: "أملو بيستاش",
-      image: "/amlou3.png",
+      image: "/amlou3.webp",
       oldPrice: "149 د.م",
 
       sizes: [
@@ -64,7 +64,7 @@ export default function AmlouPage() {
     {
       slug: "nuts-honey-mix",
       name: "خلطة المكسرات بالعسل",
-      image: "/amlou4.png",
+      image: "/amlou4.webp",
       oldPrice: "350 د.م",
 
       sizes: [
@@ -82,7 +82,7 @@ export default function AmlouPage() {
     {
       slug: "pumpkin-seeds-amlou",
       name: "أملو بذور اليقطين",
-      image: "/amlou5.png",
+      image: "/amlou5.webp",
       oldPrice: "95 د.م",
 
       sizes: [
@@ -100,7 +100,7 @@ export default function AmlouPage() {
     {
       slug: "cocoa-amlou",
       name: "أملو كاكاو",
-      image: "/amlou6.png",
+      image: "/amlou6.webp",
       oldPrice: "74,99 د.م",
 
       sizes: [
