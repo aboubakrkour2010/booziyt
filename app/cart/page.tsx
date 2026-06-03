@@ -20,7 +20,10 @@ export default function CartPage() {
       let totalPrice = 0;
 
       parsed.forEach((item: any) => {
-        totalPrice += item.price;
+
+        totalPrice +=
+          item.selectedSize?.price || item.price || 0;
+
       });
 
       setTotal(totalPrice);
@@ -42,7 +45,10 @@ export default function CartPage() {
     let totalPrice = 0;
 
     updated.forEach((item: any) => {
-      totalPrice += item.price;
+
+      totalPrice +=
+        item.selectedSize?.price || item.price || 0;
+
     });
 
     setTotal(totalPrice);
@@ -102,19 +108,21 @@ export default function CartPage() {
             <div className="text-right flex-1 pr-4">
 
               <h2 className="font-bold text-lg">
-                {item.name}
+                {item.title || item.name}
               </h2>
 
               <p className="text-sm text-gray-500 mt-1">
 
                 {item.type === "pack"
                   ? "باقة"
-                  : "1 كيلو"}
+                  : item.selectedSize?.label || "1 كيلو"}
 
               </p>
 
               <p className="text-[#2f8f6b] font-bold mt-2">
-                {item.price} د.م
+
+                {item.selectedSize?.price || item.price} د.م
+
               </p>
 
             </div>
@@ -149,7 +157,7 @@ export default function CartPage() {
           </span>
 
           <span className="font-semibold">
-            {total} د.م
+            {finalTotal} د.م
           </span>
 
         </div>
@@ -189,13 +197,13 @@ export default function CartPage() {
         {/* CHECKOUT */}
 
         <a
-  href="/checkout"
-  className="block w-full bg-[#2f8f6b] text-white py-4 rounded-xl font-bold text-base text-center"
->
+          href="/checkout"
+          className="block w-full bg-[#2f8f6b] text-white py-4 rounded-xl font-bold text-base text-center"
+        >
 
-  إتمام الشراء
+          إتمام الشراء
 
-</a>
+        </a>
 
         {/* CONTINUE */}
 
