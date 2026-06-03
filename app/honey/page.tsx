@@ -144,6 +144,46 @@ export default function HoneyPage() {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
+  const [selectedSizes, setSelectedSizes] = useState<any>({});
+
+  const changeSize = (slug: string, size: any) => {
+
+    setSelectedSizes((prev: any) => ({
+      ...prev,
+      [slug]: size,
+    }));
+
+  };
+
+  const getSelectedSize = (product: any) => {
+
+    return selectedSizes[product.slug] || product.sizes[0];
+
+  };
+
+  const addToCart = (product: any) => {
+
+    const selectedSize = getSelectedSize(product);
+
+    const productToAdd = {
+      ...product,
+      selectedSize,
+    };
+
+    setSelectedProduct(productToAdd);
+
+    setShowPopup(true);
+
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([
+        ...JSON.parse(localStorage.getItem("cart") || "[]"),
+        productToAdd,
+      ])
+    );
+
+  };
+
   return (
 
     <main className="bg-[#f3ebdf] min-h-screen p-4">
@@ -156,30 +196,7 @@ export default function HoneyPage() {
 
         {products.map((product, index) => {
 
-          const [selectedSize, setSelectedSize] = useState(
-            product.sizes[0]
-          );
-
-          const addToCart = () => {
-
-            const productToAdd = {
-              ...product,
-              selectedSize,
-            };
-
-            setSelectedProduct(productToAdd);
-
-            setShowPopup(true);
-
-            localStorage.setItem(
-              "cart",
-              JSON.stringify([
-                ...JSON.parse(localStorage.getItem("cart") || "[]"),
-                productToAdd,
-              ])
-            );
-
-          };
+          const selectedSize = getSelectedSize(product);
 
           return (
 
@@ -215,7 +232,9 @@ export default function HoneyPage() {
 
                     <button
                       key={size.label}
-                      onClick={() => setSelectedSize(size)}
+                      onClick={() =>
+                        changeSize(product.slug, size)
+                      }
                       className={`px-3 py-1 rounded-full text-xs border transition
                       ${
                         selectedSize.label === size.label
@@ -247,7 +266,7 @@ export default function HoneyPage() {
                 <div className="flex gap-2 mt-3">
 
                   <button
-                    onClick={addToCart}
+                    onClick={() => addToCart(product)}
                     className="flex-1 bg-[#2f8f6b] hover:bg-[#267456] text-white py-3 rounded-xl text-sm font-semibold transition"
                   >
 
