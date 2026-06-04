@@ -27,8 +27,11 @@ export default function CheckoutPage() {
       let totalPrice = 0;
 
       parsed.forEach((item: any) => {
-        totalPrice += item.price;
-      });
+
+  totalPrice +=
+    item.selectedSize?.price || item.price || 0;
+
+});
 
       setSubtotal(totalPrice);
 
@@ -79,12 +82,12 @@ export default function CheckoutPage() {
 
         body: JSON.stringify({
 
-          name,
-          phone,
-          city,
-          address,
-          paymentMethod,
-          total,
+          name: name,
+          phone: phone,
+          city: city,
+          address: address,
+          paymentMethod: paymentMethod,
+          total: total,
           cartItems,
 
         }),
@@ -473,16 +476,25 @@ export default function CheckoutPage() {
 
                   <div>
 
-                    <h3 className="font-bold text-sm">
-                      {item.name}
-                    </h3>
+  <h3 className="font-bold text-sm">
 
-                    <p className="text-gray-500 text-xs">
-                      {item.price} د.م
-                    </p>
+    {item.title || item.name}
 
-                  </div>
+  </h3>
 
+  <p className="text-gray-500 text-xs">
+
+    {item.selectedSize?.label || "Pack"}
+
+  </p>
+
+  <p className="text-[#2f8f6b] font-bold text-sm">
+
+    {item.selectedSize?.price || item.price || 0} د.م
+
+  </p>
+
+</div>
                 </div>
 
               </div>
@@ -497,11 +509,9 @@ export default function CheckoutPage() {
               المجموع الفرعي
             </span>
 
-            <span>
-              {subtotal} د.م
-            </span>
-
-          </div>
+          <span>
+  {subtotal} د.م
+</span>
 
           <div className="flex justify-between mb-4 text-sm">
 
