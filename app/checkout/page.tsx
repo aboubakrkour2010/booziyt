@@ -27,11 +27,8 @@ export default function CheckoutPage() {
       let totalPrice = 0;
 
       parsed.forEach((item: any) => {
-
-  totalPrice +=
-    item.selectedSize?.price || item.price || 0;
-
-});
+        totalPrice += item.price;
+      });
 
       setSubtotal(totalPrice);
 
@@ -476,25 +473,31 @@ export default function CheckoutPage() {
 
                   <div>
 
-  <h3 className="font-bold text-sm">
+                    <h3 className="font-bold text-sm">
 
-    {item.title || item.name}
+  {item.title || item.name}
 
-  </h3>
+</h3>
 
-  <p className="text-gray-500 text-xs">
+<p className="text-gray-500 text-xs">
 
-    {item.selectedSize?.label || "Pack"}
+  {item.selectedSize?.label ||
+    (item.type === "pack"
+      ? "باقة"
+      : "1 كيلو")}
 
-  </p>
+</p>
 
-  <p className="text-[#2f8f6b] font-bold text-sm">
+<p className="text-[#2f8f6b] font-bold text-sm">
 
-    {item.selectedSize?.price || item.price || 0} د.م
+  {item.selectedSize?.price ||
+    item.price ||
+    0} د.م
 
-  </p>
+</p>
 
-</div>
+                  </div>
+
                 </div>
 
               </div>
@@ -509,9 +512,11 @@ export default function CheckoutPage() {
               المجموع الفرعي
             </span>
 
-          <span>
-  {subtotal} د.م
-</span>
+            <span>
+              {subtotal} د.م
+            </span>
+
+          </div>
 
           <div className="flex justify-between mb-4 text-sm">
 
