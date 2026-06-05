@@ -375,7 +375,7 @@ export default function CheckoutPage() {
 
                 <p>
                   <span className="font-bold">رقم الهاتف:</span>{" "}
-                  0663756621
+                  0663756637
                 </p>
 
                 <p>
