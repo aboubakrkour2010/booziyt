@@ -318,7 +318,7 @@ export default function CheckoutPage() {
               </div>
 
               <a
-                href="https://wa.me/212663756621"
+                href="https://wa.me/212663756637"
                 target="_blank"
                 className="w-full mt-5 bg-green-600 hover:bg-green-700 transition text-white py-3 rounded-xl font-bold flex items-center justify-center"
               >
@@ -386,7 +386,7 @@ export default function CheckoutPage() {
               </div>
 
               <a
-                href="https://wa.me/212663756621"
+                href="https://wa.me/212663756637"
                 target="_blank"
                 className="w-full mt-5 bg-green-600 hover:bg-green-700 transition text-white py-3 rounded-xl font-bold flex items-center justify-center"
               >
