@@ -13,7 +13,7 @@ export default function PacksPage() {
       price: 420,
       oldPrice: "500 د.م",
       image: "/pack2.png.png",
-      type: "باقة",
+      type: "pack",
     },
 
     {
@@ -22,7 +22,7 @@ export default function PacksPage() {
       price: 550,
       oldPrice: "620 د.م",
       image: "/pack9.png.png",
-      type: "باقة",
+      type: "pack",
     },
 
     {
@@ -31,7 +31,7 @@ export default function PacksPage() {
       price: 550,
       oldPrice: "610 د.م",
       image: "/pack5.png.jpg",
-      type: "باقة",
+      type: "pack",
     },
 
     {
@@ -40,7 +40,7 @@ export default function PacksPage() {
       price: 600,
       oldPrice: "710 د.م",
       image: "/pack4.png.jpg",
-      type: "باقة",
+      type: "pack",
     },
 
     {
@@ -49,7 +49,7 @@ export default function PacksPage() {
       price: 550,
       oldPrice: "700 د.م",
       image: "/pack6.png.jpg",
-      type: "باقة",
+      type: "pack",
     },
 
     {
@@ -58,7 +58,7 @@ export default function PacksPage() {
       price: 320,
       oldPrice: "370 د.م",
       image: "/pack1.png.png",
-      type: "باقة",
+      type: "pack",
     },
 
   ];
