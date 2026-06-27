@@ -333,6 +333,20 @@ export const products = [
     description:
       "باقة الأصالة بتشكيلة طبيعية فاخرة.",
   },
+  
+  {
+  slug: "summer-pack",
+  title: "باقة الصيف",
+  image: "/summer-pack.jpg",
+  price: 550,
+
+  sizes: [
+    { label: "Pack", price: 550 },
+  ],
+
+  description:
+    "باقة الصيف تضم تشكيلة مميزة من المنتجات الطبيعية بعرض خاص.",
+},
 
   {
     slug: "tadart-pack",
