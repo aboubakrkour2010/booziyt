@@ -34,6 +34,15 @@ export default function PacksPage() {
       type: "pack",
     },
 
+   {
+  slug: "summer-pack",
+  name: "باقة الصيف",
+  price: 550,
+  oldPrice: "685 د.م",
+  image: "/summer-pack.jpg",
+  type: "pack",
+},
+
     {
       slug: "authentic-pack",
       name: "باقة الأصالة",
