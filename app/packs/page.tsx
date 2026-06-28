@@ -12,7 +12,7 @@ export default function PacksPage() {
       name: "باقة أملو 370 كرام",
       price: 420,
       oldPrice: "500 د.م",
-      image: "/pack2.png.png",
+      image: "/pack2.png.webp",
       type: "pack",
     },
 
@@ -21,7 +21,7 @@ export default function PacksPage() {
       name: "باقة وردة",
       price: 550,
       oldPrice: "620 د.م",
-      image: "/pack9.png.png",
+      image: "/pack9.png.webp",
       type: "pack",
     },
 
@@ -30,7 +30,7 @@ export default function PacksPage() {
       name: "باقة الكرم",
       price: 550,
       oldPrice: "610 د.م",
-      image: "/pack5.png.jpg",
+      image: "/pack5.png.webp",
       type: "pack",
     },
 
@@ -48,7 +48,7 @@ export default function PacksPage() {
       name: "باقة الأصالة",
       price: 600,
       oldPrice: "710 د.م",
-      image: "/pack4.png.jpg",
+      image: "/pack4.png.webp",
       type: "pack",
     },
 
@@ -57,7 +57,7 @@ export default function PacksPage() {
       name: "باقة تادرات",
       price: 550,
       oldPrice: "700 د.م",
-      image: "/pack6.png.jpg",
+      image: "/pack6.png.webp",
       type: "pack",
     },
 
@@ -66,7 +66,7 @@ export default function PacksPage() {
       name: "باقة أملو 250 كرام",
       price: 320,
       oldPrice: "370 د.م",
-      image: "/pack1.png.png",
+      image: "/pack1.png.webp ;,",
       type: "pack",
     },
 
