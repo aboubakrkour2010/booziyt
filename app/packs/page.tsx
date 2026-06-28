@@ -66,7 +66,7 @@ export default function PacksPage() {
       name: "باقة أملو 250 كرام",
       price: 320,
       oldPrice: "370 د.م",
-      image: "/pack1.png.webp ;,",
+      image: "/pack1.png.png ;,",
       type: "pack",
     },
 
