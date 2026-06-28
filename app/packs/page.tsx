@@ -61,15 +61,6 @@ export default function PacksPage() {
       type: "pack",
     },
 
-    {
-      slug: "amlou-pack-250g",
-      name: "باقة أملو 250 كرام",
-      price: 320,
-      oldPrice: "370 د.م",
-      image: "/pack1.png.png ;,",
-      type: "pack",
-    },
-
   ];
 
   const [showPopup, setShowPopup] = useState(false);
