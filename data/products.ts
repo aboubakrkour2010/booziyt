@@ -362,18 +362,4 @@ export const products = [
       "باقة تادرات الطبيعية بعرض خاص.",
   },
 
-  {
-    slug: "amlou-pack-250g",
-    title: "باقة أملو 250 كرام",
-    image: "/pack1.png.png",
-    price: 320,
-
-    sizes: [
-      { label: "Pack", price: 320 },
-    ],
-
-    description:
-      "باقة أملو 250g بمنتجات طبيعية متنوعة.",
-  },
-
 ];
