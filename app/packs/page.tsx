@@ -39,7 +39,7 @@ export default function PacksPage() {
   name: "باقة الصيف",
   price: 550,
   oldPrice: "685 د.م",
-  image: "/summer-pack.jpg",
+  image: "/summer-pack.png",
   type: "pack",
 },
 
