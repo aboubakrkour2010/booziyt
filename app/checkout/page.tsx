@@ -435,9 +435,7 @@ export default function CheckoutPage() {
 
             <div className="bg-[#f8f8f8] rounded-2xl p-5 mt-4 text-right text-sm leading-8 text-gray-700">
 
-              يتم تفعيل خدمة الدفع عند الاستلام للزبائن الذين سبق لهم تأكيد واستلام طلباتهم بنجاح.
-              <br />
-              أما الزبائن الجدد، فيرجى إتمام الدفع مسبقًا عبر التحويل البنكي أو Cash Plus لتأكيد الطلب.
+             
 
             </div>
 
