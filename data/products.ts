@@ -5,7 +5,7 @@ export const products = [
   {
     slug: "amlou-almond",
     title: "أملو باللوز",
-    image: "/amlou1.png",
+    image: "/amlou1.png.webp",
     price: 160,
 
     sizes: [
@@ -20,7 +20,7 @@ export const products = [
   {
     slug: "amlou-cashew",
     title: "أملو الأكاجو",
-    image: "/amlou2.png",
+    image: "/amlou2.png.webp",
     price: 110,
 
     sizes: [
@@ -35,7 +35,7 @@ export const products = [
   {
     slug: "amlou-pistachio",
     title: "أملو بيستاش",
-    image: "/amlou3.png",
+    image: "/amlou3.webp",
     price: 129,
 
     sizes: [
@@ -50,7 +50,7 @@ export const products = [
   {
     slug: "nuts-honey-mix",
     title: "خلطة المكسرات بالعسل",
-    image: "/amlou4.png",
+    image: "/amlou4.png.webp",
     price: 250,
 
     sizes: [
@@ -65,7 +65,7 @@ export const products = [
   {
     slug: "pumpkin-seeds-amlou",
     title: "أملو بذور اليقطين",
-    image: "/amlou5.png",
+    image: "/amlou5.webp",
     price: 80,
 
     sizes: [
@@ -80,7 +80,7 @@ export const products = [
   {
     slug: "cocoa-amlou",
     title: "أملو كاكاو",
-    image: "/amlou6.png",
+    image: "/amlou6.webp",
     price: 60,
 
     sizes: [
@@ -96,7 +96,7 @@ export const products = [
   {
     slug: "taj-alasal",
     title: "تاج العسل",
-    image: "/honey1.png.jpg",
+    image: "/honey1.png.webp",
     price: 600,
 
     sizes: [
@@ -110,7 +110,7 @@ export const products = [
   {
     slug: "thyme-honey",
     title: "عسل الزعتر",
-    image: "/honey2.png.jpg",
+    image: "/honey2.png.webp",
     price: 400,
 
     sizes: [
@@ -125,7 +125,7 @@ export const products = [
   {
     slug: "daghmous-honey",
     title: "عسل الدغموس",
-    image: "/honey3.png.png",
+    image: "/honey3.png.webp",
     price: 250,
 
     sizes: [
@@ -140,7 +140,7 @@ export const products = [
   {
     slug: "sidr-honey",
     title: "عسل السدر",
-    image: "/honey4.png.png",
+    image: "/honey4.png.webp",
     price: 250,
 
     sizes: [
@@ -155,7 +155,7 @@ export const products = [
   {
     slug: "choukiyat-honey",
     title: "عسل الشوكيات",
-    image: "/honey5.png.jpg",
+    image: "/honey5.png.webp",
     price: 300,
 
     sizes: [
@@ -170,7 +170,7 @@ export const products = [
   {
     slug: "eucalyptus-honey",
     title: "عسل الكاليتوس",
-    image: "/honey6.png.jpg",
+    image: "/honey6.png.webp",
     price: 200,
 
     sizes: [
@@ -185,7 +185,7 @@ export const products = [
   {
     slug: "white-honey",
     title: "العسل الأبيض",
-    image: "/honey7.png.jpg",
+    image: "/honey7.png.webp",
     price: 200,
 
     sizes: [
@@ -200,7 +200,7 @@ export const products = [
   {
     slug: "lemon-honey",
     title: "عسل الليمون",
-    image: "/honey8.png.jpg",
+    image: "/honey8.png.webp",
     price: 99,
 
     sizes: [
@@ -232,7 +232,7 @@ export const products = [
   {
     slug: "argan-cosmetic-oil",
     title: "زيت أركان للتجميل",
-    image: "/oil2.png",
+    image: "/oil2.png.jpg",
     price: 175,
 
     sizes: [
@@ -281,7 +281,7 @@ export const products = [
   {
   slug: "amlou-pack-370g",
   title: "باقة أملو 370 غرام",
-  image: "/pack2.png.png",
+  image: "/pack2.png.webp",
   price: 420,
 
   sizes: [
@@ -295,7 +295,7 @@ export const products = [
   {
   slug: "rose-pack",
   title: "باقة وردة",
-  image: "/pack9.png.png",
+  image: "/pack9.png.webp",
   price: 550,
 
   sizes: [
@@ -309,7 +309,7 @@ export const products = [
   {
   slug: "generosity-pack",
   title: "باقة الكرم",
-  image: "/pack5.png.jpg",
+  image: "/pack5.png.webp",
   price: 550,
 
   sizes: [
@@ -323,7 +323,7 @@ export const products = [
   {
   slug: "authentic-pack",
   title: "باقة الأصالة",
-  image: "/pack4.png.jpg",
+  image: "/pack4.png.webp",
   price: 600,
 
   sizes: [
@@ -338,7 +338,7 @@ export const products = [
   {
   slug: "summer-pack",
   title: "باقة الصيف",
-  image: "/summer-pack.jpg",
+  image: "/summer-pack.webp",
   price: 550,
 
   sizes: [
@@ -352,7 +352,7 @@ export const products = [
 {
   slug: "tadart-pack",
   title: "باقة تادرات",
-  image: "/pack6.png.jpg",
+  image: "/pack6.png.webp",
   price: 550,
 
   sizes: [
