@@ -96,7 +96,7 @@ export const products = [
   {
     slug: "taj-alasal",
     title: "تاج العسل",
-    image: "/honey1.png.webp",
+    image: "/honey1.webp",
     price: 600,
 
     sizes: [
@@ -110,7 +110,7 @@ export const products = [
   {
     slug: "thyme-honey",
     title: "عسل الزعتر",
-    image: "/honey2.png.webp",
+    image: "/honey2.webp",
     price: 400,
 
     sizes: [
@@ -125,7 +125,7 @@ export const products = [
   {
     slug: "daghmous-honey",
     title: "عسل الدغموس",
-    image: "/honey3.png.webp",
+    image: "/honey3.webp",
     price: 250,
 
     sizes: [
@@ -140,7 +140,7 @@ export const products = [
   {
     slug: "sidr-honey",
     title: "عسل السدر",
-    image: "/honey4.png.webp",
+    image: "/honey4.webp",
     price: 250,
 
     sizes: [
@@ -155,7 +155,7 @@ export const products = [
   {
     slug: "choukiyat-honey",
     title: "عسل الشوكيات",
-    image: "/honey5.png.webp",
+    image: "/honey5.webp",
     price: 300,
 
     sizes: [
@@ -170,7 +170,7 @@ export const products = [
   {
     slug: "eucalyptus-honey",
     title: "عسل الكاليتوس",
-    image: "/honey6.png.webp",
+    image: "/honey6.webp",
     price: 200,
 
     sizes: [
@@ -185,7 +185,7 @@ export const products = [
   {
     slug: "white-honey",
     title: "العسل الأبيض",
-    image: "/honey7.png.webp",
+    image: "/honey7.webp",
     price: 200,
 
     sizes: [
@@ -200,7 +200,7 @@ export const products = [
   {
     slug: "lemon-honey",
     title: "عسل الليمون",
-    image: "/honey8.png.webp",
+    image: "/honey8.webp",
     price: 99,
 
     sizes: [
@@ -338,7 +338,7 @@ export const products = [
   {
   slug: "summer-pack",
   title: "باقة الصيف",
-  image: "/summer-pack.webp",
+  image: "/summer-pack.png",
   price: 550,
 
   sizes: [
