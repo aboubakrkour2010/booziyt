@@ -221,8 +221,8 @@ export const products = [
     price: 175,
 
     sizes: [
-      { label: "250ml", price: 175 },
-      { label: "500ml", price: 350 },
+      { label: "250ml", price: 130 },
+      { label: "500ml", price: 250 },
     ],
 
     description:

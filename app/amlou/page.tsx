@@ -105,12 +105,8 @@ export default function AmlouPage() {
 
       sizes: [
         {
-          label: "500g",
-          price: 60,
-        },
-        {
           label: "1Kg",
-          price: 110,
+          price: 60,
         },
       ],
     },
