@@ -86,6 +86,60 @@ export default function Home() {
         </p>
 
       </div>
+      {/* TRUST BAR */}
+
+<section className="max-w-6xl mx-auto px-4 pb-12">
+
+  <div className="bg-white rounded-3xl shadow-lg border border-[#e8dcc5] p-8">
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+      <div className="transition hover:scale-105">
+        <div className="text-5xl mb-3">🌿</div>
+        <h3 className="text-green-900 font-bold text-lg">
+          منتجات مختارة
+        </h3>
+        <p className="text-gray-600 text-sm mt-2">
+          بعناية فائقة
+        </p>
+      </div>
+
+      <div className="transition hover:scale-105">
+        <div className="text-5xl mb-3">🚚</div>
+        <h3 className="text-green-900 font-bold text-lg">
+          توصيل سريع
+        </h3>
+        <p className="text-gray-600 text-sm mt-2">
+          لجميع المدن المغربية
+        </p>
+      </div>
+
+      <div className="transition hover:scale-105">
+        <div className="text-5xl mb-3">💳</div>
+        <h3 className="text-green-900 font-bold text-lg">
+          الدفع عند الاستلام
+        </h3>
+        <p className="text-gray-600 text-sm mt-2">
+          بكل سهولة وأمان
+        </p>
+      </div>
+
+      <div className="transition hover:scale-105">
+        <div className="text-5xl mb-3">🛡️</div>
+        <h3 className="text-green-900 font-bold text-lg">
+          جودة مضمونة
+        </h3>
+        <p className="text-gray-600 text-sm mt-2">
+          منتجات أصلية وموثوقة
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
       {/* CATEGORIES */}
 
