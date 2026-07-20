@@ -14,8 +14,10 @@ export default function OilPage() {
       oldPrice: "220 د.م",
 
       sizes: [
-        { label: "250ml", price: 175 },
-        { label: "500ml", price: 350 },
+        { label: "250ml", price: 130 },
+        { label: "500ml", price: 250 },
+        { label: "750ml", price: 375 },
+        { label: "1L", price: 500 },
       ],
     },
 
