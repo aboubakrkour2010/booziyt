@@ -82,7 +82,7 @@ export default function Home() {
         </h1>
 
         <p className="text-xl mt-4 text-gray-700">
-          منتجات طبيعية أصلية وبجودة عالية
+         حيث تلتقي الأصالة بالجودة.
         </p>
 
       </div>
