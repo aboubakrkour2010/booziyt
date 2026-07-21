@@ -289,7 +289,7 @@ export default function Home() {
   <div className="text-center mt-10">
 
     <a
-      href="ضع_هنا_رابط_تقييمات_Google_Maps"
+      href="https://www.google.com/maps/place/Boo+ziyt/@30.3842783,-9.4702363,4104m/data=!3m1!1e3!4m8!3m7!1s0xdb3c9006137fc03:0x13e0743850f889b8!8m2!3d30.3842766!4d-9.478991!9m1!1b1!16s%2Fg%2F11ytlh2bg2?entry=ttu&g_ep=EgoyMDI2MDcxOS4wIKXMDSoASAFQAw%3D%3D"
       target="_blank"
       className="inline-block bg-[#2f8f6b] hover:bg-green-800 transition text-white font-bold py-3 px-8 rounded-xl"
     >
