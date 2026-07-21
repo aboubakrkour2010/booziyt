@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { products } from "@/data/products";
 
 export default function Home() {
@@ -210,9 +210,10 @@ export default function Home() {
     <div className="bg-[#f8f3eb]">
 
       <img
-        src={product.image}
-        className="w-full h-[190px] object-contain p-3"
-      />
+  src={product.image}
+  alt={product.title}
+  className="w-full h-[260px] object-contain p-4"
+/>
 
     </div>
 
@@ -224,8 +225,8 @@ export default function Home() {
 
 
       <p className="text-green-700 text-2xl font-bold">
-        {product.price} د.م
-      </p>
+  {product.sizes?.[0]?.price || product.price} د.م
+</p>
 
       <button
         onClick={() => addToCart(product)}
@@ -299,7 +300,7 @@ export default function Home() {
                 </p>
 
                 <p className="text-[#2f8f6b] font-bold text-lg">
-                  {selectedProduct.price} د.م
+                  {selectedProduct.title}
                 </p>
 
               </div>
