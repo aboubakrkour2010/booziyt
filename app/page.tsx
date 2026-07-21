@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { products } from "@/data/products";
 
 export default function Home() {
 
@@ -189,180 +190,61 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {products
+  .filter((product) =>
+    [
+      "summer-pack",
+      "rose-pack",
+      "olive-oil",
+      "argan-food-oil",
+    ].includes(product.slug)
+  )
+  .map((product, index) => (
 
-          {/* OFFER 1 */}
 
-          <div className="bg-white rounded-2xl overflow-hidden shadow-md">
+  <div
+    key={index}
+    className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+  >
 
-            <div className="bg-[#f8f3eb]">
+    <div className="bg-[#f8f3eb]">
 
-              <img
-                src="/offer1.png"
-                className="w-full h-[190px] object-contain p-3"
-              />
+      <img
+        src={product.image}
+        className="w-full h-[190px] object-contain p-3"
+      />
 
-            </div>
+    </div>
 
-            <div className="p-4 text-center">
+    <div className="p-4 text-center">
 
-              <h3 className="text-lg font-bold mb-2">
-                باقة أملو 370g
-              </h3>
+      <h3 className="text-lg font-bold mb-2">
+  {product.title}
+</h3>
 
-              <p className="text-green-700 text-2xl font-bold">
-                420 د.م
-              </p>
 
-              <button
-                onClick={() =>
-                  addToCart({
-                    name: "باقة أملو 370g",
-                    price: 420,
-                    image: "/offer1.png",
-                    type: "pack",
-                  })
-                }
-                className="w-full mt-4 bg-[#2f8f6b] text-white py-3 rounded-xl font-bold"
-              >
+      <p className="text-green-700 text-2xl font-bold">
+        {product.price} د.م
+      </p>
 
-                🛒 أضف إلى السلة
+      <button
+        onClick={() => addToCart(product)}
+        className="w-full mt-4 bg-[#2f8f6b] hover:bg-green-800 transition text-white py-3 rounded-xl font-bold"
+      >
 
-              </button>
+        🛒 أضف إلى السلة
 
-            </div>
+            </button>
 
-          </div>
+    </div>
 
-          {/* OFFER 2 */}
+  </div>
 
-          <div className="bg-white rounded-2xl overflow-hidden shadow-md">
+))}
 
-            <div className="bg-[#f8f3eb]">
+</div>
 
-              <img
-                src="/offer2.png"
-                className="w-full h-[190px] object-contain p-3"
-              />
-
-            </div>
-
-            <div className="p-4 text-center">
-
-              <h3 className="text-lg font-bold mb-2">
-                أملو الأكاجو
-              </h3>
-
-              <p className="text-green-700 text-2xl font-bold">
-                180 د.م
-              </p>
-
-              <button
-                onClick={() =>
-                  addToCart({
-                    name: "أملو الأكاجو",
-                    price: 180,
-                    image: "/offer2.png",
-                  })
-                }
-                className="w-full mt-4 bg-[#2f8f6b] text-white py-3 rounded-xl font-bold"
-              >
-
-                🛒 أضف إلى السلة
-
-              </button>
-
-            </div>
-
-          </div>
-
-          {/* OFFER 3 */}
-
-          <div className="bg-white rounded-2xl overflow-hidden shadow-md">
-
-            <div className="bg-[#f8f3eb]">
-
-              <img
-                src="/offer3.png"
-                className="w-full h-[190px] object-contain p-3"
-              />
-
-            </div>
-
-            <div className="p-4 text-center">
-
-              <h3 className="text-lg font-bold mb-2">
-                باقة وردة
-              </h3>
-
-              <p className="text-green-700 text-2xl font-bold">
-                550 د.م
-              </p>
-
-              <button
-                onClick={() =>
-                  addToCart({
-                    name: "باقة وردة",
-                    price: 550,
-                    image: "/offer3.png",
-                    type: "pack",
-                  })
-                }
-                className="w-full mt-4 bg-[#2f8f6b] text-white py-3 rounded-xl font-bold"
-              >
-
-                🛒 أضف إلى السلة
-
-              </button>
-
-            </div>
-
-          </div>
-
-          {/* OFFER 4 */}
-
-          <div className="bg-white rounded-2xl overflow-hidden shadow-md">
-
-            <div className="bg-[#f8f3eb]">
-
-              <img
-                src="/offer4.png"
-                className="w-full h-[190px] object-contain p-3"
-              />
-
-            </div>
-
-            <div className="p-4 text-center">
-
-              <h3 className="text-lg font-bold mb-2">
-                زيت الزيتون
-              </h3>
-
-              <p className="text-green-700 text-2xl font-bold">
-                45 د.م
-              </p>
-
-              <button
-                onClick={() =>
-                  addToCart({
-                    name: "زيت الزيتون",
-                    price: 45,
-                    image: "/offer4.png",
-                  })
-                }
-                className="w-full mt-4 bg-[#2f8f6b] text-white py-3 rounded-xl font-bold"
-              >
-
-                🛒 أضف إلى السلة
-
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+</section>
 
       {/* POPUP */}
 
