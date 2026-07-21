@@ -212,7 +212,7 @@ export default function Home() {
       <img
   src={product.image}
   alt={product.title}
-  className="w-full h-[260px] object-contain p-4"
+  className="w-full h-[190px] object-contain p-4"
 />
 
     </div>
@@ -292,16 +292,17 @@ export default function Home() {
               <div className="text-right">
 
                 <h3 className="font-bold text-base">
-                  {selectedProduct.name}
-                </h3>
+  {selectedProduct.title}
+</h3>
 
-                <p className="text-gray-500 text-sm">
-                  الكمية: 1
-                </p>
+<p className="text-gray-500 text-sm">
+  الكمية: 1
+</p>
 
-                <p className="text-[#2f8f6b] font-bold text-lg">
-                  {selectedProduct.title}
-                </p>
+<p className="text-[#2f8f6b] font-bold text-lg">
+  {selectedProduct.sizes?.[0]?.price || selectedProduct.price} د.م
+</p>
+
 
               </div>
 
