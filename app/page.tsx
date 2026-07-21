@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { products } from "@/data/products";
+import { reviews } from "@/data/reviews";
 
 export default function Home() {
 
@@ -244,6 +245,61 @@ export default function Home() {
 </div>
 
 </section>
+<section className="max-w-6xl mx-auto px-4 pb-20">
+
+  <h2 className="text-3xl font-bold text-center mb-10 text-[#7a0000]">
+    ⭐ آراء زبنائنا الكرام
+  </h2>
+
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+    {reviews.map((review, index) => (
+
+      <div
+        key={index}
+        className="bg-white rounded-2xl shadow-md p-5 border border-[#ece5d8] hover:shadow-xl transition"
+      >
+
+        <div className="text-yellow-500 text-lg mb-2">
+          {"⭐".repeat(review.rating)}
+        </div>
+
+        <h3 className="font-bold text-gray-900">
+          {review.name}
+        </h3>
+
+        <p className="text-xs text-gray-500 mb-3">
+          {review.date}
+        </p>
+
+        <p className="text-gray-700 text-sm leading-7 line-clamp-3">
+          {review.text}
+        </p>
+
+        <p className="text-green-700 text-xs font-semibold mt-4">
+          📍 Google Maps
+        </p>
+
+      </div>
+
+    ))}
+
+  </div>
+
+  <div className="text-center mt-10">
+
+    <a
+      href="ضع_هنا_رابط_تقييمات_Google_Maps"
+      target="_blank"
+      className="inline-block bg-[#2f8f6b] hover:bg-green-800 transition text-white font-bold py-3 px-8 rounded-xl"
+    >
+      ⭐ مشاهدة جميع التقييمات على Google Maps
+    </a>
+
+  </div>
+
+</section>
+
 
       {/* POPUP */}
 
