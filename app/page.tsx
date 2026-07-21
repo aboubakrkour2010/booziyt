@@ -228,14 +228,12 @@ export default function Home() {
   {product.sizes?.[0]?.price || product.price} د.م
 </p>
 
-      <button
-        onClick={() => addToCart(product)}
-        className="w-full mt-4 bg-[#2f8f6b] hover:bg-green-800 transition text-white py-3 rounded-xl font-bold"
-      >
-
-        🛒 أضف إلى السلة
-
-            </button>
+      <Link
+  href={`/product/${product.slug}`}
+  className="block w-full mt-4 bg-[#2f8f6b] hover:bg-green-800 transition text-white py-3 rounded-xl font-bold text-center"
+>
+  👁️ عرض المنتج
+</Link>
 
     </div>
 
