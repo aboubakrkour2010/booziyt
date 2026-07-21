@@ -185,7 +185,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-4 pb-20">
 
         <h2 className="text-3xl font-bold text-center mb-10 text-[#7a0000]">
-          العروض المتوفرة
+         المنتجات المميزة
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

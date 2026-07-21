@@ -10,7 +10,7 @@ export default function OilPage() {
     {
       slug: "argan-food-oil",
       name: "زيت أركان للأكل",
-      image: "/oil1.jpg",
+      image: "/oil1.png",
       oldPrice: "220 د.م",
 
       sizes: [
@@ -37,7 +37,7 @@ export default function OilPage() {
     {
       slug: "olive-oil",
       name: "زيت الزيتون البلدية",
-      image: "/oil3.jpeg",
+      image: "/oil3.png",
       oldPrice: "900 د.م",
 
       sizes: [

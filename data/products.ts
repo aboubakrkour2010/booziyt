@@ -5,7 +5,7 @@ export const products = [
   {
     slug: "amlou-almond",
     title: "أملو باللوز",
-    image: "/amlou1.png.webp",
+    image: "/amlou1.webp",
     price: 160,
 
     sizes: [
@@ -20,7 +20,7 @@ export const products = [
   {
     slug: "amlou-cashew",
     title: "أملو الأكاجو",
-    image: "/amlou2.png.webp",
+    image: "/amlou2.webp",
     price: 110,
 
     sizes: [
@@ -50,7 +50,7 @@ export const products = [
   {
     slug: "nuts-honey-mix",
     title: "خلطة المكسرات بالعسل",
-    image: "/amlou4.png.webp",
+    image: "/amlou4.webp",
     price: 250,
 
     sizes: [
@@ -217,7 +217,7 @@ export const products = [
   {
     slug: "argan-food-oil",
     title: "زيت أركان للأكل",
-    image: "/oil1.jpg",
+    image: "/oil1.png",
     price: 175,
 
     sizes: [
@@ -246,7 +246,7 @@ export const products = [
   {
     slug: "olive-oil",
     title: "زيت الزيتون البلدية",
-    image: "/oil3.jpeg",
+    image: "/oil3.png",
     price: 225,
 
     sizes: [
