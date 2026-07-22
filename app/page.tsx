@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { products } from "@/data/products";
 import { reviews } from "@/data/reviews";
+import { videos } from "@/data/videos";
 
 export default function Home() {
 
@@ -294,6 +295,68 @@ export default function Home() {
       className="inline-block bg-[#2f8f6b] hover:bg-green-800 transition text-white font-bold py-3 px-8 rounded-xl"
     >
       ⭐ مشاهدة جميع التقييمات على Google Maps
+    </a>
+
+  </div>
+
+</section>
+<section className="max-w-6xl mx-auto px-4 pb-20">
+
+  <h2 className="text-3xl font-bold text-center mb-10 text-[#7a0000]">
+    🎥 شاهد كيف ننتج منتجاتنا
+  </h2>
+
+  <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+
+    {videos.map((video, index) => (
+
+      <a
+        key={index}
+        href={video.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group"
+      >
+
+        <div className="relative rounded-2xl overflow-hidden shadow-md">
+
+          <img
+            src={video.thumbnail}
+            alt={video.title}
+            className="w-full aspect-[9/16] object-cover group-hover:scale-105 transition duration-300"
+          />
+
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+
+            <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition">
+
+              ▶️
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <h3 className="text-center font-bold mt-3 text-gray-800">
+          {video.title}
+        </h3>
+
+      </a>
+
+    ))}
+
+  </div>
+
+  <div className="text-center mt-10">
+
+    <a
+      href="https://www.facebook.com/profile.php?id=61574782794043&sk=reels_tab"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block bg-[#2f8f6b] hover:bg-green-800 transition text-white font-bold py-3 px-8 rounded-xl"
+    >
+      🎥 مشاهدة جميع الفيديوهات
     </a>
 
   </div>
