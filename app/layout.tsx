@@ -1,5 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
+import Footer from "./components/Footer";
+
 
 export const metadata = {
   title: "Booziyt",
@@ -276,12 +278,13 @@ export default function RootLayout({
         {/* PAGE CONTENT */}
 
         <div className="pt-24">
+  {children}
+</div>
 
-          {children}
+<Footer />
 
-        </div>
+</body>
 
-      </body>
 
     </html>
 
