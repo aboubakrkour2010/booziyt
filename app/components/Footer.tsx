@@ -155,29 +155,58 @@ export default function Footer() {
       </div>
 
       {/* Payment */}
-      <div className="lg:border-l lg:border-[#D4AF37]/25 lg:px-8">
-        <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
-          طرق الدفع
-        </h3>
+<div className="lg:pr-8">
 
-        <div className="space-y-4">
-          <div className="bg-white rounded-xl p-4 text-center">
-            الدفع عند الاستلام
-          </div>
+  <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
+    طرق الدفع
+  </h3>
 
-          <div className="bg-white rounded-xl p-4 text-center">
-            التحويل البنكي
-          </div>
+  <div className="space-y-4">
 
-          <div className="bg-white rounded-xl p-4 text-center">
-            Cash Plus
-          </div>
+  <div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
+    <Image
+      src="/cod.png"
+      alt="الدفع عند الاستلام"
+      width={38}
+      height={38}
+    />
+    <span className="text-black font-semibold">
+      الدفع عند الاستلام
+    </span>
+  </div>
+
+  <div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
+    <Image
+      src="/bank.png"
+      alt="التحويل البنكي"
+      width={38}
+      height={38}
+    />
+    <span className="text-black font-semibold">
+      التحويل البنكي
+    </span>
+  </div>
+
+  <div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
+    <Image
+      src="/cashplus.png"
+      alt="Cash Plus"
+      width={38}
+      height={38}
+    />
+    <span className="text-black font-semibold">
+      Cash Plus
+    </span>
+  </div>
+
+</div>
+
         </div>
       </div>
 
     </div>
 
-  </div>
+
 </section>
 
     </footer>
