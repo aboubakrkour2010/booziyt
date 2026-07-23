@@ -92,16 +92,28 @@ export default function Footer() {
       </div>
 
     {/* Main Footer */}
-<section className="bg-[#062b1f] relative overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 py-16">
+<section className="relative overflow-hidden bg-[#062b1f]">
+  {/* خلفية مؤقتة */}
+<div className="absolute inset-0 bg-gradient-to-b from-[#062b1f] via-[#0b3428] to-[#041b14]" />
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+{/* طبقة فوق الخلفية */}
+<div className="absolute inset-0 bg-black/20" />
+
+
+    <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
       {/* Boo Ziyt */}
-      <div>
-        <h2 className="text-5xl font-serif text-[#d4af37] mb-3">
-          Boo Ziyt
-        </h2>
+      <div className="lg:border-l lg:border-[#D4AF37]/25 lg:pl-8">
+        <Image
+  src="/logoo.png"
+  alt="Boo Ziyt"
+  width={220}
+  height={100}
+  className="mb-4"
+/>
+
 
         <p className="text-[#d4af37] text-lg mb-6">
           منتجات طبيعية أصيلة
@@ -114,7 +126,7 @@ export default function Footer() {
       </div>
 
       {/* Links */}
-      <div>
+      <div className="lg:border-l lg:border-[#D4AF37]/25 lg:px-8">
         <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
           روابط مهمة
         </h3>
@@ -129,7 +141,7 @@ export default function Footer() {
       </div>
 
       {/* Contact */}
-      <div>
+      <div className="lg:border-l lg:border-[#D4AF37]/25 lg:px-8">
         <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
           خدمة الزبناء
         </h3>
@@ -143,7 +155,7 @@ export default function Footer() {
       </div>
 
       {/* Payment */}
-      <div>
+      <div className="lg:border-l lg:border-[#D4AF37]/25 lg:px-8">
         <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
           طرق الدفع
         </h3>
