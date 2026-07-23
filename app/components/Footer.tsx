@@ -91,6 +91,83 @@ export default function Footer() {
         </div>
       </div>
 
+    {/* Main Footer */}
+<section className="bg-[#062b1f] relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 py-16">
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      {/* Boo Ziyt */}
+      <div>
+        <h2 className="text-5xl font-serif text-[#d4af37] mb-3">
+          Boo Ziyt
+        </h2>
+
+        <p className="text-[#d4af37] text-lg mb-6">
+          منتجات طبيعية أصيلة
+        </p>
+
+        <p className="text-white/80 leading-8">
+          منتجات طبيعية من محلاتنا ومناحلنا، نحرص على تقديم الجودة
+          والأصالة مع خدمة موثوقة لزبنائنا في جميع أنحاء المغرب.
+        </p>
+      </div>
+
+      {/* Links */}
+      <div>
+        <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
+          روابط مهمة
+        </h3>
+
+        <div className="space-y-4">
+          <Link href="/about">من نحن</Link><br />
+          <Link href="/shipping">سياسة الشحن</Link><br />
+          <Link href="/returns">سياسة الاستبدال والاسترجاع</Link><br />
+          <Link href="/privacy">سياسة الخصوصية</Link><br />
+          <Link href="/terms">شروط الاستخدام</Link>
+        </div>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
+          خدمة الزبناء
+        </h3>
+
+        <div className="space-y-5 text-white">
+          <p>📍 أكادير، المغرب</p>
+          <p>📞 0663756637</p>
+          <p>🟢 واتساب: 0663756637</p>
+          <p>✉️ booziyt1@gmail.com</p>
+        </div>
+      </div>
+
+      {/* Payment */}
+      <div>
+        <h3 className="text-3xl font-bold text-[#d4af37] mb-8">
+          طرق الدفع
+        </h3>
+
+        <div className="space-y-4">
+          <div className="bg-white rounded-xl p-4 text-center">
+            الدفع عند الاستلام
+          </div>
+
+          <div className="bg-white rounded-xl p-4 text-center">
+            التحويل البنكي
+          </div>
+
+          <div className="bg-white rounded-xl p-4 text-center">
+            Cash Plus
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
     </footer>
   );
 }
