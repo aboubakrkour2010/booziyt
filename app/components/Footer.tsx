@@ -107,7 +107,7 @@ export default function Footer() {
       {/* Boo Ziyt */}
       <div className="lg:border-l lg:border-[#D4AF37]/25 lg:pl-8">
         <Image
-  src="/logoo.png"
+  src="/logo.png"
   alt="Boo Ziyt"
   width={220}
   height={100}
@@ -163,41 +163,41 @@ export default function Footer() {
 
   <div className="space-y-4">
 
-  <div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
-    <Image
-      src="/cod.png"
-      alt="الدفع عند الاستلام"
-      width={38}
-      height={38}
-    />
-    <span className="text-black font-semibold">
-      الدفع عند الاستلام
-    </span>
-  </div>
+<div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
+  <Image
+    src="/logo.png"
+    alt="التحويل البنكي"
+    width={38}
+    height={38}
+  />
+  <span className="text-black font-semibold">
+    التحويل البنكي
+  </span>
+</div>
 
-  <div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
-    <Image
-      src="/bank.png"
-      alt="التحويل البنكي"
-      width={38}
-      height={38}
-    />
-    <span className="text-black font-semibold">
-      التحويل البنكي
-    </span>
-  </div>
+<div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
+  <Image
+    src="/cashplus.png"
+    alt="Cash Plus"
+    width={38}
+    height={38}
+  />
+  <span className="text-black font-semibold">
+    Cash Plus
+  </span>
+</div>
 
-  <div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
-    <Image
-      src="/cashplus.png"
-      alt="Cash Plus"
-      width={38}
-      height={38}
-    />
-    <span className="text-black font-semibold">
-      Cash Plus
-    </span>
-  </div>
+<div className="bg-white rounded-xl p-3 flex items-center justify-center gap-3">
+  <Image
+    src="/cod.png"
+    alt="الدفع عند الاستلام"
+    width={38}
+    height={38}
+  />
+  <span className="text-black font-semibold">
+    الدفع عند الاستلام
+  </span>
+</div>
 
 </div>
 
