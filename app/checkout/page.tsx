@@ -36,24 +36,19 @@ export default function CheckoutPage() {
 
   }, []);
 
-  const isPackOnly =
-    cartItems.length > 0 &&
-    cartItems.every(
-      (item: any) => item.type === "pack"
-    );
+  const hasPack =
+  cartItems.length > 0 &&
+  cartItems.some(
+    (item: any) => item.type === "pack"
+  );
 
   let shipping = 0;
 
-  if (!isPackOnly) {
-
-    shipping =
-      city === "أكادير"
-        ? 20
-        : city
-        ? 40
-        : 0;
-
-  }
+  {hasPack
+  ? "مجاني"
+  : city
+  ? `${shipping} د.م`
+  : "يحسب بعد اختيار المدينة"}
 
   const total = subtotal + shipping;
 
@@ -524,12 +519,12 @@ export default function CheckoutPage() {
 
             <span className="text-green-600 font-semibold">
 
-              {isPackOnly
-                ? "مجاني"
-                : city
-                ? `${shipping} د.م`
-                : "يحسب بعد اختيار المدينة"}
-
+              {hasPack
+  ? "مجاني"
+  : city
+  ? `${shipping} د.م`
+  : "يحسب بعد اختيار المدينة"}
+  
             </span>
 
           </div>

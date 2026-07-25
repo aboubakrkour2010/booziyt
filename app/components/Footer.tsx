@@ -106,13 +106,7 @@ export default function Footer() {
 
       {/* Boo Ziyt */}
       <div className="lg:border-l lg:border-[#D4AF37]/25 lg:pl-8">
-        <Image
-  src="/logo.png"
-  alt="Boo Ziyt"
-  width={220}
-  height={100}
-  className="mb-4"
-/>
+       
 
 
         <p className="text-[#d4af37] text-lg mb-6">
