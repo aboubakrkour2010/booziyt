@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import image from "next/image";
 
 export default function PacksPage() {
 
@@ -38,8 +39,8 @@ export default function PacksPage() {
   slug: "summer-pack",
   name: "باقة الصيف",
   price: 550,
-  oldPrice: "685 د.م",
-  image: "/summer-pack.png",
+  oldPrice: "685 د.م",  
+  image: "/summer-pack.png  ",
   type: "pack",
 },
 

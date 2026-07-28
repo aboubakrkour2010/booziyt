@@ -168,7 +168,7 @@ export default function ProductPage({
       controls
       className="w-full rounded-2xl shadow-lg"
     >
-      <source src="/videos/olive.mov" type="video/quicktime" />
+      <source src="/videos/olive.mp4" type="video/mp4" />
       متصفحك لا يدعم تشغيل الفيديو.
     </video>
   </div>

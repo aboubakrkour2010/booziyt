@@ -524,7 +524,7 @@ export default function CheckoutPage() {
   : city
   ? `${shipping} د.م`
   : "يحسب بعد اختيار المدينة"}
-  
+  0
             </span>
 
           </div>
