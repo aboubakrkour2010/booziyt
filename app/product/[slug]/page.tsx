@@ -158,6 +158,22 @@ export default function ProductPage({
             🛒 إضافة إلى السلة
 
           </button>
+          {product.slug === "olive-oil" && (
+  <div className="mt-8">
+    <h2 className="text-2xl font-bold mb-4 text-center">
+      🎥 شاهد طريقة إنتاج زيت الزيتون
+    </h2>
+
+    <video
+      controls
+      className="w-full rounded-2xl shadow-lg"
+    >
+      <source src="/videos/olive.mov" type="video/quicktime" />
+      متصفحك لا يدعم تشغيل الفيديو.
+    </video>
+  </div>
+)}
+
 
         </div>
 
