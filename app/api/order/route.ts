@@ -24,27 +24,27 @@ export async function POST(req: Request) {
 
     await sheet.addRow({
 
-      date: new Date().toLocaleString("fr-FR"),
+  ikj: new Date().toLocaleString("fr-FR"),
 
-      name: body.fullName,
+  name: body.name,
 
-      phone: body.phone,
+  phone: body.phone,
 
-      city: body.city,
+  city: body.city,
 
-      address: body.address,
+  address: body.address,
 
-      payment: body.paymentMethod,
+  payment: body.paymentMethod,
 
-      products: body.cartItems
-        .map((item: any) => item.name)
-        .join(" | "),
+  products: body.cartItems
+    .map((item: any) => item.title || item.name)
+    .join(" | "),
 
-      total: body.total,
+  total: body.total,
 
-      confirmation: "جديد",
+  confirmation: "جديد",
 
-    });
+});
 
     return NextResponse.json({
       success: true,
