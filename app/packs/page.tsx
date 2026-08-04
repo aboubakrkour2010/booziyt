@@ -16,6 +16,15 @@ export default function PacksPage() {
       image: "/pack2.png.webp",
       type: "pack",
     },
+    {
+  slug: "flowers-pack",
+  name: "باقة الأزهار",
+  price: 550,
+  oldPrice: "620 د.م",
+  image: "/flowers-pack.webp",
+  type: "pack",
+},
+
 
     {
       slug: "rose-pack",
