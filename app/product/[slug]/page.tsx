@@ -2,6 +2,7 @@
 
 import { use } from "react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { products } from "../../../data/products";
 
 export default function ProductPage({
@@ -17,6 +18,7 @@ export default function ProductPage({
   );
 
   const [showPopup, setShowPopup] = useState(false);
+  const router = useRouter();
 
   if (!product) {
     return (
@@ -51,6 +53,27 @@ export default function ProductPage({
     setShowPopup(true);
 
   };
+  const buyNow = () => {
+
+  const productToAdd = {
+    ...product,
+    size: selectedSize?.label,
+    price: selectedSize?.price,
+    quantity: 1,
+  };
+
+  const oldCart = JSON.parse(
+    localStorage.getItem("cart") || "[]"
+  );
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify([...oldCart, productToAdd])
+  );
+
+  router.push("/checkout");
+
+};
 
   return (
 
@@ -150,14 +173,24 @@ export default function ProductPage({
 
           {/* BUTTON */}
 
-          <button
-            onClick={addToCart}
-            className="w-full bg-[#2f8f6b] hover:bg-[#267456] transition text-white py-4 rounded-2xl text-lg font-bold"
-          >
+          <div className="flex gap-3">
 
-            🛒 إضافة إلى السلة
+  <button
+    onClick={buyNow}
+    className="w-2/3 bg-[#F4B400] hover:bg-[#D89A00] text-black py-4 rounded-2xl text-lg font-bold"
+  >
+    ⚡ اطلب الآن
+  </button>
 
-          </button>
+  <button
+    onClick={addToCart}
+    className="w-1/3 bg-[#2f8f6b] hover:bg-[#267456] text-white py-4 rounded-2xl text-base font-bold"
+  >
+    🛒 أضف للسلة
+  </button>
+
+</div>
+
           {product.slug === "olive-oil" && (
   <div className="mt-8">
     <h2 className="text-2xl font-bold mb-4 text-center">
