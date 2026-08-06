@@ -110,21 +110,18 @@ export default function HoneyPage() {
     },
 
     {
-      slug: "white-honey",
-      title: "العسل الأبيض",
-      image: "/honey7.webp",
-      description: "عسل أبيض طبيعي.",
-      sizes: [
-        {
-          label: "نصف كيلو",
-          price: 100,
-        },
-        {
-          label: "1 كيلو",
-          price: 200,
-        },
-      ],
+  slug: "white-honey",
+  title: "عسل الأزهار",
+  image: "/honey7.webp",
+  description: "عسل الأزهار الطبيعي 100%، يتميز بمذاقه اللذيذ ورائحته الزكية، مناسب للاستعمال اليومي.",
+
+  sizes: [
+    {
+      label: "1 كيلو",
+      price: 120,
     },
+  ],
+},
 
     {
       slug: "lemon-honey",
