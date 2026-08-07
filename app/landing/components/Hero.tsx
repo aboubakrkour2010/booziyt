@@ -42,18 +42,15 @@ export default function Hero() {
   </span>
 
   <span className="text-2xl text-gray-400 line-through">
-    670 د.م
+    705 د.م
   </span>
 
   <span className="bg-red-500 text-white font-bold px-3 py-1 rounded-full">
-    وفر 120 د.م
+    وفر 155 د.م
   </span>
 
 </div>
 
-          <p className="mt-2 text-gray-600">
-            🚚 شامل التوصيل إلى جميع المدن المغربية
-          </p>
 
           <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2">
             <span className="w-3 h-3 rounded-full bg-green-600"></span>
@@ -62,6 +59,52 @@ export default function Hero() {
               متوفر في المخزون
             </span>
           </div>
+          {/* اختيار الكمية */}
+<div className="mt-8 max-w-md">
+
+  <div className="flex items-center justify-between border-2 border-gray-200 rounded-2xl overflow-hidden">
+
+    <button className="w-16 h-14 text-3xl font-bold hover:bg-gray-100 transition">
+      -
+    </button>
+
+    <span className="text-2xl font-bold">
+      1
+    </span>
+
+    <button className="w-16 h-14 text-3xl font-bold hover:bg-gray-100 transition">
+      +
+    </button>
+
+  </div>
+
+</div>
+
+{/* زر الطلب */}
+<div className="mt-6 max-w-md">
+
+  <button
+    className="
+      w-full
+      h-16
+      rounded-2xl
+      bg-lime-500
+      hover:bg-lime-600
+      text-white
+      text-2xl
+      font-black
+      transition-all
+      duration-300
+      animate-pulse
+    "
+  >
+    اطلب الآن
+  </button>
+
+</div>
+<p className="text-center text-gray-500 mt-3 text-sm">
+  🚚 التوصيل لجميع المدن المغربية خلال 24 إلى 72 ساعة
+</p>
 
         </div>
 
