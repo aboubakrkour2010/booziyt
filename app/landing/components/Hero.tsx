@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden">
+    <section className="relative min-h-screen py-20 overflow-hidden">
       <Image
         src="/hero.webp"
         alt="باقة الزهور"
         fill
         priority
-        className="object-cover"
+        className="object-contain object-center"
       />
 
       <div className="absolute inset-0 bg-black/45"></div>
@@ -37,18 +37,12 @@ export default function Hero() {
 
             <a
               href="#order"
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-10 py-5 rounded-full text-xl transition"
+              className="bg-orange-600 hover:bg-orange-700 hover:bg-yellow-400 text-black font-bold px-10 py-5 rounded-full text-xl transition"
             >
               اطلب الآن
             </a>
 
-            <a
-              href="#products"
-              className="border-2 border-white hover:bg-white hover:text-black px-10 py-5 rounded-full text-xl transition"
-            >
-              اكتشف المنتجات
-            </a>
-
+            
           </div>
 
         </div>
