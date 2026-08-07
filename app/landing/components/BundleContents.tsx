@@ -1,5 +1,8 @@
 export default function BundleContents() {
   return (
+  <>
+  
+
     <section className="max-w-6xl mx-auto px-4 mt-10">
 
       <div className="bg-gray-50 rounded-3xl p-6">
@@ -199,5 +202,6 @@ export default function BundleContents() {
       </div>
 
     </section>
+    </>
   );
 }
