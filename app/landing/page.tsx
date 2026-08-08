@@ -22,30 +22,48 @@ export default function LandingPage() {
         <span className="text-gray-500">0/5</span>
       </div>
 
-      {/* الثمن */}
-      <div className="mt-4 text-right space-y-1">
+      {/* 📝 وصف المنتج (الأول) */}
+      <div className="mt-6 text-right">
 
-        <span className="line-through text-gray-400 text-lg">
-          670 د.م
-        </span>
+        <h2 className="text-xl font-black mb-3">
+          وصف المنتج
+        </h2>
 
-        <div className="flex justify-end items-center gap-3">
-          <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">
-            وفر 120 د.م
-          </span>
+        <p className="text-gray-700 leading-8 text-[15px]">
+🌼 دلّل عائلتك مع "باقة الأزهار" المختارة بعناية، والتي تجمع بين أجود المنتجات الطبيعية لتمنحك مذاقًا أصيلًا وفوائد غذائية في باقة واحدة متكاملة.
+        </p>
 
-          <span className="text-4xl font-black text-green-700">
-            550 د.م
-          </span>
-        </div>
+        <p className="font-bold mt-4">
+📦 محتوى الباقة:
+        </p>
+
+        <p>🥄 <span className="font-bold">أملو باللوز</span> – 700غ</p>
+        <p>🍯 <span className="font-bold">عسل الكالبتوس</span> – 1 كيلو</p>
+        <p>🌼 <span className="font-bold">عسل الأزهار</span> – 1 كيلو</p>
+        <p>🫒 <span className="font-bold">زيت أركان</span> – 250 مل</p>
+        <p>🍎 <span className="font-bold">خل التفاح</span> – 250 مل (هدية)</p>
 
       </div>
 
-      {/* المخزون */}
-      <div className="mt-3 text-right">
-        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+      {/* 💰 الثمن (column) */}
+      <div className="mt-6 text-right space-y-2">
+
+        <span className="line-through text-gray-400 text-lg block">
+          670 د.م
+        </span>
+
+        <span className="text-4xl font-black text-green-700 block">
+          550 د.م
+        </span>
+
+        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm inline-block">
+          وفر 120 د.م
+        </span>
+
+        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm inline-block">
           متوفر في المخزون
         </span>
+
       </div>
 
       {/* الكمية */}
@@ -55,12 +73,11 @@ export default function LandingPage() {
         <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
       </div>
 
-      {/* زر يتحرك يمين يسار */}
+      {/* زر */}
       <button className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold animate-[wiggle_1s_ease-in-out_infinite]">
         اطلب الآن ({550 * qty} د.م)
       </button>
 
-      {/* animation */}
       <style jsx>{`
         @keyframes wiggle {
           0%,100% { transform: translateX(0); }
@@ -68,25 +85,12 @@ export default function LandingPage() {
         }
       `}</style>
 
-      {/* وصف */}
-      <div className="mt-8 text-right leading-7 text-gray-700">
+      {/* 📦 منتجات الباقة */}
+      <div className="mt-8">
 
-        <p>
-🌼 دلّل عائلتك مع "باقة الأزهار" المختارة بعناية، والتي تجمع بين أجود المنتجات الطبيعية لتمنحك مذاقًا أصيلًا وفوائد غذائية في باقة واحدة متكاملة.
-        </p>
-
-        <p className="font-bold mt-4">📦 محتوى الباقة:</p>
-
-        <p>🥄 700 غ أملو باللوز بزيت أركان وعسل الكالبتوس</p>
-        <p>🍯 1 كيلو عسل الكالبتوس</p>
-        <p>🌼 1 كيلو عسل الأزهار</p>
-        <p>🫒 250 مل زيت أركان</p>
-        <p>🍎 250 مل خل التفاح (هدية)</p>
-
-      </div>
-
-      {/* المحتويات بالتصميم */}
-      <div className="mt-8 space-y-3">
+        <h2 className="text-xl font-black text-right mb-4">
+          منتجات الباقة (5 منتجات)
+        </h2>
 
         {[
           {
@@ -120,18 +124,21 @@ export default function LandingPage() {
             link: "https://www.booziyt.com/product/apple-vinegar"
           },
         ].map((p, i) => (
-          <div key={i} className="flex items-center gap-3 bg-gray-50 p-3 rounded-xl">
+          <div key={i} className="flex items-center justify-between bg-gray-50 p-3 rounded-xl mb-3">
 
             <img src={p.img} className="w-20 h-20 rounded-lg object-cover"/>
 
-            <div className="flex-1 text-right">
+            <div className="flex-1 text-right mx-3">
               <h3 className="font-bold">{p.name}</h3>
               <p className="text-gray-500">{p.desc}</p>
-
-              <a href={p.link} className="text-green-600 text-sm">
-                عرض
-              </a>
             </div>
+
+            <a
+              href={p.link}
+              className="bg-green-600 text-white px-3 py-1 rounded-lg text-sm"
+            >
+              عرض
+            </a>
 
           </div>
         ))}
