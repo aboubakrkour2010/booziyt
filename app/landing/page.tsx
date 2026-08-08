@@ -12,40 +12,51 @@ export default function LandingPage() {
       <img src="/flowers-pack.webp" className="w-full rounded-2xl mt-6 shadow-xl"/>
 
       {/* العنوان */}
-      <h1 className="text-3xl font-black mt-4 text-right text-green-800">
-        🌼 باقة الأزهار
-      </h1>
+      <h1 className="text-4xl font-black mt-8 mb-4 text-center text-black">
+  🌼 باقة الأزهار
+</h1>
+
 
       {/* النجوم */}
-      <div className="flex justify-end mt-3 items-center gap-2">
-        <div className="text-yellow-400 text-3xl">★★★★★</div>
-        <span className="text-gray-500">0/5</span>
-      </div>
+      <div className="flex justify-center mt-4 items-center gap-2">
+  <div className="text-yellow-400 text-4xl">★★★★★</div>
+  <span className="text-gray-500 text-lg">0/5</span>
+</div>
+
 
       {/* الثمن */}
-      <div className="mt-4 text-right">
+<div className="mt-6 flex justify-between items-center">
 
-        <span className="line-through text-gray-400 text-lg block">
-          670 د.م
-        </span>
+  {/* المخزون */}
+  <span className="bg-green-200 text-green-800 px-5 py-2 rounded-full text-lg font-bold">
+    متوفر في المخزون
+  </span>
 
-        <div className="flex justify-end items-center gap-3">
+  {/* الثمن */}
+  <div className="text-right">
 
-          <span className="text-5xl font-black text-green-700">
-            550 د.م
-          </span>
+    {/* الثمن القديم */}
+    <span className="line-through text-gray-400 text-lg block">
+      670 د.م
+    </span>
 
-          <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">
-            وفر 120 د.م
-          </span>
+    {/* الثمن الجديد + التوفير */}
+    <div className="flex items-center gap-3 justify-end">
 
-        </div>
+      <span className="text-5xl font-black text-green-700">
+        550 د.م
+      </span>
 
-        <span className="bg-green-200 text-green-800 px-4 py-2 rounded-full text-sm inline-block mt-3 font-bold">
-          متوفر في المخزون
-        </span>
+      <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold">
+        وفر 120 د.م
+      </span>
 
-      </div>
+    </div>
+
+  </div>
+
+</div>
+
 
       {/* الكمية */}
       <div className="mt-6 border rounded-xl flex justify-between items-center p-4 bg-white">
