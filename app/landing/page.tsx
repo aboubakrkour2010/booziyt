@@ -17,43 +17,31 @@ export default function LandingPage() {
 </h1>
 
 
-      {/* النجوم */}
-      <div className="flex justify-center mt-4 items-center gap-2">
-  <div className="text-yellow-400 text-4xl">★★★★★</div>
-  <span className="text-gray-500 text-lg">0/5</span>
-</div>
+      {/* النجوم + الثمن + المخزون */}
+<div className="mt-6 text-right space-y-3">
 
+  <div className="flex justify-end items-center gap-2">
+    <div className="text-yellow-400 text-5xl">★★★★★</div>
+    <span className="text-gray-500 text-lg">0/5</span>
+  </div>
 
-      {/* الثمن */}
-<div className="mt-6 flex justify-between items-center">
-
-  {/* المخزون */}
-  <span className="bg-green-200 text-green-800 px-5 py-2 rounded-full text-lg font-bold">
-    متوفر في المخزون
+  <span className="line-through text-gray-400 text-lg block">
+    670 د.م
   </span>
 
-  {/* الثمن */}
-  <div className="text-right">
-
-    {/* الثمن القديم */}
-    <span className="line-through text-gray-400 text-lg block">
-      670 د.م
+  <div className="flex justify-end items-center gap-3">
+    <span className="text-5xl font-black text-green-700">
+      550 د.م
     </span>
 
-    {/* الثمن الجديد + التوفير */}
-    <div className="flex items-center gap-3 justify-end">
-
-      <span className="text-5xl font-black text-green-700">
-        550 د.م
-      </span>
-
-      <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold">
-        وفر 120 د.م
-      </span>
-
-    </div>
-
+    <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold">
+      وفر 120 د.م
+    </span>
   </div>
+
+  <span className="bg-green-200 text-green-800 px-5 py-2 rounded-full text-lg font-bold inline-block">
+    متوفر في المخزون
+  </span>
 
 </div>
 
