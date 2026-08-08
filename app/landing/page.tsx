@@ -11,20 +11,19 @@ import StickyOrder from "./components/StickyOrder";
 export default function LandingPage() {
   return (
     <main>
-        <h1 className="text-6xl text-red-600">
-  HELLO
-</h1>
 
       <Hero />
       <ProductDescription />
-      {/* <BundleContents /> */}
+
+      <BundleContents />
+
       <PriceSummary />
       <Benefits />
       <Reviews />
       <FAQ />
       <OrderForm />
       <StickyOrder />
+
     </main>
   );
 }
-
