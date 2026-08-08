@@ -17,7 +17,7 @@ export default function LandingPage() {
 
       <Hero />
       <ProductDescription />
-      <BundleContents />
+      {/* <BundleContents /> */}
       <PriceSummary />
       <Benefits />
       <Reviews />
