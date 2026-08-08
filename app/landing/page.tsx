@@ -6,38 +6,42 @@ export default function LandingPage() {
   const [qty, setQty] = useState(1);
 
   return (
-    <main className="max-w-xl mx-auto px-4 pb-20 bg-[url('/bg-olive.png')] bg-cover">
+    <main className="max-w-xl mx-auto px-4 pb-20 bg-[url('/bg-olive.png')] bg-cover bg-fixed">
 
       {/* صورة */}
       <img src="/flowers-pack.webp" className="w-full rounded-2xl mt-6 shadow-xl"/>
 
       {/* العنوان */}
       <h1 className="text-3xl font-black mt-4 text-right text-green-800">
-        باقة الأزهار
+        🌼 باقة الأزهار
       </h1>
 
       {/* النجوم */}
-      <div className="flex justify-end mt-2 gap-2 items-center">
+      <div className="flex justify-end mt-3 items-center gap-2">
         <div className="text-yellow-400 text-3xl">★★★★★</div>
-        <span className="text-gray-500 text-lg">0/5</span>
+        <span className="text-gray-500">0/5</span>
       </div>
 
       {/* الثمن */}
-      <div className="mt-6 text-right space-y-2">
+      <div className="mt-4 text-right">
 
         <span className="line-through text-gray-400 text-lg block">
           670 د.م
         </span>
 
-        <span className="text-5xl font-black text-green-700 block">
-          550 د.م
-        </span>
+        <div className="flex justify-end items-center gap-3">
 
-        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm inline-block">
-          وفر 120 د.م
-        </span>
+          <span className="text-5xl font-black text-green-700">
+            550 د.م
+          </span>
 
-        <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm inline-block">
+          <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">
+            وفر 120 د.م
+          </span>
+
+        </div>
+
+        <span className="bg-green-200 text-green-800 px-4 py-2 rounded-full text-sm inline-block mt-3 font-bold">
           متوفر في المخزون
         </span>
 
@@ -62,30 +66,20 @@ export default function LandingPage() {
         }
       `}</style>
 
-      {/* 📝 وصف المنتج */}
-      <div className="mt-10 text-right bg-white p-4 rounded-xl shadow">
+      {/* وصف المنتج */}
+      <div className="mt-10 text-right bg-white p-5 rounded-xl shadow">
 
         <h2 className="text-xl font-black text-green-700 mb-3">
           وصف المنتج
         </h2>
 
         <p className="text-gray-700 leading-8">
-🌼 دلّل عائلتك مع "باقة الأزهار" المختارة بعناية، والتي تجمع بين أجود المنتجات الطبيعية لتمنحك مذاقًا أصيلًا وفوائد غذائية في باقة واحدة متكاملة.
+          هنا غادي تحط الوصف ديالك لي غتعطيني دابا ✍️
         </p>
-
-        <p className="font-bold mt-4 text-green-700">
-📦 محتوى الباقة:
-        </p>
-
-        <p className="mt-2">🥄 <b>أملو باللوز</b> – 700غ</p>
-        <p>🍯 <b>عسل الكالبتوس</b> – 1 كيلو</p>
-        <p>🌼 <b>عسل الأزهار</b> – 1 كيلو</p>
-        <p>🫒 <b>زيت أركان</b> – 250 مل</p>
-        <p>🍎 <b>خل التفاح</b> – 250 مل (هدية)</p>
 
       </div>
 
-      {/* 📦 منتجات الباقة */}
+      {/* منتجات الباقة */}
       <div className="mt-10">
 
         <h2 className="text-xl font-black text-green-700 text-right mb-4">
@@ -142,6 +136,36 @@ export default function LandingPage() {
 
           </div>
         ))}
+
+      </div>
+
+      {/* الحساب */}
+      <div className="mt-10 bg-white p-4 rounded-xl text-right space-y-2 shadow">
+
+        <div className="flex justify-between">
+          <span>القيمة الأصلية:</span>
+          <span>670 د.م</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>التوصيل:</span>
+          <span>35 د.م</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>المجموع:</span>
+          <span>705 د.م</span>
+        </div>
+
+        <div className="flex justify-between font-bold text-green-700">
+          <span>سعر الباقة:</span>
+          <span>550 د.م</span>
+        </div>
+
+        <div className="flex justify-between text-red-600 font-bold">
+          <span>وفرت:</span>
+          <span>155 د.م</span>
+        </div>
 
       </div>
 
