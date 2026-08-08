@@ -12,7 +12,7 @@ export default function LandingPage() {
   <div className="fixed inset-0 -z-10 bg-[url('/bg-honey.webp')] bg-cover bg-center"></div>
 
   {/* overlay باش النص يبان */}
-  <div className="fixed inset-0 -z-10 bg-white/100"></div>
+  <div className="fixed inset-0 -z-10 bg-white/60"></div>
 
   <main className="max-w-xl mx-auto px-4 pb-20">
 
