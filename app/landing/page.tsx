@@ -12,7 +12,7 @@ export default function LandingPage() {
   <div className="fixed inset-0 -z-10 bg-[url('/bg-honey.webp')] bg-cover bg-center"></div>
 
   {/* overlay باش النص يبان */}
-  <div className="fixed inset-0 -z-10 bg-white/80"></div>
+  <div className="fixed inset-0 -z-10 bg-white/100"></div>
 
   <main className="max-w-xl mx-auto px-4 pb-20">
 
@@ -20,7 +20,7 @@ export default function LandingPage() {
       <img src="/flowers-pack.webp" className="w-full rounded-2xl mt-6 mb-4 shadow-xl"/>
 
       {/* العنوان */}
-      <h1 className="text-4xl font-black mt-4 text-center text-black">
+      <h1 className="text-4xl font-black mt-4 text-right text-black">
   باقة الأزهار 🌼
 </h1>
 
