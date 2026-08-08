@@ -6,7 +6,15 @@ export default function LandingPage() {
   const [qty, setQty] = useState(1);
 
   return (
-    <main className="max-w-xl mx-auto px-4 pb-20 bg-[url('/bg-olive.png')] bg-cover bg-fixed">
+    <div className="relative">
+
+  {/* الخلفية الجديدة */}
+  <div className="fixed inset-0 -z-10 bg-[url('/bg-honey.webp')] bg-cover bg-center"></div>
+
+  {/* overlay باش النص يبان */}
+  <div className="fixed inset-0 -z-10 bg-white/80"></div>
+
+  <main className="max-w-xl mx-auto px-4 pb-20">
 
       {/* صورة */}
       <img src="/flowers-pack.webp" className="w-full rounded-2xl mt-6 mb-4 shadow-xl"/>
@@ -199,6 +207,7 @@ export default function LandingPage() {
 
       </div>
 
-    </main>
+      </main>
+</div>
   );
 }
