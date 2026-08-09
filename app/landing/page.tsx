@@ -65,12 +65,13 @@ export default function LandingPage() {
       {/* زر */}
       <button
   onClick={() => router.push("/checkout")}
-  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg 
-  animate-wiggle transition-all duration-300 hover:bg-green-500"
+  className="w-full text-white py-4 rounded-xl mt-6 font-bold shadow-lg
+  bg-green-600 hover:bg-green-500
+  transition-all duration-300
+  hover:translate-x-1 active:-translate-x-1"
 >
   اطلب الآن (550 د.م)
 </button>
-
 
 
       <style jsx>{`
@@ -216,27 +217,6 @@ export default function LandingPage() {
       </div>
 
       </main>
-
-<style jsx>{`
-@keyframes wiggleColor {
-  0%, 100% {
-    transform: translateX(0);
-    background-color: #16a34a;
-  }
-  25% {
-    transform: translateX(6px);
-    background-color: #22c55e;
-  }
-  75% {
-    transform: translateX(-6px);
-    background-color: #15803d;
-  }
-}
-
-.animate-wiggle {
-  animation: wiggleColor 1.2s infinite;
-}
-`}</style>
 
 </div>
 );
