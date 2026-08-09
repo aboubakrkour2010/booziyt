@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
 
   const [qty, setQty] = useState(1);
+  const router = useRouter();
 
   return (
     <div className="relative">
@@ -61,9 +63,13 @@ export default function LandingPage() {
       </div>
 
       {/* زر */}
-      <button className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg animate-[wiggle_0.8s_ease-in-out_infinite]">
-        اطلب الآن ({550 * qty} د.م)
-      </button>
+      <button
+  onClick={() => router.push("/checkout")}
+  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg 
+  animate-wiggle transition-all duration-300 hover:bg-green-500 active:scale-95"
+>
+  اطلب الآن (550 د.م)
+</button>
 
       <style jsx>{`
         @keyframes wiggle {
