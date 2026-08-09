@@ -65,13 +65,14 @@ export default function LandingPage() {
       {/* زر */}
       <button
   onClick={() => router.push("/checkout")}
-  className="w-full text-white py-4 rounded-xl mt-6 font-bold shadow-lg
-  bg-green-600 hover:bg-green-500
+  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg
   transition-all duration-300
-  hover:translate-x-1 active:-translate-x-1"
+  hover:bg-green-500 hover:translate-x-1
+  active:translate-x-[-4px]"
 >
   اطلب الآن (550 د.م)
 </button>
+
 
 
       <style jsx>{`
