@@ -65,22 +65,19 @@ export default function LandingPage() {
       {/* زر */}
       <button
   onClick={() => router.push("/checkout")}
-  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg
-  transition-all duration-300
-  hover:bg-green-500 hover:translate-x-1
-  active:translate-x-[-4px]"
+  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg"
+  style={{ animation: "moveBtn 1s infinite" }}
 >
   اطلب الآن (550 د.م)
 </button>
 
 
-
       <style jsx>{`
-        @keyframes wiggle {
-          0%,100% { transform: translateX(0); }
-          50% { transform: translateX(10px); }
-        }
-      `}</style>
+@keyframes moveBtn {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+`}</style>
 
       {/* وصف المنتج */}
       <div className="mt-10 text-right bg-white p-5 rounded-xl shadow leading-8">
