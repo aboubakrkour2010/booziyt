@@ -64,12 +64,15 @@ export default function LandingPage() {
 
       {/* زر */}
       <button
-  onClick={() => router.push("/checkout")}
-  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg 
-  animate-wiggle transition-all duration-300 hover:bg-green-500 active:scale-95"
+  onClick={() => {
+    console.log("click"); // باش نتأكدو
+    router.push("/checkout");
+  }}
+  className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold"
 >
   اطلب الآن (550 د.م)
 </button>
+
 
       <style jsx>{`
         @keyframes wiggle {
