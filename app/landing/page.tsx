@@ -3,11 +3,29 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
-
-  const [qty, setQty] = useState(1);
   const router = useRouter();
+  const [qty, setQty] = useState(1);
+
+  const buyNow = () => {
+    const productToAdd = {
+      title: "باقة الأزهار",
+      type: "pack",
+      image: "/flowers-pack.webp",
+      price: 550,
+      quantity: qty,
+    };
+
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    cart.push(productToAdd);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    router.push("/checkout");
+  };
 
   return (
+
     <div className="relative">
 
   {/* الخلفية الجديدة */}
@@ -64,7 +82,7 @@ export default function LandingPage() {
 
       {/* زر */}
       <button
-  onClick={() => router.push("/checkout")}
+  onClick={buyNow}
   className="w-full bg-green-600 text-white py-4 rounded-xl mt-6 font-bold shadow-lg"
   style={{ animation: "moveBtn 1s infinite" }}
 >
