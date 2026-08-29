@@ -41,22 +41,6 @@ export default function HoneyPage() {
       ],
     },
 
-    {
-      slug: "daghmous-honey",
-      title: "عسل الدغموس",
-      image: "/honey3.webp",
-      description: "عسل الدغموس الطبيعي.",
-      sizes: [
-        {
-          label: "نصف كيلو",
-          price: 125,
-        },
-        {
-          label: "1 كيلو",
-          price: 250,
-        },
-      ],
-    },
 
     {
       slug: "sidr-honey",
