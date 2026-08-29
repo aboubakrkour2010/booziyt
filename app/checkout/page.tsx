@@ -109,16 +109,13 @@ export default function CheckoutPage() {
               className="w-full border rounded-xl p-4 text-right focus:outline-none focus:ring-2 focus:ring-green-500"
             />
 
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="w-full border rounded-xl p-4 text-right focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
-              <option value="">اختار المدينة</option>
-              {cities.map((c) => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
+            <input
+  type="text"
+  placeholder="المدينة"
+  value={city}
+  onChange={(e) => setCity(e.target.value)}
+  className="w-full border rounded-xl p-4 text-right focus:outline-none focus:ring-2 focus:ring-green-500"
+/>
 
           </div>
         </div>
