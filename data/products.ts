@@ -339,10 +339,10 @@ export const products = [
   slug: "authentic-pack",
   title: "باقة الأصالة",
   image: "/pack4.png.webp",
-  price: 600,
+  price: 550,
 
   sizes: [
-    { label: "Pack", price: 600 },
+    { label: "Pack", price: 550 },
   ],
 
   description: `
