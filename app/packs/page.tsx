@@ -56,7 +56,7 @@ export default function PacksPage() {
     {
       slug: "authentic-pack",
       name: "باقة الأصالة",
-      price: 600,
+      price: 550,
       oldPrice: "710 د.م",
       image: "/pack4.png.webp",
       type: "pack",
