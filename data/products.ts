@@ -18,6 +18,22 @@ export const products = [
   },
 
   {
+  slug: "almond-amlou",
+  title: "أملو اللوز بزيت الزيتون",
+  image: "/amlou.webp",
+  price: 140,
+
+  sizes: [
+    { label: "1kg", price: 140 },
+    { label: "700g", price: 100 },
+  ],
+
+  description:
+    "اللوز مطحون بزيت الزيتون و العسل الطبيعي",
+},
+
+
+  {
     slug: "amlou-cashew",
     title: "أملو الأكاجو",
     image: "/amlou2.webp",

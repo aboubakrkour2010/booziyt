@@ -25,6 +25,24 @@ export default function AmlouPage() {
       ],
     },
 
+{
+  slug: "almond-amlou",
+  name: "أملو اللوز بزيت الزيتون",
+  image: "/amlou.webp",
+
+  sizes: [
+    {
+      label: "1kg",
+      price: 140,
+    },
+    {
+      label: "700g",
+      price: 100,
+    },
+  ],
+},
+
+
     {
       slug: "amlou-cashew",
       name: "أملو الأكاجو",
