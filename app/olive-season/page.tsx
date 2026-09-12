@@ -150,7 +150,7 @@ export default function OliveSeasonPage() {
           1 لتر
         </div>
 
-        <div className="mt-1 text-lg font-black text-[#7FA35A] md:text-xl">
+        <div className="mt-1 text-lg font-black text-[#01a79d] md:text-xl">
           45 درهم
         </div>
       </div>
@@ -160,7 +160,7 @@ export default function OliveSeasonPage() {
           5 لتر
         </div>
 
-        <div className="mt-1 text-lg font-black text-[#7FA35A] md:text-xl">
+        <div className="mt-1 text-lg font-black text-[#01a79d] md:text-xl">
           225 درهم
         </div>
       </div>
@@ -180,7 +180,7 @@ export default function OliveSeasonPage() {
         المصدر
       </h3>
 
-      <p className="mt-1 text-xs text-[#d8bb63]">
+      <p className="mt-1 text-xs text-[#01a79d]">
         منطقة العطاوية
       </p>
     </div>
@@ -192,7 +192,7 @@ export default function OliveSeasonPage() {
         النوع
       </h3>
 
-      <p className="mt-1 text-xs text-[#d8bb63]">
+      <p className="mt-1 text-xs text-[#01a79d]">
         زيت بلدية
       </p>
     </div>
