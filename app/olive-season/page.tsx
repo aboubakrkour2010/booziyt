@@ -84,10 +84,25 @@ export default function OliveSeasonPage() {
   };
 
   return (
-    <main
-      dir="rtl"
-      className="min-h-screen bg-[#101810] text-white"
-    >
+  <main
+    dir="rtl"
+    className="relative min-h-screen overflow-hidden text-white"
+  >
+
+    {/* الخلفية الثابتة */}
+    <div
+      className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/olive-background.jpg')",
+      }}
+    />
+
+    {/* طبقة شفافة فوق الخلفية */}
+    <div className="fixed inset-0 z-0 bg-black/45" />
+
+    {/* محتوى الصفحة */}
+    <div className="relative z-10">
+
       {/* المحتوى غادي نزيدوه هنا بالتدريج */}
       <div className="relative min-h-screen overflow-hidden bg-[#101810]">
 
@@ -306,8 +321,8 @@ export default function OliveSeasonPage() {
   </div>
 </div>
 {/* فورم الطلب */}
-<section className="relative mx-auto mt-12 max-w-3xl">
-
+<section className="relative mx-3 mt-12 max-w-3xl sm:mx-auto">
+  
   <div className="relative overflow-hidden rounded-[32px] border border-[#d8bb63]/40 bg-white/5 p-5 shadow-2xl backdrop-blur-md md:p-8">
 
     {/* أغصان الزيتون */}
@@ -543,6 +558,7 @@ export default function OliveSeasonPage() {
     </div>
   </div>
 </section>
+</div>
     </main>
   );
 }
