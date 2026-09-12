@@ -98,8 +98,7 @@ export default function OliveSeasonPage() {
     />
 
     {/* طبقة شفافة فوق الخلفية */}
-    <div className="fixed inset-0 z-0 bg-black/45" />
-
+    <div className="fixed inset-0 z-0 bg-white/20" /> 
     {/* محتوى الصفحة */}
     <div className="relative z-10">
 
@@ -321,9 +320,8 @@ export default function OliveSeasonPage() {
   </div>
 </div>
 {/* فورم الطلب */}
-<section className="relative mx-3 mt-12 max-w-3xl sm:mx-auto">
-
-  <div className="relative overflow-hidden rounded-[32px] border border-[#d8bb63]/40 bg-white/5 p-5 shadow-2xl backdrop-blur-md md:p-8">
+<section className="relative mx-auto mt-12 max-w-3xl">
+  <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white/40 p-5 shadow-2xl backdrop-blur-md md:p-8">
 
     {/* أغصان الزيتون */}
     <div className="pointer-events-none absolute -left-5 -top-5 rotate-[-20deg] text-5xl opacity-80">
@@ -380,7 +378,7 @@ export default function OliveSeasonPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="الاسم الكامل"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#d8bb63]"
+            className="w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-right text-black outline-none placeholder:text-black/50 focus:border-[#31572c]"
           />
         </div>
 
@@ -518,7 +516,8 @@ export default function OliveSeasonPage() {
       </div>
 
       {/* المجموع */}
-      <div className="mt-8 rounded-2xl border border-[#d8bb63]/30 bg-black/20 p-5">
+      {/* total */}
+<div className="mt-8 rounded-2xl border border-white/60 bg-white/45 p-5 backdrop-blur-md">
 
         <div className="flex items-center justify-between gap-4">
           <span className="text-sm text-white/70">
