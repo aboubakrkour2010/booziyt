@@ -150,7 +150,7 @@ export default function OliveSeasonPage() {
           1 لتر
         </div>
 
-        <div className="mt-1 text-lg font-black text-[#d8bb63] md:text-xl">
+        <div className="mt-1 text-lg font-black text-[#7FA35A] md:text-xl">
           45 درهم
         </div>
       </div>
@@ -160,7 +160,7 @@ export default function OliveSeasonPage() {
           5 لتر
         </div>
 
-        <div className="mt-1 text-lg font-black text-[#d8bb63] md:text-xl">
+        <div className="mt-1 text-lg font-black text-[#7FA35A] md:text-xl">
           225 درهم
         </div>
       </div>
