@@ -201,7 +201,7 @@ export default function OliveSeasonPage() {
     <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">🌿</div>
       <h3 className="mt-2 text-sm font-black text-white">المصدر</h3>
-      <p className="mt-1 text-xs text-[#7FA35A]">
+      <p className="mt-1 text-xs text-[#26e000]">
         منطقة العطاوية
       </p>
     </div>
@@ -210,7 +210,7 @@ export default function OliveSeasonPage() {
     <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">🫒</div>
       <h3 className="mt-2 text-sm font-black text-white">النوع</h3>
-      <p className="mt-1 text-xs text-[#7FA35A]">
+      <p className="mt-1 text-xs text-[#26e000]">
         زيت بلدية
       </p>
     </div>
@@ -219,7 +219,7 @@ export default function OliveSeasonPage() {
     <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">⚙️</div>
       <h3 className="mt-2 text-sm font-black text-white">طريقة الطحن</h3>
-      <p className="mt-1 text-xs text-[#7FA35A]">
+      <p className="mt-1 text-xs text-[#26e000]">
         مطحونة بالحجرة
       </p>
     </div>
@@ -228,7 +228,7 @@ export default function OliveSeasonPage() {
     <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">❄️</div>
       <h3 className="mt-2 text-sm font-black text-white">طريقة الاستخراج</h3>
-      <p className="mt-1 text-xs text-[#7FA35A]">
+      <p className="mt-1 text-xs text-[#26e000]">
         على البارد
       </p>
     </div>
