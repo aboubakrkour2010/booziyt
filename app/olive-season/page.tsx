@@ -13,7 +13,7 @@ export default function OliveSeasonPage() {
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(5);
   const [deliveryType, setDeliveryType] = useState<"delivery" | "shop">(
     "delivery"
   );
@@ -121,10 +121,10 @@ export default function OliveSeasonPage() {
     <div className="mx-auto mt-8 max-w-xl">
       <div className="flex h-[300px] items-center justify-center md:h-[430px]">
         <img
-          src="/olive.webp"
-          alt="Boo Ziyt"
-          className="h-full w-full object-contain drop-shadow-2xl"
-        />
+  src="/oli3.png"
+  alt="Boo Ziyt"
+  className="h-full w-full object-contain drop-shadow-2xl"
+/>
       </div>
     </div>
 
@@ -213,16 +213,16 @@ export default function OliveSeasonPage() {
 {/* الدفعة وحالة الموسم */}
 <section className="mx-auto mt-8 max-w-4xl">
 
-  <div className="grid gap-4 md:grid-cols-2">
-
+  <div className="grid grid-cols-2 gap-3">
+    
     <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-5 text-center backdrop-blur-md">
       <p className="text-xs text-[#d8bb63]">
         رقم الدفعة
       </p>
 
       <div className="mt-2 text-2xl font-black text-white">
-        الدفعة الحالية
-      </div>
+  الدفعة 17
+</div>
 
       <p className="mt-2 text-xs text-white/60">
         الموسم الجديد قريب
@@ -419,43 +419,43 @@ export default function OliveSeasonPage() {
       </div>
 
       {/* الكمية */}
-      <div className="mt-8">
+<div className="mt-8">
 
-        <h3 className="text-right text-sm font-bold text-white">
-          الكمية
-        </h3>
+  <h3 className="text-right text-sm font-bold text-white">
+    الكمية
+  </h3>
 
-        <div className="mt-4 flex items-center justify-center gap-5">
+  <div className="mt-4 flex items-center justify-center gap-5">
 
-          <button
-            type="button"
-            onClick={decreaseQuantity}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d8bb63]/50 bg-white/5 text-2xl font-bold text-[#d8bb63] transition hover:bg-[#d8bb63] hover:text-black"
-          >
-            −
-          </button>
+    <button
+      type="button"
+      onClick={() => setQuantity((prev) => Math.max(5, prev - 5))}
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8bb63]/50 bg-white/5 text-xl font-bold text-[#d8bb63]"
+    >
+      −
+    </button>
 
-          <div className="min-w-[100px] text-center">
-            <div className="text-3xl font-black text-white">
-              {quantity}
-            </div>
-
-            <div className="text-xs text-white/60">
-              لتر
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={increaseQuantity}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d8bb63]/50 bg-white/5 text-2xl font-bold text-[#d8bb63] transition hover:bg-[#d8bb63] hover:text-black"
-          >
-            +
-          </button>
-
-        </div>
-
+    <div className="min-w-[110px] text-center">
+      <div className="text-3xl font-black text-white">
+        {quantity}
       </div>
+
+      <div className="text-xs text-white/60">
+        لتر
+      </div>
+    </div>
+
+    <button
+      type="button"
+      onClick={() => setQuantity((prev) => prev + 5)}
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8bb63]/50 bg-white/5 text-xl font-bold text-[#d8bb63]"
+    >
+      +
+    </button>
+
+  </div>
+
+</div>
 
       {/* طريقة الاستلام */}
       <div className="mt-8">
