@@ -233,24 +233,6 @@ export default function OliveSeasonPage() {
       </p>
     </div>
 
-    {/* رقم الدفعة */}
-    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
-      <div className="text-2xl">🧾</div>
-      <h3 className="mt-2 text-sm font-black text-white">رقم الدفعة</h3>
-      <p className="mt-1 text-xs text-[#fbff30]">
-        الدفعة 17
-      </p>
-    </div>
-
-    {/* حالة الموسم */}
-    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
-      <div className="text-2xl">🫒</div>
-      <h3 className="mt-2 text-sm font-black text-white">حالة الموسم</h3>
-      <p className="mt-1 text-xs text-[#fbff30]">
-        التسجيل مفتوح
-      </p>
-    </div>
-
   </div>
 </section>
 
@@ -409,7 +391,7 @@ export default function OliveSeasonPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="الاسم الكامل"
-            className="w-full rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
+            className="w-full rounded-2xl border border-black/10 bg-white/85 px-4 py-3 text-right text-black outline-none placeholder:text-black/45 focus:border-[#31572c]"
           />
         </div>
 
@@ -424,7 +406,7 @@ export default function OliveSeasonPage() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="رقم الهاتف"
-            className="w-full rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
+            className="w-full rounded-2xl border border-black/10 bg-white/85 px-4 py-3 text-right text-black outline-none placeholder:text-black/45 focus:border-[#31572c]"
           />
         </div>
 
@@ -439,7 +421,7 @@ export default function OliveSeasonPage() {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="المدينة"
-            className="w-full rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
+            className="w-full rounded-2xl border border-black/10 bg-white/85 px-4 py-3 text-right text-black outline-none placeholder:text-black/45 focus:border-[#31572c]"
           />
         </div>
 
@@ -455,7 +437,7 @@ export default function OliveSeasonPage() {
               onChange={(e) => setAddress(e.target.value)}
               placeholder="العنوان"
               rows={3}
-              className="w-full resize-none rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
+              className="w-full rounded-2xl border border-black/10 bg-white/85 px-4 py-3 text-right text-black outline-none placeholder:text-black/45 focus:border-[#31572c]"
             />
           </div>
         )}
@@ -562,7 +544,9 @@ export default function OliveSeasonPage() {
       {/* payment */}
 <div className="mt-5 rounded-2xl border border-white/30 bg-white/30 p-5 text-right backdrop-blur-md">
 
-        <div className="text-sm font-bold text-white">
+        <div className="text-sm font-bold text-black"
+
+      >
           طريقة الأداء
         </div>
 
