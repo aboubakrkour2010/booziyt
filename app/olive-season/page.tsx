@@ -125,7 +125,7 @@ export default function OliveSeasonPage() {
   <img
     src="/malik.jpg"
     alt="Boo Ziyt"
-    className="h-auto w-24 object-contain md:w-32"
+    className="h-auto w-full max-w-[500px] object-contain"
   />
 </div>
 
