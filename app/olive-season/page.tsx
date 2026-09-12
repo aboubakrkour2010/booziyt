@@ -98,7 +98,7 @@ export default function OliveSeasonPage() {
     />
 
     {/* طبقة شفافة فوق الخلفية */}
-    <div className="fixed inset-0 z-0 bg-white/20" /> 
+    <div className="fixed inset-0 z-0 bg-black/45" />
     {/* محتوى الصفحة */}
     <div className="relative z-10">
 
@@ -118,9 +118,9 @@ export default function OliveSeasonPage() {
     {/* اللوغو */}
     <div className="flex justify-center">
       <div className="animate-pulse text-center">
-        <div className="text-4xl font-black tracking-wide text-[#f3e5bc] md:text-6xl">
-          Boo Ziyt
-        </div>
+        <div className="text-4xl font-black tracking-wide text-[#263d24] md:text-6xl">
+  Boo Ziyt
+</div>
       </div>
     </div>
 
@@ -378,7 +378,7 @@ export default function OliveSeasonPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="الاسم الكامل"
-            className="w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-right text-black outline-none placeholder:text-black/50 focus:border-[#31572c]"
+            className="w-full rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
           />
         </div>
 
@@ -393,7 +393,7 @@ export default function OliveSeasonPage() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="رقم الهاتف"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#d8bb63]"
+            className="w-full rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
           />
         </div>
 
@@ -408,7 +408,7 @@ export default function OliveSeasonPage() {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="المدينة"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#d8bb63]"
+            className="w-full rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
           />
         </div>
 
@@ -424,7 +424,7 @@ export default function OliveSeasonPage() {
               onChange={(e) => setAddress(e.target.value)}
               placeholder="العنوان"
               rows={3}
-              className="w-full resize-none rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#d8bb63]"
+              className="w-full resize-none rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-right text-white outline-none placeholder:text-white/40 focus:border-[#31572c]"
             />
           </div>
         )}
@@ -443,7 +443,7 @@ export default function OliveSeasonPage() {
     <button
       type="button"
       onClick={() => setQuantity((prev) => Math.max(5, prev - 5))}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8bb63]/50 bg-white/5 text-xl font-bold text-[#d8bb63]"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#31572c]/60 bg-white/20 text-xl font-bold text-[#31572c]"
     >
       −
     </button>
@@ -461,7 +461,7 @@ export default function OliveSeasonPage() {
     <button
       type="button"
       onClick={() => setQuantity((prev) => prev + 5)}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8bb63]/50 bg-white/5 text-xl font-bold text-[#d8bb63]"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-[#31572c]/60 bg-white/20 text-xl font-bold text-[#31572c]"
     >
       +
     </button>
@@ -484,8 +484,8 @@ export default function OliveSeasonPage() {
             onClick={() => setDeliveryType("delivery")}
             className={`rounded-2xl border p-4 text-center transition ${
               deliveryType === "delivery"
-                ? "border-[#d8bb63] bg-[#d8bb63]/15"
-                : "border-white/10 bg-black/20"
+  ? "border-[#31572c] bg-[#31572c]/15"
+  : "border-white/20 bg-black/15"
             }`}
           >
             <div className="text-2xl">🚚</div>
@@ -500,8 +500,8 @@ export default function OliveSeasonPage() {
             onClick={() => setDeliveryType("shop")}
             className={`rounded-2xl border p-4 text-center transition ${
               deliveryType === "shop"
-                ? "border-[#d8bb63] bg-[#d8bb63]/15"
-                : "border-white/10 bg-black/20"
+  ? "border-[#31572c] bg-[#31572c]/15"
+  : "border-white/20 bg-black/15"
             }`}
           >
             <div className="text-2xl">🏪</div>
@@ -517,13 +517,12 @@ export default function OliveSeasonPage() {
 
       {/* المجموع */}
       {/* total */}
-<div className="mt-8 rounded-2xl border border-white/60 bg-white/45 p-5 backdrop-blur-md">
-
+{/* total */}
+<div className="mt-8 rounded-2xl border border-white/40 bg-white/45 p-5 backdrop-blur-md">
         <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/70">
-            المجموع
-          </span>
-
+          <span className="text-2xl font-black text-[#31572c]">
+  {total} درهم
+</span>
           <span className="text-2xl font-black text-[#d8bb63]">
             {total} درهم
           </span>
@@ -532,7 +531,8 @@ export default function OliveSeasonPage() {
       </div>
 
       {/* طريقة الأداء حسب المدينة */}
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-5 text-right">
+      {/* payment */}
+<div className="mt-5 rounded-2xl border border-white/30 bg-white/30 p-5 text-right backdrop-blur-md">
 
         <div className="text-sm font-bold text-white">
           طريقة الأداء
@@ -549,7 +549,7 @@ export default function OliveSeasonPage() {
         type="button"
         onClick={handleOrder}
         disabled={loading}
-        className="mt-6 w-full rounded-2xl bg-[#d8bb63] px-5 py-4 text-lg font-black text-black transition hover:scale-[1.01] hover:bg-[#e5ca78] disabled:cursor-not-allowed disabled:opacity-50"
+        className="mt-6 w-full rounded-2xl bg-[#31572c] px-5 py-4 text-lg font-black text-white transition hover:scale-[1.01] hover:bg-[#3f6f38] disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? "جاري إرسال الطلب..." : "تأكيد الطلب 🫒"}
       </button>
