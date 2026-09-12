@@ -121,7 +121,7 @@ export default function OliveSeasonPage() {
     <div className="mx-auto mt-8 max-w-xl">
       <div className="flex h-[300px] items-center justify-center md:h-[430px]">
         <img
-  src="/oli3.png"
+  src="/ziyt.png"
   alt="Boo Ziyt"
   className="h-full w-full object-contain drop-shadow-2xl"
 />
@@ -214,7 +214,7 @@ export default function OliveSeasonPage() {
 <section className="mx-auto mt-8 max-w-4xl">
 
   <div className="grid grid-cols-2 gap-3">
-    
+
     <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-5 text-center backdrop-blur-md">
       <p className="text-xs text-[#d8bb63]">
         رقم الدفعة
