@@ -118,9 +118,12 @@ export default function OliveSeasonPage() {
     {/* اللوغو */}
     <div className="flex justify-center">
       <div className="animate-pulse text-center">
-        <div className="text-4xl font-black tracking-wide text-[#263d24] md:text-6xl">
-  Boo Ziyt
-</div>
+        <img
+  src="/logoziyt.png"
+  alt="Boo Ziyt"
+  className="h-auto w-32 object-contain md:w-40"
+/>
+
       </div>
     </div>
 
@@ -143,86 +146,99 @@ export default function OliveSeasonPage() {
     </div>
 
     {/* الأثمنة */}
-    <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3">
-
-      <div className="rounded-2xl border focus:border-[#31572c]/40 bg-white/10 px-3 py-4 text-center backdrop-blur-md">
-        <div className="text-xl font-black text-white md:text-2xl">
-          1 لتر
-        </div>
-
-        <div className="mt-1 text-lg font-black text-[#faff0d] md:text-xl">
-          45 درهم
-        </div>
-      </div>
-
-      <div className="rounded-2xl border focus:border-[#31572c]/40 bg-white/10 px-3 py-4 text-center backdrop-blur-md">
-        <div className="text-xl font-black text-white md:text-2xl">
-          5 لتر
-        </div>
-
-        <div className="mt-1 text-lg font-black text-[#faff0d] md:text-xl">
-          225 درهم
-        </div>
-      </div>
-
+<div className="mx-auto mt-8 grid max-w-2xl grid-cols-[1fr_auto_1fr] items-center gap-2">
+  
+  {/* 5 لتر */}
+  <div className="rounded-2xl border border-white/60 bg-black/25 p-3 text-center backdrop-blur-md">
+    <div className="text-sm font-black text-white">5 لتر</div>
+    <div className="mt-1 text-xs font-bold text-[#7FA35A]">
+      225 درهم
     </div>
+  </div>
+
+  {/* الأسهم */}
+  <div className="flex flex-col items-center justify-center gap-1 px-1">
+    <span className="text-xl font-black text-[#7FA35A]">→</span>
+    <span className="text-xl font-black text-[#7FA35A]">←</span>
+  </div>
+
+  {/* 1 لتر */}
+  <div className="rounded-2xl border border-white/60 bg-black/25 p-3 text-center backdrop-blur-md">
+    <div className="text-sm font-black text-white">1 لتر</div>
+    <div className="mt-1 text-xs font-bold text-[#7FA35A]">
+      45 درهم
+    </div>
+  </div>
+
+</div>
+
 
     {/* باقي الصفحة غادي يجي هنا */}
-    {/* معلومات الزيت */}
+{/* معلومات الزيت */}
 <section className="mx-auto mt-12 max-w-4xl">
+  <h2 className="mb-5 text-center text-2xl font-black text-white md:text-3xl">
+    معلومات الزيت
+  </h2>
 
-  <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+  <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
 
-    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    {/* المصدر */}
+    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">🌿</div>
-
-      <h3 className="mt-2 text-sm font-black text-white">
-        المصدر
-      </h3>
-
-      <p className="mt-1 text-xs text-[#faff0d]">
+      <h3 className="mt-2 text-sm font-black text-white">المصدر</h3>
+      <p className="mt-1 text-xs text-[#7FA35A]">
         منطقة العطاوية
       </p>
     </div>
 
-    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    {/* النوع */}
+    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">🫒</div>
-
-      <h3 className="mt-2 text-sm font-black text-white">
-        النوع
-      </h3>
-
-      <p className="mt-1 text-xs text-[#faff0d]">
+      <h3 className="mt-2 text-sm font-black text-white">النوع</h3>
+      <p className="mt-1 text-xs text-[#7FA35A]">
         زيت بلدية
       </p>
     </div>
 
-    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    {/* طريقة الطحن */}
+    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">⚙️</div>
-
-      <h3 className="mt-2 text-sm font-black text-white">
-        طريقة الطحن
-      </h3>
-
-      <p className="mt-1 text-xs text-[#faff0d]">
+      <h3 className="mt-2 text-sm font-black text-white">طريقة الطحن</h3>
+      <p className="mt-1 text-xs text-[#7FA35A]">
         مطحونة بالحجرة
       </p>
     </div>
 
-    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    {/* طريقة الاستخراج */}
+    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">❄️</div>
-
-      <h3 className="mt-2 text-sm font-black text-white">
-        طريقة الاستخراج
-      </h3>
-
-      <p className="mt-1 text-xs text-[#faff0d]">
+      <h3 className="mt-2 text-sm font-black text-white">طريقة الاستخراج</h3>
+      <p className="mt-1 text-xs text-[#7FA35A]">
         على البارد
+      </p>
+    </div>
+
+    {/* رقم الدفعة */}
+    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
+      <div className="text-2xl">🧾</div>
+      <h3 className="mt-2 text-sm font-black text-white">رقم الدفعة</h3>
+      <p className="mt-1 text-xs text-[#7FA35A]">
+        الدفعة 17
+      </p>
+    </div>
+
+    {/* حالة الموسم */}
+    <div className="rounded-2xl border border-white/50 bg-white/30 p-4 text-center backdrop-blur-md">
+      <div className="text-2xl">🫒</div>
+      <h3 className="mt-2 text-sm font-black text-white">حالة الموسم</h3>
+      <p className="mt-1 text-xs text-[#7FA35A]">
+        التسجيل مفتوح
       </p>
     </div>
 
   </div>
 </section>
+
 
 {/* الدفعة وحالة الموسم */}
 <section className="mx-auto mt-8 max-w-4xl">
