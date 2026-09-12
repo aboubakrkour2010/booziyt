@@ -85,9 +85,9 @@ export default function OliveSeasonPage() {
 
   return (
   <main
-    dir="rtl"
-    className="relative min-h-screen overflow-hidden text-white"
-  >
+  dir="rtl"
+  className="relative min-h-screen overflow-hidden bg-transparent text-white"
+>
 
     {/* الخلفية الثابتة */}
     <div
@@ -104,7 +104,7 @@ export default function OliveSeasonPage() {
     <div className="relative z-10">
 
       {/* المحتوى غادي نزيدوه هنا بالتدريج */}
-      <div className="relative min-h-screen overflow-hidden bg-[#101810]">
+      <div className="relative min-h-screen overflow-hidden ">
 
   {/* خلفية طبيعية */}
   <div className="pointer-events-none absolute inset-0 opacity-20">
