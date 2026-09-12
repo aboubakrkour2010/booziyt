@@ -1,6 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { Amiri } from "next/font/google";
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["700"],
+});
 
 const prices = {
   1: 45,
@@ -116,23 +121,23 @@ export default function OliveSeasonPage() {
   <div className="relative z-10 mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
 
     {/* اللوغو */}
-    <div className="flex justify-center">
-      <div className="animate-pulse text-center">
-        <img
-  src="/logoziyt.png"
-  alt="Boo Ziyt"
-  className="h-auto w-32 object-contain md:w-40"
-/>
+<div className="flex justify-center">
+  <img
+    src="/logoziyt.png"
+    alt="Boo Ziyt"
+    className="h-auto w-24 object-contain md:w-32"
+  />
+</div>
 
-      </div>
-    </div>
 
     {/* العنوان */}
-    <div className="mt-12 text-center">
-      <h1 className="text-4xl font-black leading-tight text-white md:text-6xl">
-        زيت الزيتون البلدية
-      </h1>
-    </div>
+<div className="mt-12 text-center">
+  <h1
+    className={`${amiri.className} text-4xl font-bold leading-tight text-white md:text-6xl`}
+  >
+    زيت الزيتون البلدية
+  </h1>
+</div>
 
     {/* صورة الزيت */}
     <div className="mx-auto mt-8 max-w-xl">
@@ -147,31 +152,41 @@ export default function OliveSeasonPage() {
 
     {/* الأثمنة */}
 <div className="mx-auto mt-8 grid max-w-2xl grid-cols-[1fr_auto_1fr] items-center gap-2">
-  
+
   {/* 5 لتر */}
   <div className="rounded-2xl border border-white/60 bg-black/25 p-3 text-center backdrop-blur-md">
-    <div className="text-sm font-black text-white">5 لتر</div>
+    <div className="text-sm font-black text-white">
+      5 لتر
+    </div>
+
     <div className="mt-1 text-xs font-bold text-[#7FA35A]">
       225 درهم
     </div>
   </div>
 
   {/* الأسهم */}
-  <div className="flex flex-col items-center justify-center gap-1 px-1">
-    <span className="text-xl font-black text-[#7FA35A]">→</span>
-    <span className="text-xl font-black text-[#7FA35A]">←</span>
+  <div className="flex flex-col items-center justify-center gap-0">
+    <span className="text-3xl font-black leading-none text-white">
+      →
+    </span>
+
+    <span className="text-3xl font-black leading-none text-white">
+      ←
+    </span>
   </div>
 
   {/* 1 لتر */}
   <div className="rounded-2xl border border-white/60 bg-black/25 p-3 text-center backdrop-blur-md">
-    <div className="text-sm font-black text-white">1 لتر</div>
+    <div className="text-sm font-black text-white">
+      1 لتر
+    </div>
+
     <div className="mt-1 text-xs font-bold text-[#7FA35A]">
       45 درهم
     </div>
   </div>
 
 </div>
-
 
     {/* باقي الصفحة غادي يجي هنا */}
 {/* معلومات الزيت */}
