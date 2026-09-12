@@ -123,7 +123,7 @@ export default function OliveSeasonPage() {
     {/* اللوغو */}
 <div className="flex justify-center">
   <img
-    src="/malik.png"
+    src="/malik.jpg"
     alt="Boo Ziyt"
     className="h-auto w-24 object-contain md:w-32"
   />
