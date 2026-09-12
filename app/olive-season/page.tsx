@@ -93,7 +93,7 @@ export default function OliveSeasonPage() {
     <div
       className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/olive-background.jpg')",
+        backgroundImage: "url('/haha.png')",
       }}
     />
 
@@ -322,7 +322,7 @@ export default function OliveSeasonPage() {
 </div>
 {/* فورم الطلب */}
 <section className="relative mx-3 mt-12 max-w-3xl sm:mx-auto">
-  
+
   <div className="relative overflow-hidden rounded-[32px] border border-[#d8bb63]/40 bg-white/5 p-5 shadow-2xl backdrop-blur-md md:p-8">
 
     {/* أغصان الزيتون */}
