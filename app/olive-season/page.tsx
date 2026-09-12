@@ -145,7 +145,7 @@ export default function OliveSeasonPage() {
     {/* الأثمنة */}
     <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3">
 
-      <div className="rounded-2xl border border-[#d8bb63]/40 bg-white/10 px-3 py-4 text-center backdrop-blur-md">
+      <div className="rounded-2xl border focus:border-[#31572c]/40 bg-white/10 px-3 py-4 text-center backdrop-blur-md">
         <div className="text-xl font-black text-white md:text-2xl">
           1 لتر
         </div>
@@ -155,7 +155,7 @@ export default function OliveSeasonPage() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-[#d8bb63]/40 bg-white/10 px-3 py-4 text-center backdrop-blur-md">
+      <div className="rounded-2xl border focus:border-[#31572c]/40 bg-white/10 px-3 py-4 text-center backdrop-blur-md">
         <div className="text-xl font-black text-white md:text-2xl">
           5 لتر
         </div>
@@ -173,7 +173,7 @@ export default function OliveSeasonPage() {
 
   <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
 
-    <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">🌿</div>
 
       <h3 className="mt-2 text-sm font-black text-white">
@@ -185,7 +185,7 @@ export default function OliveSeasonPage() {
       </p>
     </div>
 
-    <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">🫒</div>
 
       <h3 className="mt-2 text-sm font-black text-white">
@@ -197,7 +197,7 @@ export default function OliveSeasonPage() {
       </p>
     </div>
 
-    <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">⚙️</div>
 
       <h3 className="mt-2 text-sm font-black text-white">
@@ -209,7 +209,7 @@ export default function OliveSeasonPage() {
       </p>
     </div>
 
-    <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-4 text-center backdrop-blur-md">
+    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-4 text-center backdrop-blur-md">
       <div className="text-2xl">❄️</div>
 
       <h3 className="mt-2 text-sm font-black text-white">
@@ -229,7 +229,7 @@ export default function OliveSeasonPage() {
 
   <div className="grid grid-cols-2 gap-3">
 
-    <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-5 text-center backdrop-blur-md">
+    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-5 text-center backdrop-blur-md">
       <p className="text-xs text-[#d8bb63]">
         رقم الدفعة
       </p>
@@ -243,7 +243,7 @@ export default function OliveSeasonPage() {
       </p>
     </div>
 
-    <div className="rounded-2xl border border-[#d8bb63]/30 bg-white/5 p-5 text-center backdrop-blur-md">
+    <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-5 text-center backdrop-blur-md">
       <p className="text-xs text-[#d8bb63]">
         حالة الموسم
       </p>
@@ -261,7 +261,7 @@ export default function OliveSeasonPage() {
 {/* طريقة الأداء */}
 <section className="mx-auto mt-8 max-w-4xl">
 
-  <div className="rounded-3xl border border-[#d8bb63]/30 bg-white/5 p-6 backdrop-blur-md">
+  <div className="rounded-3xl border focus:border-[#31572c]/30 bg-white/5 p-6 backdrop-blur-md">
 
     <h2 className="text-center text-2xl font-black text-white">
       طريقة الأداء
