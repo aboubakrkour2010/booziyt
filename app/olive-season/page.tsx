@@ -180,7 +180,7 @@ export default function OliveSeasonPage() {
         المصدر
       </h3>
 
-      <p className="mt-1 text-xs text-[#01a79d]">
+      <p className="mt-1 text-xs text-[#faff0d]">
         منطقة العطاوية
       </p>
     </div>
@@ -192,7 +192,7 @@ export default function OliveSeasonPage() {
         النوع
       </h3>
 
-      <p className="mt-1 text-xs text-[#01a79d]">
+      <p className="mt-1 text-xs text-[#faff0d]">
         زيت بلدية
       </p>
     </div>
@@ -204,7 +204,7 @@ export default function OliveSeasonPage() {
         طريقة الطحن
       </h3>
 
-      <p className="mt-1 text-xs text-[#d8bb63]">
+      <p className="mt-1 text-xs text-[#faff0d]">
         مطحونة بالحجرة
       </p>
     </div>
@@ -216,7 +216,7 @@ export default function OliveSeasonPage() {
         طريقة الاستخراج
       </h3>
 
-      <p className="mt-1 text-xs text-[#d8bb63]">
+      <p className="mt-1 text-xs text-[#faff0d]">
         على البارد
       </p>
     </div>
@@ -230,7 +230,7 @@ export default function OliveSeasonPage() {
   <div className="grid grid-cols-2 gap-3">
 
     <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-5 text-center backdrop-blur-md">
-      <p className="text-xs text-[#d8bb63]">
+      <p className="text-xs text-[#faff0d]">
         رقم الدفعة
       </p>
 
@@ -244,12 +244,12 @@ export default function OliveSeasonPage() {
     </div>
 
     <div className="rounded-2xl border focus:border-[#31572c]/30 bg-white/5 p-5 text-center backdrop-blur-md">
-      <p className="text-xs text-[#d8bb63]">
+      <p className="text-xs text-[#faff0d]">
         حالة الموسم
       </p>
 
       <div className="mt-2 flex items-center justify-center gap-2 text-xl font-black text-white">
-        <span className="h-3 w-3 rounded-full bg-[#d8bb63]" />
+        <span className="h-3 w-3 rounded-full bg-[#faff0d]" />
         التسجيل مفتوح
       </div>
     </div>
