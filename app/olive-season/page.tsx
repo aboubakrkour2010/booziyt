@@ -554,10 +554,7 @@ export default function OliveSeasonPage() {
           <span className="text-2xl font-black text-[#31572c]">
   {total} درهم
 </span>
-          <span className="text-2xl font-black text-[#d8bb63]">
-            {total} درهم
-          </span>
-        </div>
+</div>
 
       </div>
 
@@ -569,7 +566,7 @@ export default function OliveSeasonPage() {
           طريقة الأداء
         </div>
 
-        <div className="mt-2 text-sm leading-7 text-white/70">
+        <div className="mt-2 text-sm leading-7 text-black/70">
           {paymentMethod}
         </div>
 
