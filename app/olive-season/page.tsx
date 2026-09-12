@@ -98,7 +98,7 @@ export default function OliveSeasonPage() {
     />
 
     {/* طبقة شفافة فوق الخلفية */}
-    <div className="fixed inset-0 z-0 bg-white/20" />
+    <div className="fixed inset-0 z-0 bg-black/45" />
     {/* محتوى الصفحة */}
     <div className="relative z-10">
 
