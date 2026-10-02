@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { products } from "@/data/products";
 import { reviews } from "@/data/reviews";
 import { videos } from "@/data/videos";
+import BooZiytMascot from "./components/BooZiytMascot";
 
 export default function Home() {
 
@@ -482,6 +483,7 @@ export default function Home() {
   </a>
 
 </div>
+<BooZiytMascot />
     </main>
   );
 }
