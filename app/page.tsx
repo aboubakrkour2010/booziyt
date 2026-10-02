@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { products } from "@/data/products";
 import { reviews } from "@/data/reviews";
 import { videos } from "@/data/videos";
-import BooZiytMascot from "./components/BooZiytMascot";
 
 export default function Home() {
 
@@ -446,7 +445,7 @@ export default function Home() {
 
             <div className="bg-[#edf7f2] rounded-xl p-3 text-center text-[#2f8f6b] font-bold text-sm">
 
-              المجموع: {total} د.م
+              المجمموع: {total} د.م
 
             </div>
 
@@ -483,7 +482,7 @@ export default function Home() {
   </a>
 
 </div>
-<BooZiytMascot />
     </main>
   );
 }
+
