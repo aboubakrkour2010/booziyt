@@ -10,16 +10,14 @@ export default function BooZiytMascot() {
   });
 
   return (
-    <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-center">
-      
-      <div className="mb-1 rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-md whitespace-nowrap">
+    <div className="fixed bottom-3 right-1 z-[9999] flex flex-col items-end">
+      <div className="mb-0 mr-1 rounded-xl bg-white px-2 py-1 text-xs font-semibold text-gray-800 shadow-md whitespace-nowrap">
         هل يمكنني مساعدتك؟ 👋
       </div>
 
-      <div className="relative h-24 w-24 overflow-visible">
+      <div className="h-16 w-16">
         <RiveComponent className="h-full w-full" />
       </div>
-
     </div>
   );
 }
