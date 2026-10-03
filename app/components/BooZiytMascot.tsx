@@ -42,6 +42,7 @@ export default function BooZiytMascot() {
           whiteSpace: "nowrap",
           boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
           marginBottom: "-2px",
+          transform: "translateX(-10px)",
         }}
       >
         هل يمكنني مساعدتك؟ 👋
