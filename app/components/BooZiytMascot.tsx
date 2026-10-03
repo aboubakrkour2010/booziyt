@@ -29,15 +29,19 @@ export default function BooZiytMascot() {
   async function sendMessage() {
     const text = message.trim();
 
-    if (!text || loading) return;
+    if (!text || loading) {
+      return;
+    }
 
+    const userMessage: Message = {
+      role: "user",
+      text,
+    };
+
+    const conversation = [...messages, userMessage];
+
+    setMessages(conversation);
     setMessage("");
-
-    setMessages((prev) => [
-      ...prev,
-      { role: "user", text },
-    ]);
-
     setLoading(true);
 
     try {
@@ -47,7 +51,7 @@ export default function BooZiytMascot() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: text,
+          messages: conversation,
         }),
       });
 
@@ -57,15 +61,17 @@ export default function BooZiytMascot() {
         throw new Error(data.error || "حدث خطأ");
       }
 
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          text: data.reply,
-        },
-      ]);
+      const assistantMessage: Message = {
+        role: "assistant",
+        text:
+          typeof data.reply === "string"
+            ? data.reply
+            : "سمح ليا، ما قدرتش نجاوبك دابا.",
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error(error);
+      console.error("Chat error:", error);
 
       setMessages((prev) => [
         ...prev,
@@ -79,7 +85,9 @@ export default function BooZiytMascot() {
     }
   }
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return null;
+  }
 
   return createPortal(
     <>
@@ -117,12 +125,14 @@ export default function BooZiytMascot() {
 
             <button
               onClick={() => setOpen(false)}
+              aria-label="إغلاق المساعد"
               style={{
                 background: "transparent",
                 border: "none",
                 color: "white",
                 fontSize: "22px",
                 cursor: "pointer",
+                lineHeight: 1,
               }}
             >
               ×
@@ -159,12 +169,11 @@ export default function BooZiytMascot() {
 
             {messages.map((msg, index) => (
               <div
-                key={index}
+                key={`${msg.role}-${index}`}
                 style={{
                   background:
                     msg.role === "user" ? "black" : "white",
-                  color:
-                    msg.role === "user" ? "white" : "black",
+                  color: msg.role === "user" ? "white" : "black",
                   padding: "9px 11px",
                   borderRadius: "12px",
                   fontSize: "13px",
@@ -174,6 +183,10 @@ export default function BooZiytMascot() {
                       : "flex-start",
                   maxWidth: "85%",
                   whiteSpace: "pre-wrap",
+                  boxShadow:
+                    msg.role === "assistant"
+                      ? "0 1px 4px rgba(0,0,0,0.08)"
+                      : "none",
                 }}
               >
                 {msg.text}
@@ -188,6 +201,7 @@ export default function BooZiytMascot() {
                   borderRadius: "12px",
                   fontSize: "13px",
                   alignSelf: "flex-start",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
                 }}
               >
                 كنفكر... ⏳
@@ -208,11 +222,12 @@ export default function BooZiytMascot() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
+                if (e.key === "Enter" && !loading) {
                   sendMessage();
                 }
               }}
               placeholder="كتب سؤالك..."
+              disabled={loading}
               style={{
                 flex: 1,
                 border: "1px solid #ddd",
@@ -220,20 +235,26 @@ export default function BooZiytMascot() {
                 padding: "9px",
                 outline: "none",
                 fontSize: "13px",
+                minWidth: 0,
+                background: loading ? "#f5f5f5" : "white",
               }}
             />
 
             <button
               onClick={sendMessage}
-              disabled={loading}
+              disabled={loading || !message.trim()}
               style={{
                 background: "black",
                 color: "white",
                 border: "none",
                 borderRadius: "10px",
                 padding: "0 13px",
-                cursor: loading ? "default" : "pointer",
-                opacity: loading ? 0.6 : 1,
+                cursor:
+                  loading || !message.trim()
+                    ? "default"
+                    : "pointer",
+                opacity:
+                  loading || !message.trim() ? 0.6 : 1,
               }}
             >
               إرسال
