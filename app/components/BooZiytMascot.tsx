@@ -1,23 +1,56 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRive } from "@rive-app/react-canvas";
 
 export default function BooZiytMascot() {
+  const [mounted, setMounted] = useState(false);
+
   const { RiveComponent } = useRive({
     src: "/rive/boo-ziyt-mascot.riv",
     stateMachines: "State Machine 1",
     autoplay: true,
   });
 
-  return (
-    <div className="fixed bottom-3 right-[-18px] z-[9999] flex flex-col items-end">
-      <div className="mb-0 mr-1 rounded-xl bg-white px-2 py-1 text-xs font-semibold text-gray-800 shadow-md whitespace-nowrap">
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return createPortal(
+    <div
+      style={{
+        position: "fixed",
+        right: "8px",
+        bottom: "8px",
+        width: "105px",
+        zIndex: 999999,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          padding: "6px 10px",
+          borderRadius: "12px",
+          fontSize: "12px",
+          fontWeight: "600",
+          whiteSpace: "nowrap",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+          marginBottom: "-2px",
+        }}
+      >
         هل يمكنني مساعدتك؟ 👋
       </div>
 
-      <div className="h-20 w-20">
-        <RiveComponent className="h-full w-full" />
+      <div style={{ width: "105px", height: "105px" }}>
+        <RiveComponent />
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
