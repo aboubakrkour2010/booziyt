@@ -10,7 +10,7 @@ export default function BooZiytMascot() {
   });
 
   return (
-    <div className="fixed bottom-3 right-1 z-[9999] flex flex-col items-end">
+    <div className="fixed bottom-3 right-0 z-[9999] flex flex-col items-end">
       <div className="mb-0 mr-1 rounded-xl bg-white px-2 py-1 text-xs font-semibold text-gray-800 shadow-md whitespace-nowrap">
         هل يمكنني مساعدتك؟ 👋
       </div>
