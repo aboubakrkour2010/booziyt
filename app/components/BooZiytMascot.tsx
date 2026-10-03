@@ -34,17 +34,19 @@ export default function BooZiytMascot() {
     >
       <div
   style={{
-    background: "white",
-    padding: "6px 10px",
-    borderRadius: "12px",
-    fontSize: "12px",
-    fontWeight: "600",
-    whiteSpace: "nowrap",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-    marginBottom: "-2px",
-    position: "relative",
-    left: "-15px",
-  }}
+  background: "black",
+  color: "white",
+  padding: "6px 10px",
+  borderRadius: "12px",
+  fontSize: "12px",
+  fontWeight: "600",
+  whiteSpace: "nowrap",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+  marginBottom: "-2px",
+  position: "relative",
+  left: "-15px",
+}}
+
 >
   هل يمكنني مساعدتك؟ 👋
 </div>
