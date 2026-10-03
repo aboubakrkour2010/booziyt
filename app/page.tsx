@@ -471,17 +471,6 @@ export default function Home() {
     />
   </a>
 
-  <a
-    href="https://facebook.com/Boo-Ziyt-61574782794043"
-    target="_blank"
-    className="w-14 h-14 rounded-full overflow-hidden shadow-lg"
-  >
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-      className="w-full h-full object-cover bg-white p-2"
-    />
-  </a>
-
 </div>
 
 <BooZiytMascot />
