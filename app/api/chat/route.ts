@@ -94,8 +94,8 @@ export async function POST(req: Request) {
       contents,
       config: {
         systemInstruction: BOO_ZIYT_INFO,
-        temperature: 0.3,
-        maxOutputTokens: 300,
+        temperature: 0.2,
+        maxOutputTokens: 120,
       },
     });
 
@@ -117,3 +117,4 @@ export async function POST(req: Request) {
     );
   }
 }
+ 
