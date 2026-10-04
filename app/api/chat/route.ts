@@ -15,8 +15,16 @@ function normalize(text: string) {
   return text
     .trim()
     .toLowerCase()
-    .replace(/[؟?!.,،]/g, "")
-    .replace(/\s+/g, " ");
+    .replace(/[؟?!.,،؛:]/g, "")
+    .replace(/[أإآ]/g, "ا")
+    .replace(/ة/g, "ه")
+    .replace(/ى/g, "ي")
+    .replace(/\s+/g, " ")
+    .replace(/\bتمن\b/g, "ثمن")
+    .replace(/\bتمان\b/g, "اثمان")
+    .replace(/\bاثمنة\b/g, "اثمان")
+    .replace(/\bشنو\b/g, "اش")
+    .replace(/\bواش\b/g, "هل");
 }
 
 const FAST_REPLIES: Record<string, string> = {
@@ -264,6 +272,244 @@ const FAST_REPLIES: Record<string, string> = {
   "واش عندكم محل":
     "نعم، عندنا محل فالدراركة عند مدخل أكادير 📍.",
 };
+function getFastReply(message: string): string | null {
+  const text = normalize(message);
+
+  // رسائل قصيرة جداً أو غير مفهومة
+  if (text.length < 3) {
+    return "سمح ليا 🙏 ما فهمتش السؤال ديالك. كتب ليا شنو بغيتي بالضبط، وغادي نعاونك.";
+  }
+
+  // ====================
+  // السلام
+  // ====================
+
+  if (
+    text === "سلام" ||
+    text === "السلام عليكم" ||
+    text === "سلام عليكم" ||
+    text === "salam" ||
+    text === "salam 3likom"
+  ) {
+    return "وعليكم السلام ورحمة الله وبركاته 👋 كيفاش نقدر نعاونك؟";
+  }
+
+  // ====================
+  // أملو
+  // ====================
+
+  if (
+    text.includes("امل باللوز") ||
+    text.includes("املو باللوز")
+  ) {
+    return "أملو باللوز 🌰 كاين بجوج الأحجام: 370g بـ80 درهم و700g بـ170 درهم.";
+  }
+
+  if (
+    text.includes("ثمن املو") ||
+    text.includes("ثمن جميع الاحجام") ||
+    text.includes("اثمان املو") ||
+    text.includes("حجام املو") ||
+    text.includes("احجام املو")
+  ) {
+    return "أملو باللوز 🌰 كاين بجوج الأحجام: 370g بـ80 درهم و700g بـ170 درهم. وإذا بغيتي نوع آخر من الأملو، قولي ليا النوع.";
+  }
+
+  if (
+    text === "بغيت املو" ||
+    text.includes("بغيت املو") ||
+    text.includes("عندكم املو")
+  ) {
+    return "مرحبا بيك 👋 عندنا أملو باللوز، أملو الأكاجو، أملو بيستاش، أملو بذور اليقطين وأملو كاكاو. قولي ليا النوع اللي بغيتي نعطيك الثمن ديالو.";
+  }
+
+  // ====================
+  // الزيت
+  // ====================
+
+  if (
+    text.includes("ثمن الزيت") ||
+    text.includes("اثمان الزيت") ||
+    text.includes("شحال الزيت") ||
+    text.includes("بشحال الزيت")
+  ) {
+    return "زيت الزيتون البلدية 🫒 الثمن كيبدا من 225 درهم، والأحجام المتوفرة هي 5L و10L و15L و20L و25L.";
+  }
+
+  if (
+    text.includes("بغيت زيت الزيتون") ||
+    text.includes("بغيت الزيت")
+  ) {
+    return "مرحبا بيك 👋 عندنا زيت الزيتون البلدية 🫒 من العطاوية، مطحونة بالحجرة وعلى البارد. متوفرة بأحجام 5L و10L و15L و20L و25L.";
+  }
+
+  if (
+    text.includes("منين الزيت") ||
+    text.includes("الزيت بلدي") ||
+    text.includes("الزيت بالحجر") ||
+    text.includes("الزيت مطحونه")
+  ) {
+    return "نعم 🫒 زيت الزيتون بلدية، من العطاوية، ومطحونة بالحجرة وعلى البارد.";
+  }
+
+  // ====================
+  // العسل
+  // ====================
+
+  if (
+    text.includes("ثمن العسل") ||
+    text.includes("اثمان العسل") ||
+    text.includes("شحال العسل") ||
+    text.includes("بشحال العسل")
+  ) {
+    return "عندنا عدة أنواع 🍯 بحال تاج العسل، الزعتر، السدر، الشوكيات، الكاليتوس، الأزهار والليمون. قولي ليا النوع اللي بغيتي نعطيك الثمن ديالو.";
+  }
+
+  if (
+    text.includes("بغيت العسل") ||
+    text.includes("عندكم العسل")
+  ) {
+    return "مرحبا بيك 🍯 عندنا تاج العسل، الزعتر، السدر، الشوكيات، الكاليتوس، الأزهار والليمون.";
+  }
+
+  // ====================
+  // التوصيل
+  // ====================
+
+  if (
+    text.includes("ثمن التوصيل") ||
+    text.includes("التوصيل بشحال") ||
+    text.includes("شحال التوصيل") ||
+    text.includes("بشحال التوصيل")
+  ) {
+    return "ثمن التوصيل 🚚 هو 35 درهم لجميع المدن المغربية، والمدة من 24 حتى 72 ساعة.";
+  }
+
+  if (
+    text.includes("مدة التوصيل") ||
+    text.includes("متى يوصل") ||
+    text.includes("وقتاش يوصل")
+  ) {
+    return "مدة التوصيل 🚚 من 24 حتى 72 ساعة.";
+  }
+
+  if (
+    text.includes("كاين التوصيل") ||
+    text.includes("واش كتوص") ||
+    text.includes("واش كتوصل") ||
+    text.includes("كتوصلو") ||
+    text.includes("التوصيل")
+  ) {
+    return "نعم 🚚 التوصيل متوفر لجميع المدن المغربية بـ35 درهم، والمدة من 24 حتى 72 ساعة.";
+  }
+
+  // ====================
+  // الطلب
+  // ====================
+
+  if (
+    text.includes("فين ندوز الطلب") ||
+    text.includes("فين ندير الطلب") ||
+    text.includes("فين نطلب") ||
+    text.includes("فين يمكن ندوز الطلب") ||
+    text.includes("فين امكن ندوز الطلب") ||
+    text.includes("كيفاش نطلب") ||
+    text.includes("كيفاش ندير الطلب") ||
+    text.includes("بغيت ندير طلب") ||
+    text.includes("بغيت نشري")
+  ) {
+    return "تقدر تدير الطلب مباشرة من الموقع 🛒، أو تراسلنا فالواتساب على 0663756637 🟢.";
+  }
+
+  // ====================
+  // المحل
+  // ====================
+
+  if (
+    text.includes("فين كاين المحل") ||
+    text.includes("فين المحل") ||
+    text.includes("فين عندكم المحل") ||
+    text === "العنوان" ||
+    text === "الموقع" ||
+    text.includes("عطيني الموقع") ||
+    text.includes("google maps")
+  ) {
+    return "المحل ديال Boo Ziyt كاين فالدراركة، عند مدخل أكادير 📍 Google Maps: https://maps.app.goo.gl/p74fmhvG5sp7P53F8";
+  }
+
+  // ====================
+  // أوقات العمل
+  // ====================
+
+  if (
+    text.includes("اوقات العمل") ||
+    text.includes("وقتاش كتفتحو") ||
+    text.includes("اشمن ساعه كتفتحو")
+  ) {
+    return "Boo Ziyt مفتوح يومياً من 08:30 صباحاً حتى 20:00 مساءً 🕐.";
+  }
+
+  if (
+    text.includes("وقتاش كتسدو") ||
+    text.includes("اشمن ساعه كتسدو")
+  ) {
+    return "كنسدّو يومياً مع 20:00 مساءً 🕐.";
+  }
+
+  // ====================
+  // الهاتف والواتساب
+  // ====================
+
+  if (
+    text.includes("رقم الهاتف") ||
+    text.includes("رقمكم") ||
+    text.includes("عطيني الرقم")
+  ) {
+    return "رقم Boo Ziyt هو 0663756637 📞.";
+  }
+
+  if (
+    text.includes("الواتساب") ||
+    text.includes("واتساب") ||
+    text.includes("رقم الواتساب")
+  ) {
+    return "WhatsApp ديال Boo Ziyt: 0663756637 🟢.";
+  }
+
+  // ====================
+  // الدفع
+  // ====================
+
+  if (
+    text.includes("الدفع عند الاستلام") ||
+    text.includes("نخلص عند التوصيل")
+  ) {
+    return "نعم، الدفع عند الاستلام متوفر للمنتجات والباقات حسب شروطها. أما زيت الزيتون، الأداء كيكون قبل التوصيل.";
+  }
+
+  if (
+    text === "الدفع" ||
+    text.includes("كيفاش نخلص") ||
+    text.includes("طرق الدفع")
+  ) {
+    return "كاين الدفع عند الاستلام، التحويل البنكي وCash Plus 💳. بالنسبة لزيت الزيتون، الأداء كيكون قبل التوصيل.";
+  }
+
+  // ====================
+  // معلومات عامة
+  // ====================
+
+  if (
+    text.includes("شنو كتبيعو") ||
+    text.includes("اش كتبيعو") ||
+    text.includes("شنو عندكم") ||
+    text.includes("اش عندكم")
+  ) {
+    return "Boo Ziyt كيوفر زيت الزيتون، العسل، أملو، زيت الأركان ومنتجات طبيعية أخرى 🌿.";
+  }
+
+  return FAST_REPLIES[text] || null;
+}
 
 export async function POST(req: Request) {
   try {
@@ -303,10 +549,7 @@ export async function POST(req: Request) {
     const lastMessage =
       cleanMessages[cleanMessages.length - 1];
 
-    const normalizedMessage = normalize(lastMessage.text);
-
-    const fastReply = FAST_REPLIES[normalizedMessage];
-
+    const fastReply = getFastReply(lastMessage.text);
     if (fastReply) {
       return NextResponse.json({
         reply: fastReply,
