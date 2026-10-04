@@ -1,6 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 import { BOO_ZIYT_INFO } from "../../../lib/booziyt-info";
+import { products } from "@/data/products";
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
@@ -632,14 +633,47 @@ export async function POST(req: Request) {
     }));
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.8-flash",
-      contents,
-      config: {
-        systemInstruction: BOO_ZIYT_INFO,
-        temperature: 0.2,
-        maxOutputTokens: 120,
-      },
-    });
+  model: "gemini-3.8-flash",
+  contents,
+  config: {
+    systemInstruction: `${BOO_ZIYT_INFO}
+
+====================
+المنتجات الحالية في Boo Ziyt
+====================
+
+هذه البيانات مأخوذة مباشرة من ملف المنتجات الحالي في المتجر:
+
+${JSON.stringify(products, null, 2)}
+
+====================
+قواعد بيانات المنتجات
+====================
+
+- بيانات products هي المرجع الحالي للمنتجات والأسعار والأحجام والأوصاف.
+- إذا سأل الزبون عن منتج، اعتمد على هذه البيانات.
+- لا تستعمل أثمنة قديمة موجودة في معلومات أخرى إذا اختلفت مع بيانات products.
+- اربط كل ثمن بالحجم الصحيح ديالو.
+- لا تخترع أي حجم أو ثمن أو مكون غير موجود في البيانات.
+- بالنسبة للباقات، احترم المكونات الموجودة في البيانات كما هي، حتى إذا تكرر نفس المنتج.
+- إذا لم تكن المعلومة موجودة في البيانات، لا تخمنها.
+- في حالة عدم وجود المعلومة، قل للزبون:
+"هاد المعلومة ما عنديش عليها تأكيد دابا، تقدر تتاصل بينا على 0663756637 باش نعطيوك الجواب الصحيح."
+
+====================
+طريقة الإجابة
+====================
+
+- جاوب بالدارجة المغربية.
+- جاوب مباشرة وباختصار.
+- ما تعاودش نفس الكلام.
+- استعمل الإيموجي باعتدال.
+- لا تقل إن الطلب تأكد أو تسجل أو تشحن إلا إذا النظام فعلا قام بذلك.
+`,
+    temperature: 0.2,
+    maxOutputTokens: 180,
+  },
+});
 
     const reply =
       response.text?.trim() ||
