@@ -55,21 +55,21 @@ export default function OliveSeasonPage() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/order", {
+      const response = await fetch("/api/olive-oil-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
-          phone,
-          city,
-          address,
-          quantity,
-          total,
-          deliveryType,
-          paymentMethod,
-        }),
+  name,
+  phone,
+  city,
+  address,
+  quantity,
+  delivery: deliveryType === "delivery" ? "التوصيل" : "الاستلام من المحل",
+  payment: paymentMethod,
+  total,
+}),
       });
 
       const data = await response.json();
