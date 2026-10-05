@@ -8,8 +8,8 @@ const amiri = Amiri({
 });
 
 const prices = {
-  1: 45,
-  5: 225,
+  1: 0,
+  5: 0,
 };
 
 export default function OliveSeasonPage() {
@@ -27,7 +27,7 @@ export default function OliveSeasonPage() {
   const [success, setSuccess] = useState(false);
   const [orderNumber, setOrderNumber] = useState("");
 
-  const pricePerLiter = 45;
+  const pricePerLiter = 0;
   const total = quantity * pricePerLiter;
 
   const paymentMethod =
@@ -76,7 +76,7 @@ const handleOrder = async () => {
     });
 
     const data = await response.json();
-    
+
 if (data.success) {
   window.location.href = "/thank-you";
   return;
@@ -164,7 +164,7 @@ alert(data.error || "وقع مشكل أثناء إرسال الطلب");
     </div>
 
     <div className="mt-1 text-xs font-bold text-[#26e000]">
-      225 درهم
+      0 درهم
     </div>
   </div>
 
@@ -186,7 +186,7 @@ alert(data.error || "وقع مشكل أثناء إرسال الطلب");
     </div>
 
     <div className="mt-1 text-xs font-bold text-[#26e000]">
-      45 درهم
+      0 درهم
     </div>
   </div>
 
@@ -252,7 +252,7 @@ alert(data.error || "وقع مشكل أثناء إرسال الطلب");
       </p>
 
       <div className="mt-2 text-2xl font-black text-white">
-  الدفعة 17
+  الدفعة 1
 </div>
 
       <p className="mt-2 text-xs text-white/60">
