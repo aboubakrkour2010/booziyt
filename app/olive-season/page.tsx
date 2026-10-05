@@ -76,14 +76,14 @@ const handleOrder = async () => {
     });
 
     const data = await response.json();
+    
+if (data.success) {
+  window.location.href = "/thank-you";
+  return;
+}
 
-    if (data.success) {
-      window.location.href = "/thank-you";
-      return;
-    }
-
-    console.error("❌ Order error:", data.error);
-    alert("وقع مشكل أثناء إرسال الطلب");
+console.error("❌ Order error:", data.error);
+alert(data.error || "وقع مشكل أثناء إرسال الطلب");
   } catch (error) {
     console.error("❌ Request error:", error);
     alert("خطأ في الإرسال");
