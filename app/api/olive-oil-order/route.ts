@@ -14,16 +14,24 @@ const doc = new GoogleSpreadsheet(
 );
 
 export async function POST(req: Request) {
+  console.log("🔥 OLIVE API CALLED");
+
   try {
     const body = await req.json();
 
+    console.log("📦 BODY:", body);
+
     await doc.loadInfo();
+
+    console.log("📊 SHEETS:", doc.sheetCount);
 
     const sheet = doc.sheetsByTitle["زيت الزيتون"];
 
     if (!sheet) {
       throw new Error("Sheet زيت الزيتون غير موجودة");
     }
+
+    console.log("✅ SHEET FOUND:", sheet.title);
 
     await sheet.addRow({
       date: new Date().toLocaleString("fr-FR"),
@@ -39,9 +47,13 @@ export async function POST(req: Request) {
       batch: "17",
     });
 
-    return NextResponse.json({ success: true });
+    console.log("✅ ROW ADDED");
+
+    return NextResponse.json({
+      success: true,
+    });
   } catch (error) {
-    console.log(error);
+    console.error("❌ OLIVE API ERROR:", error);
 
     return NextResponse.json({
       success: false,
