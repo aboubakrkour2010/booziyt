@@ -41,52 +41,56 @@ export default function OliveSeasonPage() {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
 
-  const handleOrder = async () => {
-    if (!name || !phone || !city) {
-      alert("المرجو ملئ جميع المعلومات");
+const handleOrder = async () => {
+  if (!name || !phone || !city) {
+    alert("المرجو ملئ جميع المعلومات");
+    return;
+  }
+
+  if (deliveryType === "delivery" && !address) {
+    alert("المرجو إدخال العنوان");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("/api/olive-oil-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        city,
+        address,
+        quantity,
+        delivery:
+          deliveryType === "delivery"
+            ? "التوصيل"
+            : "الاستلام من المحل",
+        payment: paymentMethod,
+        total,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.href = "/thank-you";
       return;
     }
 
-    if (deliveryType === "delivery" && !address) {
-      alert("المرجو إدخال العنوان");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const response = await fetch("/api/olive-oil-order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-  name,
-  phone,
-  city,
-  address,
-  quantity,
-  delivery: deliveryType === "delivery" ? "التوصيل" : "الاستلام من المحل",
-  payment: paymentMethod,
-  total,
-}),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setOrderNumber(data.orderNumber || "");
-        setSuccess(true);
-      } else {
-        alert("وقع مشكل أثناء إرسال الطلب");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("خطأ في الإرسال");
-    } finally {
-      setLoading(false);
-    }
-  };
+    console.error("❌ Order error:", data.error);
+    alert("وقع مشكل أثناء إرسال الطلب");
+  } catch (error) {
+    console.error("❌ Request error:", error);
+    alert("خطأ في الإرسال");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
   <main
