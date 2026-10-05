@@ -25,8 +25,7 @@ export async function POST(req: Request) {
 
     console.log("📊 SHEETS:", doc.sheetCount);
 
-    const sheet = doc.sheetsByTitle["زيت الزيتون"];
-
+    const sheet = doc.sheetsByIndex[0];
     if (!sheet) {
       throw new Error("Sheet زيت الزيتون غير موجودة");
     }
