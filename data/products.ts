@@ -138,21 +138,23 @@ export const products = [
       "عسل الزعتر الطبيعي بجودة عالية.",
   },
 
-  {
-    slug: "daghmous-honey",
-    title: "عسل الدغموس",
-    image: "/honey3.webp",
-    price: 250,
-
-    sizes: [
-      { label: "500g", price: 130 },
-      { label: "1kg", price: 250 },
-    ],
-
-    description:
-      "عسل الدغموس الطبيعي الأصلي.",
-  },
-
+      {
+      slug: "daghmous-honey",
+      title: "عسل الدغموس",
+      image: "/honey9.webp",
+      description: "عسل الدغموس الطبيعي.",
+      sizes: [
+        {
+          label: "نصف كيلو",
+          price: 200,
+        },
+        {
+          label: "1 كيلو",
+          price: 400,
+        },
+      ],
+    },
+    
   {
     slug: "sidr-honey",
     title: "عسل السدر",
