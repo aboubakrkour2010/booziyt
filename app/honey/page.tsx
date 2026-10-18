@@ -48,7 +48,7 @@ export default function HoneyPage() {
 {
   slug: "taj-alasal-honeycomb",
   title: "شهدة تاج العسل",
-  image: "/MG_2706.jpeg",
+  image: "/IMG_2706.jpeg",
   description:
     "شهدة تاج العسل من مناحل Boo Ziyt، عسل طبيعي بالشهدة لعشاق المذاق الطبيعي المميز.",
   sizes: [
