@@ -25,6 +25,53 @@ export default function HoneyPage() {
     },
 
     {
+  slug: "daghmous-honeycomb",
+  title: "شهدة الدغموس",
+  image: "/IMG_2710.jpeg",
+  description:
+    "شهدة الدغموس من مناحل Boo Ziyt، عسل طبيعي بالشهدة، بجودة نهتمو بها من المنحل حتى يوصل لعندكم.",
+  sizes: [
+    {
+      label: "1 كيلو",
+      price: 400,
+    },
+    {
+      label: "900 غرام",
+      price: 360,
+    },
+    {
+      label: "800 غرام",
+      price: 320,
+    },
+  ],
+},
+{
+  slug: "taj-alasal-honeycomb",
+  title: "شهدة تاج العسل",
+  image: "/MG_2706.jpeg",
+  description:
+    "شهدة تاج العسل من مناحل Boo Ziyt، عسل طبيعي بالشهدة لعشاق المذاق الطبيعي المميز.",
+  sizes: [
+    {
+      label: "1 كيلو",
+      price: 500,
+    },
+    {
+      label: "900 غرام",
+      price: 450,
+    },
+    {
+      label: "800 غرام",
+      price: 400,
+    },
+    {
+      label: "700 غرام",
+      price: 350,
+    },
+  ],
+},
+
+    {
       slug: "thyme-honey",
       title: "عسل الزعتر",
       image: "/honey2.webp",
