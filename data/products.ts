@@ -146,7 +146,7 @@ export const products = [
 {
   slug: "taj-alasal-honeycomb",
   title: "شهدة تاج العسل",
-  image: "/MG_2706.jpeg",
+  image: "/IMG_2706.jpeg",
   description:
     "شهدة تاج العسل من مناحل Boo Ziyt، اختيار مميز لعشاق العسل الطبيعي بالشهدة. منتوج من مناحل بوزيت، مع الحرص على الجودة والمحافظة على خصائص العسل الطبيعية.",
   sizes: [
@@ -188,7 +188,7 @@ export const products = [
       {
       slug: "daghmous-honey",
       title: "عسل الدغموس",
-      image: "/honey9.webp",
+      image: "/honey3.webp",
       description: "عسل الدغموس الطبيعي.",
       sizes: [
         {
