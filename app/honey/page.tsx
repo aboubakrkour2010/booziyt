@@ -90,7 +90,7 @@ export default function HoneyPage() {
         {
       slug: "daghmous-honey",
       title: "عسل الدغموس",
-      image: "/honey9.webp",
+      image: "/honey3.webp",
       description: "عسل الدغموس الطبيعي.",
       sizes: [
         {
