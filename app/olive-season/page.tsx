@@ -124,14 +124,6 @@ alert(data.error || "وقع مشكل أثناء إرسال الطلب");
 
   <div className="relative z-10 mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
 
-    {/* اللوغو */}
-<div className="flex justify-center">
-  <img
-    src="/malik.jpg"
-    alt="Boo Ziyt"
-    className="h-auto w-full max-w-[500px] object-contain"
-  />
-</div>
 
 
     {/* العنوان */}
