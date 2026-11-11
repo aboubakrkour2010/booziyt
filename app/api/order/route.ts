@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
   total: body.total,
 
-  confirmation: "جديد",
+  confirmation: "جديد"
 
 });
 

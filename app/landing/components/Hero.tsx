@@ -102,9 +102,7 @@ export default function Hero() {
   </button>
 
 </div>
-<p className="text-center text-gray-500 mt-3 text-sm">
-  🚚 التوصيل لجميع المدن المغربية خلال 24 إلى 72 ساعة
-</p>
+
 
         </div>
 

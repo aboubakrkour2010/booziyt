@@ -123,7 +123,7 @@ alert(data.error || "وقع مشكل أثناء إرسال الطلب");
   </div>
 
   <div className="relative z-10 mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
-
+ و
 
 
     {/* العنوان */}

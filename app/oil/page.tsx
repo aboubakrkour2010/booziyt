@@ -36,12 +36,12 @@ export default function OilPage() {
 
     {
       slug: "olive-oil",
-      name: "زيت الزيتون البلدية",
+      name: "زيت الزيتون لاربيكوين ",
       image: "/oil3.png",
       oldPrice: "900 د.م",
 
       sizes: [
-        { label: "5L", price: 225 },
+        { label: "5L", price: 250 },
         { label: "10L", price: 450 },
         { label: "15L", price: 675 },
         { label: "20L", price: 900 },
