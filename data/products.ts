@@ -23,27 +23,27 @@ export const products = [
     title: "زيت الزيتون البلدية",
     category: "oil",
     image: "/s/img/p/oil-shop.webp",
-    price: 300,
+    price: 250,
     sizes: [
       {
         label: "5L",
-        price: 300
+        price: 250
       },
       {
         label: "10L",
-        price: 600
+        price: 500
       },
       {
         label: "15L",
-        price: 900
+        price: 750
       },
       {
         label: "20L",
-        price: 1200
+        price: 1000
       },
       {
         label: "25L",
-        price: 1500
+        price: 1250
       }
     ],
     best: true,
@@ -59,23 +59,23 @@ export const products = [
     sizes: [
       {
         label: "5L",
-        price: 225
+        price: 200
       },
       {
         label: "10L",
-        price: 450
+        price: 400
       },
       {
         label: "15L",
-        price: 675
+        price: 600
       },
       {
         label: "20L",
-        price: 900
+        price: 800
       },
       {
         label: "25L",
-        price: 1125
+        price: 1000
       }
     ],
     best: true,
