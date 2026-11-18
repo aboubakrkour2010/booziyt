@@ -491,6 +491,12 @@ footer .copy{font-size:12px;opacity:.6;border-top:1px solid rgba(255,255,255,.12
 .added.on .ad-bar{animation:adBar 2.6s linear forwards}
 @keyframes adBar{to{width:0}}
 </style>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','780685564480517');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=780685564480517&ev=PageView&noscript=1"/></noscript>
+<!-- TikTok Pixel -->
+<script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};n=d.createElement("script");n.type="text/javascript";n.async=!0;n.src=r+"?sdkid="+e+"&lib="+t;e=d.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('D8SHAR3C77U2T659NUOG');ttq.page();}(window,document,'ttq');</script>
+<script>function track(ev,data){try{if(window.fbq)fbq('track',ev,data)}catch(e){}try{var m={AddToCart:'AddToCart',InitiateCheckout:'InitiateCheckout',Purchase:'CompletePayment'};if(window.ttq&&m[ev])ttq.track(m[ev],data)}catch(e){}}</script>
 </head>
 <body>
 
@@ -891,6 +897,7 @@ function addToCart(id,vi=0,qty=1,silent){
   const key=id+"|"+vi, f=cart.find(i=>i.k===key);
   if(f)f.q+=qty;else cart.push({k:key,id,vi,q:qty});
   save();renderCart();
+  try{const _p=byId(id),_v=_p.variants[vi];track("AddToCart",{content_ids:[id],content_name:_p.name+" ("+_v.l+")",content_type:"product",value:_v.p*qty,currency:"MAD"})}catch(e){}
   $$(".cc").forEach(c=>{c.classList.remove("bump");void c.offsetWidth;c.classList.add("bump")});
   if(navigator.vibrate)try{navigator.vibrate(15)}catch(e){}
   if(!silent)showAdded(id,vi,qty);
@@ -922,6 +929,7 @@ function renderCart(){
 const CITIES=["أكادير","إنزكان","أيت ملول","الدشيرة","القليعة","بيوكرى","تارودانت","تيزنيت","الدار البيضاء","الرباط","سلا","تمارة","القنيطرة","مراكش","فاس","مكناس","طنجة","تطوان","وجدة","الناظور","الحسيمة","بني ملال","خريبكة","سطات","برشيد","المحمدية","الجديدة","آسفي","الصويرة","كلميم","العيون","الداخلة","ورزازات","الراشيدية","تازة","العرائش","القصر الكبير","خنيفرة","سيدي قاسم","سيدي سليمان","تاوريرت","بركان","إفران","أخرى"];
 function openCheckout(){
   if(!cart.length)return;
+  try{track("InitiateCheckout",{value:total(),currency:"MAD",num_items:cart.reduce((s,i)=>s+i.q,0),content_ids:cart.map(i=>i.id),content_type:"product"})}catch(e){}
   closeAll(true);
   $("#oTitle").textContent="📝 إتمام الطلب";
   $("#oBody").innerHTML=`<form id=coForm novalidate>
@@ -956,6 +964,7 @@ function submitOrder(){
   for(const k in checks){const fl=f.querySelector(`[name=${k}]`).closest(".fld");fl.classList.toggle("err",!checks[k]);if(!checks[k]&&!first)first=fl}
   if(first){first.scrollIntoView({behavior:"smooth",block:"center"});toast("⚠️ عافاك صحّح المعلومات");return}
   const oid="BZ-"+Date.now().toString().slice(-6);
+  try{track("Purchase",{value:total(),currency:"MAD",content_ids:cart.map(i=>i.id),content_type:"product",num_items:cart.reduce((s,i)=>s+i.q,0),order_id:oid})}catch(e){}
   const lines=cart.map(i=>{const p=byId(i.id),v=p.variants[i.vi];return `• ${p.name} (${v.l}) × ${i.q} = ${fmt(lineP(i))}`}).join("\n");
   const msg=`🛒 *طلب جديد ${oid}* — Booziyt\n\n${lines}\n\n🚚 التوصيل: ${shipText()}\n💰 *المجموع: ${fmt(total())}*\n\n👤 الاسم: ${d.name.trim()}\n📞 الهاتف: ${phone}\n📍 المدينة: ${d.city}\n📦 الاستلام: ${d.recv}${pickup?"":"\n🏠 العنوان: "+d.address.trim()}\n💳 الدفع: ${d.pay}${d.note&&d.note.trim()?"\n📝 ملاحظة: "+d.note.trim():""}`;
   const wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
