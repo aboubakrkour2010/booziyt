@@ -638,7 +638,7 @@ footer .copy{font-size:12px;opacity:.6;border-top:1px solid rgba(255,255,255,.12
   <section class="sec">
     <div class="info">
       <div class="ibox"><h3>🚚 التوصيل</h3><ul>
-        <li>📍 لجميع مدن المغرب</li><li>⏱️ من 24 حتى 72 ساعة</li><li>🎁 الباقات: التوصيل مجاني</li><li>🏪 الاستلام من المحل بأكادير</li></ul></div>
+        <li>📍 لجميع مدن المغرب</li><li>⏱️ من 24 حتى 72 ساعة</li><li>💰 أكادير 20 د.م · المدن الأخرى 35 د.م</li><li>🎁 مجاني فالباقات ولا من 600 د.م فما فوق</li><li>🏪 الاستلام من المحل بأكادير</li></ul></div>
       <div class="ibox"><h3>💳 طرق الدفع</h3><ul>
         <li>💵 الدفع عند الاستلام</li><li>🏦 التحويل البنكي</li><li>💸 Cash Plus</li><li>🔄 سياسة الاستبدال والإرجاع</li></ul></div>
     </div>
@@ -662,7 +662,7 @@ footer .copy{font-size:12px;opacity:.6;border-top:1px solid rgba(255,255,255,.12
       <details open><summary>شحال كياخد التوصيل؟</summary><p>التوصيل لجميع مدن المغرب كياخد من 24 حتى 72 ساعة من بعد تأكيد الطلب.</p></details>
       <details><summary>واش نقدر نخلص ملي توصلني السلعة؟</summary><p>إيه، الدفع عند الاستلام متاح. وكاين حتى التحويل البنكي و Cash Plus.</p></details>
       <details><summary>واش المنتجات طبيعية 100%؟</summary><p>المنتجات ديالنا جاية من محلنا، ضيعاتنا ومناحلنا، طبيعية وأصلية ومختارة بعناية.</p></details>
-      <details><summary>واش التوصيل فابور؟</summary><p>جميع الباقات الثمن ديالها شامل التوصيل. باقي المنتجات كنأكدو معاك ثمن التوصيل حسب المدينة.</p></details>
+      <details><summary>واش التوصيل فابور؟</summary><p>التوصيل مجاني فجميع الباقات، ولا ملي يوصل المجموع ديال الطلب 600 درهم فما فوق. غير هاكا: أكادير 20 درهم، والمدن الأخرى 35 درهم.</p></details>
       <details><summary>واش كاين الاستبدال والإرجاع؟</summary><p>إيه، عندنا سياسة استبدال وإرجاع. تواصل معانا فالواتساب وغادي نعاونوك.</p></details>
     </div>
   </section>
@@ -726,7 +726,10 @@ footer .copy{font-size:12px;opacity:.6;border-top:1px solid rgba(255,255,255,.12
 const CONFIG = {
   whatsapp: "212663756637",              // رقم الواتساب لي كتوصل ليه الطلبات
   currency: "د.م",
-  deliveryFee: 0,                        // ثمن التوصيل للمنتجات العادية (0 = كيتأكد مع الزبون)
+  shipAgadir: 20,                        // ثمن التوصيل لأكادير
+  shipOther: 35,                         // ثمن التوصيل للمدن الأخرى
+  freeShipFrom: 600,                     // التوصيل مجاني ملي يوصل المجموع لهاد الثمن
+  localCities: ["أكادير"],               // المدن اللي كتاخد ثمن أكادير
   imgDir: "/s/img/",                     // دوسي الصور: public/s/img
   imgRemote: "",
   productsApi: "/api/products",          // المنتجات من data/products.ts
@@ -904,9 +907,15 @@ function addToCart(id,vi=0,qty=1,silent){
 }
 const lineP=i=>byId(i.id).variants[i.vi].p*i.q;
 const subtotal=()=>cart.reduce((s,i)=>s+lineP(i),0);
-const onlyPacks=()=>cart.length&&cart.every(i=>byId(i.id).shipFree);
-const shipText=()=>!cart.length?"—":onlyPacks()?"مجاني 🎁":CONFIG.deliveryFee>0?fmt(CONFIG.deliveryFee):"كيتأكد معاك 📞";
-const total=()=>subtotal()+(onlyPacks()?0:CONFIG.deliveryFee);
+let shipCity="",shipPickup=false;
+const hasPack=()=>cart.some(i=>byId(i.id).shipFree);
+const freeShip=()=>hasPack()||subtotal()>=CONFIG.freeShipFrom;
+const onlyPacks=freeShip;
+const shipFee=()=>!cart.length||freeShip()||shipPickup?0:!shipCity?null:CONFIG.localCities.includes(shipCity)?CONFIG.shipAgadir:CONFIG.shipOther;
+const shipText=()=>!cart.length?"—":freeShip()?"مجاني 🎁":shipPickup?"مجاني (من المحل) 🏪":shipCity?fmt(shipFee()):`أكادير ${CONFIG.shipAgadir} · مدن أخرى ${CONFIG.shipOther} ${CONFIG.currency}`;
+const total=()=>subtotal()+(shipFee()||0);
+const freeHint=()=>{const r=CONFIG.freeShipFrom-subtotal();return `💡 زيد ${fmt(r)} ولا زيد باقة وربح التوصيل المجاني 🎁`};
+function refreshShip(){const a=$("#shipLine"),b=$("#oTot"),c=$("[data-submit]");if(a)a.textContent=shipText();if(b)b.textContent=fmt(total())+" ▾";if(c)c.textContent="✅ تأكيد الطلب · "+fmt(total())}
 function renderCart(){
   $$(".cc").forEach(c=>c.textContent=cart.reduce((s,i)=>s+i.q,0));
   if(!cart.length){
@@ -917,7 +926,7 @@ function renderCart(){
     <div class="th ${isCut(p)?"cut":""}">${img(p.img,p.name,CATS[p.cat].emoji)}</div>
     <div><h4>${esc(p.name)}</h4><div class=v>${v.l} · ${fmt(v.p)}</div>
       <div class=r><div class="qty sm"><button data-cq="${n}|1">+</button><span>${i.q}</span><button data-cq="${n}|-1">−</button></div><span class=p>${fmt(lineP(i))}</span><button class=rm data-rm="${n}" aria-label="حيّد">🗑️</button></div></div></div>`}).join("")
-    +(onlyPacks()?"":`<div class=note>💡 زيد باقة وربح التوصيل المجاني 🎁</div>`);
+    +(freeShip()?`<div class=note>🎉 مبروك! التوصيل مجاني</div>`:`<div class=note>${freeHint()}</div>`);
   $("#cFoot").innerHTML=`
     <div class=sum><span>المجموع الفرعي</span><span>${fmt(subtotal())}</span></div>
     <div class=sum><span>التوصيل</span><span>${shipText()}</span></div>
@@ -929,16 +938,17 @@ function renderCart(){
 const CITIES=["أكادير","إنزكان","أيت ملول","الدشيرة","القليعة","بيوكرى","تارودانت","تيزنيت","الدار البيضاء","الرباط","سلا","تمارة","القنيطرة","مراكش","فاس","مكناس","طنجة","تطوان","وجدة","الناظور","الحسيمة","بني ملال","خريبكة","سطات","برشيد","المحمدية","الجديدة","آسفي","الصويرة","كلميم","العيون","الداخلة","ورزازات","الراشيدية","تازة","العرائش","القصر الكبير","خنيفرة","سيدي قاسم","سيدي سليمان","تاوريرت","بركان","إفران","أخرى"];
 function openCheckout(){
   if(!cart.length)return;
+  shipPickup=false;
   try{track("InitiateCheckout",{value:total(),currency:"MAD",num_items:cart.reduce((s,i)=>s+i.q,0),content_ids:cart.map(i=>i.id),content_type:"product"})}catch(e){}
   closeAll(true);
   $("#oTitle").textContent="📝 إتمام الطلب";
   $("#oBody").innerHTML=`<form id=coForm novalidate>
-    <details class=osum><summary><span>🧾 الطلب (${cart.reduce((s,i)=>s+i.q,0)} منتجات)</span><span style="color:var(--g-dd)">${fmt(total())} ▾</span></summary>
+    <details class=osum><summary><span>🧾 الطلب (${cart.reduce((s,i)=>s+i.q,0)} منتجات)</span><span id=oTot style="color:var(--g-dd)">${fmt(total())} ▾</span></summary>
       ${cart.map(i=>{const p=byId(i.id),v=p.variants[i.vi];return `<div class=oline><span>${esc(p.name)} (${v.l}) × ${i.q}</span><b>${fmt(lineP(i))}</b></div>`}).join("")}
-      <div class=oline><span>التوصيل</span><b>${shipText()}</b></div></details>
+      <div class=oline><span>التوصيل</span><b id=shipLine>${shipText()}</b></div></details>
     <div class=fld><label>الاسم الكامل <i>*</i></label><input name=name placeholder="مثال: محمد العلوي" autocomplete=name><div class=em>عافاك دخل الاسم ديالك</div></div>
     <div class=fld><label>رقم الهاتف <i>*</i></label><input name=phone type=tel inputmode=tel dir=ltr style="text-align:right" placeholder="06 XX XX XX XX" autocomplete=tel><div class=em>الرقم ماشي صحيح (مثال: 0612345678)</div></div>
-    <div class=fld><label>المدينة <i>*</i></label><select name=city><option value="">اختار المدينة</option>${CITIES.map(c=>`<option>${c}</option>`).join("")}</select><div class=em>اختار المدينة</div></div>
+    <div class=fld><label>المدينة <i>*</i></label><select name=city><option value="">اختار المدينة</option>${CITIES.map(c=>`<option${c===shipCity?" selected":""}>${c}</option>`).join("")}</select><div class=em>اختار المدينة</div></div>
     <div class=fld><label>🏪 طريقة الاستلام</label><div class=opts>
       <label><input type=radio name=recv value="توصيل للدار" checked> 🚚 توصيل للدار (24-72 ساعة)</label>
       <label><input type=radio name=recv value="استلام من المحل بأكادير"> 🏪 استلام من المحل بأكادير</label></div></div>
@@ -951,7 +961,7 @@ function openCheckout(){
     <p style="font-size:12px;color:var(--muted);text-align:center">🔒 المعلومات ديالك كتستعمل غير لتوصيل الطلب</p>
   </form>`;
   $("#oFoot").innerHTML=`<button class="btn btn-g btn-block" data-submit style="padding:15px;font-size:16.5px">✅ تأكيد الطلب · ${fmt(total())}</button>`;
-  $("#coForm").addEventListener("change",e=>{if(e.target.name==="recv")$("#addrF").style.display=e.target.value.includes("المحل")?"none":""});
+  $("#coForm").addEventListener("change",e=>{if(e.target.name==="recv"){shipPickup=e.target.value.includes("المحل");$("#addrF").style.display=shipPickup?"none":""}if(e.target.name==="city")shipCity=e.target.value;refreshShip()});
   $("#coForm").addEventListener("submit",e=>{e.preventDefault();submitOrder()});
   openSheet("#oSheet");$("#oBody").scrollTop=0;
 }
@@ -968,7 +978,7 @@ function submitOrder(){
   const lines=cart.map(i=>{const p=byId(i.id),v=p.variants[i.vi];return `• ${p.name} (${v.l}) × ${i.q} = ${fmt(lineP(i))}`}).join("\n");
   const msg=`🛒 *طلب جديد ${oid}* — Booziyt\n\n${lines}\n\n🚚 التوصيل: ${shipText()}\n💰 *المجموع: ${fmt(total())}*\n\n👤 الاسم: ${d.name.trim()}\n📞 الهاتف: ${phone}\n📍 المدينة: ${d.city}\n📦 الاستلام: ${d.recv}${pickup?"":"\n🏠 العنوان: "+d.address.trim()}\n💳 الدفع: ${d.pay}${d.note&&d.note.trim()?"\n📝 ملاحظة: "+d.note.trim():""}`;
   const wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-  if(CONFIG.orderApi){try{fetch(CONFIG.orderApi,{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,body:JSON.stringify({orderId:oid,name:d.name.trim(),phone,city:d.city,address:pickup?"استلام من المحل بأكادير":d.address.trim(),paymentMethod:d.pay,cartItems:cart.map(i=>{const p=byId(i.id),v=p.variants[i.vi];return {title:`${p.name} (${v.l}) ×${i.q}`,slug:p.id,size:v.l,qty:i.q,price:v.p}}),total:total(),note:(d.note||"").trim()})}).catch(()=>{})}catch(e){}}
+  if(CONFIG.orderApi){try{fetch(CONFIG.orderApi,{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,body:JSON.stringify({orderId:oid,name:d.name.trim(),phone,city:d.city,address:pickup?"استلام من المحل بأكادير":d.address.trim(),paymentMethod:d.pay,shipping:shipFee()||0,cartItems:cart.map(i=>{const p=byId(i.id),v=p.variants[i.vi];return {title:`${p.name} (${v.l}) ×${i.q}`,slug:p.id,size:v.l,qty:i.q,price:v.p}}),total:total(),note:(d.note||"").trim()})}).catch(()=>{})}catch(e){}}
   $("#oTitle").textContent="🎉 تم الطلب";
   $("#oBody").innerHTML=`<div class=success>
     <div class=e>🎉</div>
@@ -1071,7 +1081,7 @@ const navMap=[["#top","top"],["#shop","shop"],["#packs","packs"]];
 addEventListener("scroll",()=>{let a="#top";for(const[h,id]of navMap){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*.4)a=h}
   $$(".bnav a[href^='#']").forEach(x=>x.classList.toggle("on",x.getAttribute("href")===a))},{passive:true});
 
-$("#ann").innerHTML=(t=>t+t)(["🚚 توصيل لجميع مدن المغرب <b>24-72 ساعة</b>","💵 الدفع عند الاستلام","🎁 الباقات <b>بالتوصيل المجاني</b>","🌿 منتجات طبيعية 100%","⭐ +2100 زبون راضٍ"].map(x=>`<span>${x}</span>`).join(""));
+$("#ann").innerHTML=(t=>t+t)(["🚚 توصيل لجميع مدن المغرب <b>24-72 ساعة</b>","💵 الدفع عند الاستلام","🎁 التوصيل مجاني: الباقات ولا <b>+600 د.م</b>","🌿 منتجات طبيعية 100%","⭐ +2100 زبون راضٍ"].map(x=>`<span>${x}</span>`).join(""));
 $("#yr").textContent=new Date().getFullYear();
 hydrateStatic();renderBest();renderCats();renderFilters();renderPacks();renderGrid();renderCart();route();
 if(CONFIG.productsApi){fetch(CONFIG.productsApi,{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(!Array.isArray(d)||!d.length)return;setProducts(d);cart=cart.filter(i=>byId(i.id)&&byId(i.id).variants[i.vi]);save();renderBest();renderCats();renderFilters();renderPacks();renderGrid();renderCart();if(cpCat)renderCpGrid()}).catch(()=>{})}
